@@ -4,6 +4,8 @@
 
 An Educational Project for Schools
 
+> راهنمای فارسی پروژه [README-fa.md](README-fa.md)
+
 Helping schools build modern digital learning environments using free and open-source technologies.»
 
 ---
