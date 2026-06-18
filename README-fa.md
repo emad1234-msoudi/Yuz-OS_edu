@@ -1,5 +1,7 @@
 🐆 Yuz-OS Edu
 
+> For English documentation see: [README.md](README.md)
+
 سبک • سریع • هوشمند
 
 یک پروژه آموزشی برای مدارس
