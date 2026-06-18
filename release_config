@@ -1,5 +1,15 @@
 #!/bin/bash
-set -euo pipefail
+
+########## Copyright C 2026 MIT Emad-ms ##########
+
+# project: yuz-os builder
+# project git : https://github.com/emad1234-msoudi/Yuz-OS_edu
+
+########## set terminal ##########
+
+set -Eeuo pipefail # set termainl mo
+
+########## config code ##########
 
 sudo lb config \
   --distribution trixie \
