@@ -1,7 +1,7 @@
 🐆 Yuz-OS Edu
 
 
-> راهنمای فارسی پروژه [README-fa.md](README-fa.md)
+> راهنمای فارسی پروژه : [README-fa.md](README-fa.md)
 
 «Light • Fast • Smart
 
