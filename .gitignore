@@ -1,0 +1,16 @@
+########## file ##########
+
+*.deb
+*.iso
+
+*.contents
+*.packages
+*.files
+
+########## dir ##########
+
+cache/
+log/
+chroot/
+local/
+auto/
