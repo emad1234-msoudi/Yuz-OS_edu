@@ -1,17 +1,26 @@
-########## file ##########
+########## Copyright C 2026 MIT Emad-ms ##########
+
+# project: yuz-os builder
+# project git : https://github.com/emad1234-msoudi/Yuz-OS.git
+# gitignore files
+
+#-> build /  otputs
+
+*.iso
+*.hybrid.iso
+build/
+
+#-> packages
 
 *.deb
-*.iso
+*.Appimage
 
-*.contents
-*.packages
-*.files
-
-git.txt
-
-########## dir ##########
+#-> releas dir
 
 archive/
 back_up/
-build/
 release/
+
+#-> other
+
+git_key.txt
