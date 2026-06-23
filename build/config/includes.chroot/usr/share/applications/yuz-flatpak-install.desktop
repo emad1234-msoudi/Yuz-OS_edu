@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Install Flatpak Apps
-Comment=Install bundled Flatpak applications
-Exec=/opt/yuz_os/flatpak/flatpak-install.sh
-Icon=system-software-install
-Terminal=true
-Categories=System;
