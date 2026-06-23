@@ -1,0 +1,17 @@
+########## file ##########
+
+*.deb
+*.iso
+
+*.contents
+*.packages
+*.files
+
+git.txt
+
+########## dir ##########
+
+archive/
+back_up/
+build/
+release/

@@ -1,0 +1,15 @@
+#!/bin/sh
+# Yuz-OS startup sound – Debian clean method
+
+SOUND="/usr/share/sounds/yuz-os/startup.ogg"
+
+# اگر فایل وجود ندارد، خارج شو
+[ -f "$SOUND" ] || exit 0
+
+# صبر کوتاه برای آماده شدن Session صوتی
+sleep 3
+
+# پخش صدا (PulseAudio / PipeWire compatible)
+paplay "$SOUND" >/dev/null 2>&1 || true
+
+exit 0
