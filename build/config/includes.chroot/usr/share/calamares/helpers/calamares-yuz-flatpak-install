@@ -1,0 +1,25 @@
+#!/bin/bash
+
+set -e
+
+CHROOT="$(
+mount |
+grep proc |
+grep calamares |
+awk '{print $3}' |
+sed 's#/proc##'
+)"
+
+if [ ! -d "$CHROOT" ]; then
+    echo "Cannot find target root"
+    exit 1
+fi
+
+chroot "$CHROOT" \
+	/opt/yuz_os/flatpak/flatpak-install.sh
+
+#chroot "$CHROOT" /bin/bash -c \
+'
+flatpak remote-delete yuz_local 2>/dev/null || true
+rm -rf "/opt/yuz_os/flatpak/"
+'

@@ -4,23 +4,79 @@
 # project git : https://github.com/emad1234-msoudi/Yuz-OS.git
 # gitignore files
 
-#-> build /  otputs
+###### build otputs ######
+
+#-> iso file and build check files
 
 *.iso
 *.hybrid.iso
+*.files
+*.packages
+*.contents
+
+#-> chroot and binary files
+
+chroot.packages.live
+chroot.packages.install
+chroot.files
+binary.modified_timestamps  
+ 
+#-> build dir
+
+binary/
+chroot/
+log/
+auto/
+cache/
+local/
+.build/
 build/
 
-#-> packages
+######  config files and otputs ######
+
+#-> apps files
 
 *.deb
 *.Appimage
 
-#-> releas dir
+#-> config live build dir
+
+#config/hooks/
+config/preseed/
+
+config/bootloaders/
+config/debian-installer/
+
+config/apt/
+config/common/
+config/source/
+config/archives/
+
+config/binary/
+config/chroot/
+config/rootfs/
+config/bootstrap/
+
+config/includes/
+#config/includes.chroot/
+config/includes.binary/
+config/includes.bootstrap/
+config/includes.source/
+config/includes.installer/
+config/includes.chroot_after_packages/
+#config/includes.chroot_before_packages/
+
+config/packages/
+config/packages.binary/
+#config/package-lists/
+#config/packages.chroot/
+
+###### releas and build archive file  ######
 
 archive/
 back_up/
 release/
 
-#-> other
+###### other ignore file ######
 
 git_key.txt

@@ -1,0 +1,864 @@
+                               __                                    
+    _           _         _   |  |  build started !                  
+___| |_ ___ ___| |_ ___ _| |  |  |                                   
+|_ -|  _| .'|  _|  _| -_| . |  |__|  Please wait ...                  
+|___|_| |__,|_| |_| |___|___|  |__|  This will take about a few hours.
+
+[ INFO ] OvO
+[2026-06-16 00:35:26] lb build 
+P: live-build 20250505+deb13u1
+P: Building for a debian/trixie/amd64 system
+[2026-06-16 00:35:26] lb bootstrap 
+P: Setting up clean exit handler
+[2026-06-16 00:35:26] lb bootstrap_cache restore
+W: Skipping bootstrap_cache.restore, already done
+[2026-06-16 00:35:26] lb bootstrap_debootstrap 
+P: Begin bootstrapping system...
+W: Skipping bootstrap, already done
+[2026-06-16 00:35:27] lb bootstrap_cache save
+P: Saving bootstrap stage to cache...
+W: Skipping bootstrap_cache.save, already done
+P: Bootstrap stage completed
+P: Begin unmounting filesystems...
+P: Saving caches...
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+N: Ignoring file 'vscode.sources.back' in directory '/etc/apt/sources.list.d/' as it has an invalid filename extension
+[2026-06-16 00:35:32] lb chroot 
+P: Setting up clean exit handler
+[2026-06-16 00:35:32] lb chroot_cache restore
+[2026-06-16 00:35:32] lb chroot_prep install all mode-archives-chroot
+[2026-06-16 00:35:33] lb chroot_devpts install
+P: Begin mounting /dev/pts...
+[2026-06-16 00:35:33] lb chroot_proc install
+P: Begin mounting /proc...
+[2026-06-16 00:35:33] lb chroot_selinuxfs install
+[2026-06-16 00:35:33] lb chroot_sysfs install
+P: Begin mounting /sys...
+[2026-06-16 00:35:33] lb chroot_debianchroot install
+P: Configuring file /etc/debian_chroot
+W: Skipping chroot_debianchroot, already done
+[2026-06-16 00:35:33] lb chroot_dpkg install
+P: Configuring file /sbin/start-stop-daemon
+W: Skipping chroot_dpkg, already done
+[2026-06-16 00:35:33] lb chroot_tmpfs install
+[2026-06-16 00:35:33] lb chroot_sysv-rc install
+P: Configuring file /usr/sbin/policy-rc.d
+W: Skipping chroot_sysv-rc, already done
+[2026-06-16 00:35:34] lb chroot_hosts install
+P: Configuring file /etc/hosts
+W: Skipping chroot_hosts, already done
+[2026-06-16 00:35:34] lb chroot_resolv install
+P: Configuring file /etc/resolv.conf
+W: Skipping chroot_resolv, already done
+[2026-06-16 00:35:34] lb chroot_hostname install
+W: Skipping chroot_hostname, already done
+[2026-06-16 00:35:34] lb chroot_apt install
+P: Configuring file /etc/apt/apt.conf
+W: Skipping chroot_apt, already done
+[2026-06-16 00:35:34] lb chroot_archives chroot install
+P: Configuring file /etc/apt/sources.list
+W: Skipping chroot_archives, already done
+[2026-06-16 00:35:34] lb chroot_linux-image 
+P: Begin scheduling kernel image installation...
+W: Skipping chroot_linux-image, already done
+[2026-06-16 00:35:34] lb chroot_firmware 
+[2026-06-16 00:35:34] lb chroot_preseed 
+P: Begin executing local preseeds...
+W: Skipping chroot_preseed, already done
+[2026-06-16 00:35:35] lb chroot_includes_before_packages 
+P: Begin copying chroot includes before packages have been installed...
+W: Skipping chroot_includes_before_packages, already done
+[2026-06-16 00:35:35] lb chroot_package-lists install
+P: Begin queueing installation of package lists (install pass)...
+W: Skipping chroot_package-lists.install, already done
+[2026-06-16 00:35:35] lb chroot_install-packages install
+P: Begin installing packages (install pass)...
+W: Skipping chroot_install-packages.install, already done
+[2026-06-16 00:35:35] lb chroot_package-lists live
+P: Begin queueing installation of package lists (live pass)...
+W: Skipping chroot_package-lists.live, already done
+[2026-06-16 00:35:35] lb chroot_install-packages live
+P: Begin installing packages (live pass)...
+W: Skipping chroot_install-packages.live, already done
+[2026-06-16 00:35:35] lb chroot_includes_after_packages 
+P: Begin copying chroot includes after packages have been installed...
+W: Skipping chroot_includes_after_packages, already done
+[2026-06-16 00:35:35] lb chroot_hooks 
+P: Begin executing hooks...
+W: Skipping chroot_hooks, already done
+[2026-06-16 00:35:35] lb chroot_hacks 
+P: Begin executing hacks...
+W: Skipping chroot_hacks, already done
+[2026-06-16 00:35:36] lb chroot_interactive 
+[2026-06-16 00:35:36] lb chroot_prep remove all mode-archives-chroot
+[2026-06-16 00:35:36] lb chroot_archives chroot remove
+P: Deconfiguring file /etc/apt/sources.list
+Ign:1 file:/packages ./ InRelease
+Get:2 file:/packages ./ Release [1235 B]
+Get:2 file:/packages ./ Release [1235 B]
+Ign:3 file:/packages ./ Release.gpg
+Get:4 file:/packages ./ Packages [1939 B]
+Get:5 http://mirror.mobinhost.com/debian-security trixie-security InRelease [43.4 kB]
+Get:6 http://mirror.mobinhost.com/debian-security trixie-security/main Sources [176 kB]
+Get:7 https://mirror.mobinhost.com/debian trixie InRelease [140 kB]                
+Get:8 http://mirror.mobinhost.com/debian-security trixie-security/main amd64 Packages [216 kB]
+Get:9 https://mirror.mobinhost.com/debian trixie-updates InRelease [47.3 kB]
+Get:10 http://mirror.mobinhost.com/debian-security trixie-security/main Translation-en [131 kB]
+Get:11 https://mirror.mobinhost.com/debian trixie/main Sources [10.5 MB]               
+Get:12 https://mirror.mobinhost.com/debian trixie/main amd64 Packages [9671 kB]                                                                        
+Get:13 https://mirror.mobinhost.com/debian trixie/main Translation-en [6485 kB]                                                                        
+Get:14 https://mirror.mobinhost.com/debian trixie/main amd64 Components [5175 kB]                                                                      
+Get:15 https://mirror.mobinhost.com/debian trixie/main Icons (48x48) [3626 kB]                                                                         
+Get:16 https://mirror.mobinhost.com/debian trixie/main Icons (64x64) [7367 kB]                                                                         
+Get:17 https://mirror.mobinhost.com/debian trixie-updates/main Sources [2788 B]                                                                        
+Get:18 https://mirror.mobinhost.com/debian trixie-updates/main amd64 Packages [5412 B]                                                                 
+Get:19 https://mirror.mobinhost.com/debian trixie-updates/main Translation-en [4096 B]                                                                 
+Fetched 43.6 MB in 1min 4s (683 kB/s)                                                                                                                  
+Reading package lists... Done
+N: Ignoring file 'vscode.sources.back' in directory '/etc/apt/sources.list.d/' as it has an invalid filename extension
+[2026-06-16 00:36:47] lb chroot_apt remove
+P: Deconfiguring file /etc/apt/apt.conf
+[2026-06-16 00:36:47] lb chroot_hostname remove
+P: Deconfiguring file /etc/hostname
+P: Deconfiguring file /bin/hostname
+[2026-06-16 00:36:48] lb chroot_resolv remove
+P: Deconfiguring file /etc/resolv.conf
+[2026-06-16 00:36:48] lb chroot_hosts remove
+P: Deconfiguring file /etc/hosts
+[2026-06-16 00:36:48] lb chroot_sysv-rc remove
+P: Deconfiguring file /usr/sbin/policy-rc.d
+[2026-06-16 00:36:48] lb chroot_tmpfs remove
+[2026-06-16 00:36:48] lb chroot_dpkg remove
+P: Deconfiguring file /sbin/start-stop-daemon
+[2026-06-16 00:36:49] lb chroot_debianchroot remove
+P: Deconfiguring file /etc/debian_chroot
+[2026-06-16 00:36:49] lb chroot_sysfs remove
+P: Begin unmounting /sys...
+[2026-06-16 00:36:49] lb chroot_selinuxfs remove
+[2026-06-16 00:36:49] lb chroot_proc remove
+P: Begin unmounting /proc...
+[2026-06-16 00:36:49] lb chroot_devpts remove
+P: Begin unmounting /dev/pts...
+[2026-06-16 00:36:49] lb chroot_cache save
+P: Chroot stage completed
+P: Begin unmounting filesystems...
+P: Saving caches...
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+N: Ignoring file 'vscode.sources.back' in directory '/etc/apt/sources.list.d/' as it has an invalid filename extension
+[2026-06-16 00:36:57] lb installer 
+P: Setting up clean exit handler
+[2026-06-16 00:36:57] lb installer_chroot 
+P: Begin copying chroot for the installer...
+[2026-06-16 00:37:11] lb chroot_prep install all mode-archives-chroot
+[2026-06-16 00:37:11] lb chroot_devpts install
+P: Begin mounting /dev/pts...
+[2026-06-16 00:37:11] lb chroot_proc install
+P: Begin mounting /proc...
+[2026-06-16 00:37:12] lb chroot_selinuxfs install
+[2026-06-16 00:37:12] lb chroot_sysfs install
+P: Begin mounting /sys...
+[2026-06-16 00:37:12] lb chroot_debianchroot install
+P: Configuring file /etc/debian_chroot
+[2026-06-16 00:37:12] lb chroot_dpkg install
+P: Configuring file /sbin/start-stop-daemon
+dpkg-divert: warning: diverting file '/usr/sbin/start-stop-daemon' from an Essential package with rename is dangerous, use --no-rename
+[2026-06-16 00:37:12] lb chroot_tmpfs install
+[2026-06-16 00:37:13] lb chroot_sysv-rc install
+P: Configuring file /usr/sbin/policy-rc.d
+[2026-06-16 00:37:13] lb chroot_hosts install
+P: Configuring file /etc/hosts
+[2026-06-16 00:37:13] lb chroot_resolv install
+P: Configuring file /etc/resolv.conf
+[2026-06-16 00:37:13] lb chroot_hostname install
+P: Configuring file /etc/hostname
+P: Configuring file /bin/hostname
+dpkg-divert: warning: diverting file '/usr/bin/hostname' from an Essential package with rename is dangerous, use --no-rename
+[2026-06-16 00:37:13] lb chroot_apt install
+P: Configuring file /etc/apt/apt.conf
+[2026-06-16 00:37:13] lb chroot_archives chroot install
+P: Configuring file /etc/apt/sources.list
+Reading package lists... Done
+Building dependency tree... Done
+[2026-06-16 00:37:53] lb installer_debian-installer 
+P: No installer wanted, skipping...
+[2026-06-16 00:37:53] lb installer_preseed 
+[2026-06-16 00:37:53] lb chroot_prep remove all mode-archives-chroot
+[2026-06-16 00:37:54] lb chroot_archives chroot remove
+P: Deconfiguring file /etc/apt/sources.list
+Ign:1 file:/packages ./ InRelease
+Get:2 file:/packages ./ Release [1235 B]
+Get:2 file:/packages ./ Release [1235 B]
+Ign:3 file:/packages ./ Release.gpg
+Get:4 file:/packages ./ Packages [1939 B]
+Get:5 http://mirror.mobinhost.com/debian-security trixie-security InRelease [43.4 kB]
+Get:6 https://mirror.mobinhost.com/debian trixie InRelease [140 kB]                   
+Get:7 http://mirror.mobinhost.com/debian-security trixie-security/main Sources [176 kB]
+Get:8 https://mirror.mobinhost.com/debian trixie-updates InRelease [47.3 kB]
+Get:9 https://mirror.mobinhost.com/debian trixie/main Sources [10.5 MB]
+Get:10 http://mirror.mobinhost.com/debian-security trixie-security/main amd64 Packages [216 kB]
+Get:11 http://mirror.mobinhost.com/debian-security trixie-security/main Translation-en [131 kB]
+Get:12 https://mirror.mobinhost.com/debian trixie/main amd64 Packages [9671 kB]                                                                        
+Get:13 https://mirror.mobinhost.com/debian trixie/main Translation-en [6485 kB]                                                                        
+Get:14 https://mirror.mobinhost.com/debian trixie-updates/main Sources [2788 B]                                                                        
+Get:15 https://mirror.mobinhost.com/debian trixie-updates/main amd64 Packages [5412 B]                                                                 
+Get:16 https://mirror.mobinhost.com/debian trixie-updates/main Translation-en [4096 B]                                                                 
+Fetched 27.5 MB in 53s (517 kB/s)                                                                                                                      
+Reading package lists... Done
+[2026-06-16 00:38:49] lb chroot_apt remove
+P: Deconfiguring file /etc/apt/apt.conf
+[2026-06-16 00:38:49] lb chroot_hostname remove
+P: Deconfiguring file /etc/hostname
+P: Deconfiguring file /bin/hostname
+[2026-06-16 00:38:50] lb chroot_resolv remove
+P: Deconfiguring file /etc/resolv.conf
+[2026-06-16 00:38:50] lb chroot_hosts remove
+P: Deconfiguring file /etc/hosts
+[2026-06-16 00:38:50] lb chroot_sysv-rc remove
+P: Deconfiguring file /usr/sbin/policy-rc.d
+[2026-06-16 00:38:50] lb chroot_tmpfs remove
+[2026-06-16 00:38:50] lb chroot_dpkg remove
+P: Deconfiguring file /sbin/start-stop-daemon
+[2026-06-16 00:38:50] lb chroot_debianchroot remove
+P: Deconfiguring file /etc/debian_chroot
+[2026-06-16 00:38:50] lb chroot_sysfs remove
+P: Begin unmounting /sys...
+[2026-06-16 00:38:51] lb chroot_selinuxfs remove
+[2026-06-16 00:38:51] lb chroot_proc remove
+P: Begin unmounting /proc...
+[2026-06-16 00:38:51] lb chroot_devpts remove
+P: Begin unmounting /dev/pts...
+P: Installer stage completed
+P: Begin unmounting filesystems...
+P: Saving caches...
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+N: Ignoring file 'vscode.sources.back' in directory '/etc/apt/sources.list.d/' as it has an invalid filename extension
+[2026-06-16 00:38:53] lb binary 
+P: Setting up clean exit handler
+[2026-06-16 00:38:53] lb binary_chroot 
+P: Begin copying chroot...
+P: This may take a while.
+[2026-06-16 00:38:57] lb chroot_prep install devpts proc selinuxfs sysfs
+[2026-06-16 00:38:57] lb chroot_devpts install
+P: Begin mounting /dev/pts...
+[2026-06-16 00:38:57] lb chroot_proc install
+P: Begin mounting /proc...
+[2026-06-16 00:38:57] lb chroot_selinuxfs install
+[2026-06-16 00:38:58] lb chroot_sysfs install
+P: Begin mounting /sys...
+[2026-06-16 00:38:58] lb chroot_prep install dpkg tmpfs sysv-rc hosts resolv hostname apt mode-apt-install-binary mode-archives-chroot
+[2026-06-16 00:38:58] lb chroot_dpkg install
+P: Configuring file /sbin/start-stop-daemon
+dpkg-divert: warning: diverting file '/usr/sbin/start-stop-daemon' from an Essential package with rename is dangerous, use --no-rename
+[2026-06-16 00:38:58] lb chroot_tmpfs install
+[2026-06-16 00:38:58] lb chroot_sysv-rc install
+P: Configuring file /usr/sbin/policy-rc.d
+[2026-06-16 00:38:58] lb chroot_hosts install
+P: Configuring file /etc/hosts
+[2026-06-16 00:38:59] lb chroot_resolv install
+P: Configuring file /etc/resolv.conf
+[2026-06-16 00:38:59] lb chroot_hostname install
+P: Configuring file /etc/hostname
+P: Configuring file /bin/hostname
+dpkg-divert: warning: diverting file '/usr/bin/hostname' from an Essential package with rename is dangerous, use --no-rename
+[2026-06-16 00:38:59] lb chroot_apt install-binary
+P: Configuring file /etc/apt/apt.conf
+[2026-06-16 00:38:59] lb chroot_archives chroot install
+P: Configuring file /etc/apt/sources.list
+Reading package lists... Done
+Building dependency tree... Done
+[2026-06-16 00:39:25] lb binary_rootfs 
+P: Begin building root filesystem image...
+Reading package lists... Done
+Building dependency tree... Done
+The following additional packages will be installed:
+  liblzo2-2
+The following NEW packages will be installed:
+  liblzo2-2 squashfs-tools
+0 upgraded, 2 newly installed, 0 to remove and 0 not upgraded.
+Need to get 249 kB of archives.
+After this operation, 683 kB of additional disk space will be used.
+Get:1 https://mirror.mobinhost.com/debian trixie/main amd64 liblzo2-2 amd64 2.10-3+b1 [55.1 kB]
+Get:2 https://mirror.mobinhost.com/debian trixie/main amd64 squashfs-tools amd64 1:4.6.1-1 [194 kB]
+Fetched 249 kB in 1s (179 kB/s)         
+Selecting previously unselected package liblzo2-2:amd64.
+(Reading database ... 8371 files and directories currently installed.)
+Preparing to unpack .../liblzo2-2_2.10-3+b1_amd64.deb ...
+Unpacking liblzo2-2:amd64 (2.10-3+b1) ...
+Selecting previously unselected package squashfs-tools.
+Preparing to unpack .../squashfs-tools_1%3a4.6.1-1_amd64.deb ...
+Unpacking squashfs-tools (1:4.6.1-1) ...
+Setting up liblzo2-2:amd64 (2.10-3+b1) ...
+Setting up squashfs-tools (1:4.6.1-1) ...
+Processing triggers for libc-bin (2.41-12+deb13u3) ...
+P: Preparing squashfs image...
+P: This may take a while.
+Parallel mksquashfs: Using 4 processors
+Creating 4.0 filesystem on filesystem.squashfs, block size 131072.
+[================================================================================================================================| ] 208916/208950  99%
+Unrecognised xattr prefix system.posix_acl_access
+Unrecognised xattr prefix system.posix_acl_default
+[=================================================================================================================================|] 208950/208950 100%
+
+Exportable Squashfs 4.0 filesystem, zstd compressed, data block size 131072
+	compressed data, compressed metadata, compressed fragments,
+	compressed xattrs, compressed ids
+	duplicates are removed
+Filesystem size 2636168.80 Kbytes (2574.38 Mbytes)
+	33.33% of uncompressed filesystem size (7909304.65 Kbytes)
+Inode table size 1894249 bytes (1849.85 Kbytes)
+	25.76% of uncompressed inode table size (7354415 bytes)
+Directory table size 1993297 bytes (1946.58 Kbytes)
+	38.18% of uncompressed directory table size (5220793 bytes)
+Xattr table size 40 bytes (0.04 Kbytes)
+	100.00% of uncompressed xattr table size (40 bytes)
+Number of duplicate files found 10022
+Number of inodes 203977
+Number of files 160381
+Number of fragments 10953
+Number of symbolic links 27527
+Number of device nodes 9
+Number of fifo nodes 0
+Number of socket nodes 0
+Number of directories 16060
+Number of hard-links 513
+Number of ids (unique uids + gids) 32
+Number of uids 15
+	root (0)
+	unknown (105)
+	unknown (989)
+	_apt (42)
+	unknown (104)
+	unknown (107)
+	unknown (999)
+	unknown (102)
+	systemd-network (998)
+	unknown (103)
+	man (6)
+	unknown (114)
+	unknown (111)
+	unknown (112)
+	unknown (101)
+Number of gids 26
+	root (0)
+	dip (30)
+	unknown (105)
+	adm (4)
+	unknown (989)
+	shadow (42)
+	unknown (988)
+	unknown (104)
+	unknown (107)
+	systemd-journal (999)
+	nogroup (65534)
+	audio (29)
+	systemd-network (998)
+	unknown (103)
+	unknown (106)
+	crontab (997)
+	mail (8)
+	unknown (110)
+	unknown (991)
+	unknown (113)
+	man (12)
+	unknown (108)
+	unknown (119)
+	unknown (116)
+	unknown (117)
+	utmp (43)
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following packages will be REMOVED:
+  liblzo2-2* squashfs-tools*
+0 upgraded, 0 newly installed, 2 to remove and 0 not upgraded.
+After this operation, 683 kB disk space will be freed.
+(Reading database ... 8395 files and directories currently installed.)
+Removing squashfs-tools (1:4.6.1-1) ...
+Removing liblzo2-2:amd64 (2.10-3+b1) ...
+Processing triggers for libc-bin (2.41-12+deb13u3) ...
+[2026-06-16 01:00:45] lb chroot_prep remove all mode-archives-binary
+[2026-06-16 01:00:45] lb chroot_archives binary remove
+P: Deconfiguring file /etc/apt/sources.list
+Ign:1 file:/packages ./ InRelease
+Get:2 file:/packages ./ Release [1235 B]
+Get:2 file:/packages ./ Release [1235 B]
+Ign:3 file:/packages ./ Release.gpg
+Get:4 file:/packages ./ Packages [1939 B]
+Get:5 http://mirror.mobinhost.com/debian-security trixie-security InRelease [43.4 kB]
+Get:6 https://mirror.mobinhost.com/debian trixie InRelease [140 kB]                    
+Get:7 http://mirror.mobinhost.com/debian-security trixie-security/main Sources [176 kB]
+Get:8 https://mirror.mobinhost.com/debian trixie-updates InRelease [47.3 kB]
+Get:9 https://mirror.mobinhost.com/debian trixie/main Sources [10.5 MB]
+Get:10 http://mirror.mobinhost.com/debian-security trixie-security/main amd64 Packages [216 kB]
+Get:11 http://mirror.mobinhost.com/debian-security trixie-security/main Translation-en [131 kB]
+Get:12 https://mirror.mobinhost.com/debian trixie/main amd64 Packages [9671 kB]                                                                        
+Get:13 https://mirror.mobinhost.com/debian trixie/main Translation-en [6485 kB]                                                                        
+Get:14 https://mirror.mobinhost.com/debian trixie-updates/main Sources [2788 B]                                                                        
+Get:15 https://mirror.mobinhost.com/debian trixie-updates/main amd64 Packages [5412 B]                                                                 
+Get:16 https://mirror.mobinhost.com/debian trixie-updates/main Translation-en [4096 B]                                                                 
+Fetched 27.5 MB in 42s (646 kB/s)                                                                                                                      
+Reading package lists... Done
+[2026-06-16 01:01:29] lb chroot_apt remove
+P: Deconfiguring file /etc/apt/apt.conf
+[2026-06-16 01:01:30] lb chroot_hostname remove
+P: Deconfiguring file /etc/hostname
+P: Deconfiguring file /bin/hostname
+[2026-06-16 01:01:30] lb chroot_resolv remove
+P: Deconfiguring file /etc/resolv.conf
+[2026-06-16 01:01:30] lb chroot_hosts remove
+P: Deconfiguring file /etc/hosts
+[2026-06-16 01:01:30] lb chroot_sysv-rc remove
+P: Deconfiguring file /usr/sbin/policy-rc.d
+[2026-06-16 01:01:30] lb chroot_tmpfs remove
+[2026-06-16 01:01:30] lb chroot_dpkg remove
+P: Deconfiguring file /sbin/start-stop-daemon
+[2026-06-16 01:01:31] lb chroot_debianchroot remove
+P: Deconfiguring file /etc/debian_chroot
+W: Skipping removal of chroot_debianchroot, it is not applied
+[2026-06-16 01:01:31] lb chroot_sysfs remove
+P: Begin unmounting /sys...
+[2026-06-16 01:01:31] lb chroot_selinuxfs remove
+[2026-06-16 01:01:31] lb chroot_proc remove
+P: Begin unmounting /proc...
+[2026-06-16 01:01:31] lb chroot_devpts remove
+P: Begin unmounting /dev/pts...
+[2026-06-16 01:01:32] lb chroot_prep install all mode-archives-binary
+[2026-06-16 01:01:32] lb chroot_devpts install
+P: Begin mounting /dev/pts...
+[2026-06-16 01:01:32] lb chroot_proc install
+P: Begin mounting /proc...
+[2026-06-16 01:01:32] lb chroot_selinuxfs install
+[2026-06-16 01:01:32] lb chroot_sysfs install
+P: Begin mounting /sys...
+[2026-06-16 01:01:32] lb chroot_debianchroot install
+P: Configuring file /etc/debian_chroot
+[2026-06-16 01:01:33] lb chroot_dpkg install
+P: Configuring file /sbin/start-stop-daemon
+dpkg-divert: warning: diverting file '/usr/sbin/start-stop-daemon' from an Essential package with rename is dangerous, use --no-rename
+[2026-06-16 01:01:34] lb chroot_tmpfs install
+[2026-06-16 01:01:34] lb chroot_sysv-rc install
+P: Configuring file /usr/sbin/policy-rc.d
+[2026-06-16 01:01:34] lb chroot_hosts install
+P: Configuring file /etc/hosts
+[2026-06-16 01:01:34] lb chroot_resolv install
+P: Configuring file /etc/resolv.conf
+[2026-06-16 01:01:34] lb chroot_hostname install
+P: Configuring file /etc/hostname
+P: Configuring file /bin/hostname
+dpkg-divert: warning: diverting file '/usr/bin/hostname' from an Essential package with rename is dangerous, use --no-rename
+[2026-06-16 01:01:34] lb chroot_apt install
+P: Configuring file /etc/apt/apt.conf
+[2026-06-16 01:01:35] lb chroot_archives binary install
+P: Configuring file /etc/apt/sources.list
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+N: Ignoring file 'vscode.sources.back' in directory '/etc/apt/sources.list.d/' as it has an invalid filename extension
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+N: Ignoring file 'vscode.sources.back' in directory '/etc/apt/sources.list.d/' as it has an invalid filename extension
+[2026-06-16 01:02:13] lb binary_dm-verity 
+[2026-06-16 01:02:13] lb binary_manifest 
+P: Begin creating manifest...
+[2026-06-16 01:02:13] lb binary_package-lists 
+P: Begin installing local package lists...
+[2026-06-16 01:02:13] lb binary_linux-image 
+P: Begin install linux-image...
+[2026-06-16 01:02:15] lb binary_memtest 
+[2026-06-16 01:02:16] lb binary_grub-legacy 
+[2026-06-16 01:02:16] lb binary_grub-pc 
+P: Begin installing grub-pc...
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+N: Ignoring file 'vscode.sources.back' in directory '/etc/apt/sources.list.d/' as it has an invalid filename extension
+[2026-06-16 01:02:17] lb binary_grub_cfg 
+P: Begin installing config for grub-pc and/or grub-efi, and loopback support...
+[2026-06-16 01:02:17] lb binary_syslinux 
+[2026-06-16 01:02:17] lb binary_disk 
+P: Begin installing disk information...
+[2026-06-16 01:02:17] lb binary_loadlin 
+[2026-06-16 01:02:17] lb binary_win32-loader 
+[2026-06-16 01:02:18] lb binary_includes 
+P: Begin copying binary includes...
+0 blocks
+[2026-06-16 01:02:18] lb binary_grub-efi 
+P: Begin preparing Grub based EFI support...
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  grub-efi-ia32-unsigned
+Suggested packages:
+  floppyd
+The following NEW packages will be installed:
+  grub-efi-ia32-bin grub-efi-ia32-unsigned mtools
+0 upgraded, 3 newly installed, 0 to remove and 3 not upgraded.
+Need to get 2213 kB of archives.
+After this operation, 10.5 MB of additional disk space will be used.
+Get:1 https://mirror.mobinhost.com/debian trixie/main amd64 grub-efi-ia32-unsigned amd64 2.12-9+deb13u2 [1324 kB]
+Get:2 https://mirror.mobinhost.com/debian trixie/main amd64 grub-efi-ia32-bin amd64 2.12-9+deb13u2 [691 kB]
+Get:3 https://mirror.mobinhost.com/debian trixie/main amd64 mtools amd64 4.0.48-1 [198 kB]
+Fetched 2213 kB in 5s (482 kB/s)
+N: Ignoring file 'vscode.sources.back' in directory '/etc/apt/sources.list.d/' as it has an invalid filename extension
+Selecting previously unselected package grub-efi-ia32-unsigned.
+(Reading database ... 188936 files and directories currently installed.)
+Preparing to unpack .../grub-efi-ia32-unsigned_2.12-9+deb13u2_amd64.deb ...
+Unpacking grub-efi-ia32-unsigned (2.12-9+deb13u2) ...
+Selecting previously unselected package grub-efi-ia32-bin.
+Preparing to unpack .../grub-efi-ia32-bin_2.12-9+deb13u2_amd64.deb ...
+Unpacking grub-efi-ia32-bin (2.12-9+deb13u2) ...
+Selecting previously unselected package mtools.
+Preparing to unpack .../mtools_4.0.48-1_amd64.deb ...
+Unpacking mtools (4.0.48-1) ...
+Setting up grub-efi-ia32-unsigned (2.12-9+deb13u2) ...
+Setting up grub-efi-ia32-bin (2.12-9+deb13u2) ...
+Setting up mtools (4.0.48-1) ...
+Processing triggers for man-db (2.13.1-1) ...
+N: Ignoring file 'vscode.sources.back' in directory '/etc/apt/sources.list.d/' as it has an invalid filename extension
+!!! The following error/warning messages can be ignored !!!
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+shim-signed is already the newest version (1.47+15.8-1).
+shim-signed set to manually installed.
+0 upgraded, 0 newly installed, 0 to remove and 3 not upgraded.
+N: Ignoring file 'vscode.sources.back' in directory '/etc/apt/sources.list.d/' as it has an invalid filename extension
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+grub-efi-amd64-signed is already the newest version (1+2.12+9+deb13u2).
+grub-efi-amd64-signed set to manually installed.
+0 upgraded, 0 newly installed, 0 to remove and 3 not upgraded.
+N: Ignoring file 'vscode.sources.back' in directory '/etc/apt/sources.list.d/' as it has an invalid filename extension
+!!! The above error/warning messages can be ignored !!!
+P: UEFI Secure Boot support enabled.
+mkfs.fat 4.2 (2021-01-31)
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+N: Ignoring file 'vscode.sources.back' in directory '/etc/apt/sources.list.d/' as it has an invalid filename extension
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following packages will be REMOVED:
+  grub-efi-amd64-signed* grub-efi-ia32-bin* grub-efi-ia32-unsigned* mokutil* mtools* shim-helpers-amd64-signed* shim-signed* shim-signed-common*
+  shim-unsigned*
+WARNING: The following essential packages will be removed.
+This should NOT be done unless you know exactly what you are doing!
+  grub-efi-amd64-signed
+0 upgraded, 0 newly installed, 9 to remove and 3 not upgraded.
+After this operation, 24.2 MB disk space will be freed.
+dpkg: warning: overriding problem because --force enabled:
+dpkg: warning: this is a protected package; it should not be removed
+(Reading database ... 189310 files and directories currently installed.)
+Removing grub-efi-amd64-signed (1+2.12+9+deb13u2) ...
+Removing grub-efi-ia32-bin (2.12-9+deb13u2) ...
+Removing grub-efi-ia32-unsigned (2.12-9+deb13u2) ...
+Removing shim-signed:amd64 (1.47+15.8-1) ...
+No DKMS packages installed: not changing Secure Boot validation state.
+Removing shim-signed-common (1.47+15.8-1) ...
+Removing mokutil (0.7.2-1) ...
+Removing mtools (4.0.48-1) ...
+Removing shim-helpers-amd64-signed (1+15.8+1) ...
+Removing shim-unsigned:amd64 (15.8-1) ...
+Processing triggers for man-db (2.13.1-1) ...
+(Reading database ... 188897 files and directories currently installed.)
+Purging configuration files for mtools (4.0.48-1) ...
+Purging configuration files for shim-signed:amd64 (1.47+15.8-1) ...
+Purging configuration files for shim-signed-common (1.47+15.8-1) ...
+Purging configuration files for shim-helpers-amd64-signed (1+15.8+1) ...
+N: Ignoring file 'vscode.sources.back' in directory '/etc/apt/sources.list.d/' as it has an invalid filename extension
+[2026-06-16 01:03:12] lb binary_bootloader_splash 
+P: Begin preparing the bootloader splash image...
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following NEW packages will be installed:
+  librsvg2-bin
+0 upgraded, 1 newly installed, 0 to remove and 3 not upgraded.
+Need to get 1967 kB of archives.
+After this operation, 7056 kB of additional disk space will be used.
+Get:1 https://mirror.mobinhost.com/debian trixie/main amd64 librsvg2-bin amd64 2.60.0+dfsg-1 [1967 kB]
+Fetched 1967 kB in 4s (481 kB/s)        
+N: Ignoring file 'vscode.sources.back' in directory '/etc/apt/sources.list.d/' as it has an invalid filename extension
+Selecting previously unselected package librsvg2-bin.
+(Reading database ... 188896 files and directories currently installed.)
+Preparing to unpack .../librsvg2-bin_2.60.0+dfsg-1_amd64.deb ...
+Unpacking librsvg2-bin (2.60.0+dfsg-1) ...
+Setting up librsvg2-bin (2.60.0+dfsg-1) ...
+Processing triggers for man-db (2.13.1-1) ...
+N: Ignoring file 'vscode.sources.back' in directory '/etc/apt/sources.list.d/' as it has an invalid filename extension
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+N: Ignoring file 'vscode.sources.back' in directory '/etc/apt/sources.list.d/' as it has an invalid filename extension
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following packages will be REMOVED:
+  librsvg2-bin*
+0 upgraded, 0 newly installed, 1 to remove and 3 not upgraded.
+After this operation, 7056 kB disk space will be freed.
+(Reading database ... 188902 files and directories currently installed.)
+Removing librsvg2-bin (2.60.0+dfsg-1) ...
+Processing triggers for man-db (2.13.1-1) ...
+N: Ignoring file 'vscode.sources.back' in directory '/etc/apt/sources.list.d/' as it has an invalid filename extension
+[2026-06-16 01:03:33] lb binary_hooks 
+P: Begin executing hooks...
+[2026-06-16 01:03:33] lb binary_checksums 
+P: Begin creating binary sha256sum.txt...
+[2026-06-16 01:04:43] lb binary_iso 
+P: Begin building binary iso image...
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  libburn4t64 libisoburn1t64 libisofs6t64 libjte2
+Suggested packages:
+  xorriso-tcltk jigit cdck
+Recommended packages:
+  syslinux-common
+The following NEW packages will be installed:
+  isolinux libburn4t64 libisoburn1t64 libisofs6t64 libjte2 xorriso
+0 upgraded, 6 newly installed, 0 to remove and 3 not upgraded.
+Need to get 1233 kB of archives.
+After this operation, 2693 kB of additional disk space will be used.
+Get:1 https://mirror.mobinhost.com/debian trixie/main amd64 isolinux all 3:6.04~git20190206.bf6db5b4+dfsg1-3.1 [86.5 kB]
+Get:2 https://mirror.mobinhost.com/debian trixie/main amd64 libburn4t64 amd64 1.5.6-1.1+b1 [164 kB]
+Get:3 https://mirror.mobinhost.com/debian trixie/main amd64 libjte2 amd64 1.22-4+b2 [29.6 kB]
+Get:4 https://mirror.mobinhost.com/debian trixie/main amd64 libisofs6t64 amd64 1.5.6.pl01-1.1+b1 [219 kB]
+Get:5 https://mirror.mobinhost.com/debian trixie/main amd64 libisoburn1t64 amd64 1.5.6-1.2+b1 [410 kB]
+Get:6 https://mirror.mobinhost.com/debian trixie/main amd64 xorriso amd64 1.5.6-1.2+b1 [323 kB]
+Fetched 1233 kB in 3s (384 kB/s)
+N: Ignoring file 'vscode.sources.back' in directory '/etc/apt/sources.list.d/' as it has an invalid filename extension
+Selecting previously unselected package isolinux.
+(Reading database ... 188896 files and directories currently installed.)
+Preparing to unpack .../0-isolinux_3%3a6.04~git20190206.bf6db5b4+dfsg1-3.1_all.deb ...
+Unpacking isolinux (3:6.04~git20190206.bf6db5b4+dfsg1-3.1) ...
+Selecting previously unselected package libburn4t64:amd64.
+Preparing to unpack .../1-libburn4t64_1.5.6-1.1+b1_amd64.deb ...
+Unpacking libburn4t64:amd64 (1.5.6-1.1+b1) ...
+Selecting previously unselected package libjte2:amd64.
+Preparing to unpack .../2-libjte2_1.22-4+b2_amd64.deb ...
+Unpacking libjte2:amd64 (1.22-4+b2) ...
+Selecting previously unselected package libisofs6t64:amd64.
+Preparing to unpack .../3-libisofs6t64_1.5.6.pl01-1.1+b1_amd64.deb ...
+Unpacking libisofs6t64:amd64 (1.5.6.pl01-1.1+b1) ...
+Selecting previously unselected package libisoburn1t64:amd64.
+Preparing to unpack .../4-libisoburn1t64_1.5.6-1.2+b1_amd64.deb ...
+Unpacking libisoburn1t64:amd64 (1.5.6-1.2+b1) ...
+Selecting previously unselected package xorriso.
+Preparing to unpack .../5-xorriso_1.5.6-1.2+b1_amd64.deb ...
+Unpacking xorriso (1.5.6-1.2+b1) ...
+Setting up isolinux (3:6.04~git20190206.bf6db5b4+dfsg1-3.1) ...
+Setting up libjte2:amd64 (1.22-4+b2) ...
+Setting up libisofs6t64:amd64 (1.5.6.pl01-1.1+b1) ...
+Setting up libburn4t64:amd64 (1.5.6-1.1+b1) ...
+Setting up libisoburn1t64:amd64 (1.5.6-1.2+b1) ...
+Setting up xorriso (1.5.6-1.2+b1) ...
+Processing triggers for man-db (2.13.1-1) ...
+Processing triggers for libc-bin (2.41-12+deb13u3) ...
+N: Ignoring file 'vscode.sources.back' in directory '/etc/apt/sources.list.d/' as it has an invalid filename extension
+xorriso 1.5.6 : RockRidge filesystem manipulator, libburnia project.
+
+xorriso : NOTE : Environment variable SOURCE_DATE_EPOCH encountered with value 1781557526
+Drive current: -outdev 'stdio:Yuz-OS_1.0.1_Educational-amd64.hybrid.iso'
+Media current: stdio file, overwriteable
+Media status : is blank
+Media summary: 0 sessions, 0 data blocks, 0 data, 32.8g free
+xorriso : NOTE : -as mkisofs: Ignored option '-cache-inodes'
+xorriso : WARNING : -volid text problematic as automatic mount point name
+xorriso : WARNING : -volid text is too long for Joliet (24 > 16)
+xorriso : WARNING : -volid text does not comply to ISO 9660 / ECMA 119 rules
+Added to ISO image: directory '/'='/binary'
+xorriso : UPDATE :     580 files added in 1 seconds
+xorriso : UPDATE :     580 files added in 1 seconds
+xorriso : NOTE : Copying to System Area: 512 bytes from file '/usr/lib/grub/i386-pc/boot_hybrid.img'
+xorriso : UPDATE :  0.17% done
+xorriso : UPDATE :  1.41% done
+xorriso : UPDATE :  2.90% done
+xorriso : UPDATE :  4.37% done, estimate finish Mon Jun 15 21:36:03 2026
+xorriso : UPDATE :  5.86% done, estimate finish Mon Jun 15 21:36:04 2026
+xorriso : UPDATE :  7.29% done, estimate finish Mon Jun 15 21:36:05 2026
+xorriso : UPDATE :  8.80% done, estimate finish Mon Jun 15 21:36:05 2026
+xorriso : UPDATE :  10.26% done, estimate finish Mon Jun 15 21:36:05 2026
+xorriso : UPDATE :  11.57% done, estimate finish Mon Jun 15 21:36:06 2026
+xorriso : UPDATE :  12.66% done, estimate finish Mon Jun 15 21:36:08 2026
+xorriso : UPDATE :  13.67% done, estimate finish Mon Jun 15 21:36:11 2026
+xorriso : UPDATE :  14.54% done, estimate finish Mon Jun 15 21:36:13 2026
+xorriso : UPDATE :  15.38% done, estimate finish Mon Jun 15 21:36:16 2026
+xorriso : UPDATE :  16.22% done, estimate finish Mon Jun 15 21:36:22 2026
+xorriso : UPDATE :  17.07% done, estimate finish Mon Jun 15 21:36:24 2026
+xorriso : UPDATE :  18.48% done, estimate finish Mon Jun 15 21:36:22 2026
+xorriso : UPDATE :  19.99% done, estimate finish Mon Jun 15 21:36:21 2026
+xorriso : UPDATE :  21.63% done, estimate finish Mon Jun 15 21:36:18 2026
+xorriso : UPDATE :  23.20% done, estimate finish Mon Jun 15 21:36:18 2026
+xorriso : UPDATE :  24.50% done, estimate finish Mon Jun 15 21:36:17 2026
+xorriso : UPDATE :  25.92% done, estimate finish Mon Jun 15 21:36:17 2026
+xorriso : UPDATE :  27.43% done, estimate finish Mon Jun 15 21:36:15 2026
+xorriso : UPDATE :  28.89% done, estimate finish Mon Jun 15 21:36:15 2026
+xorriso : UPDATE :  29.95% done, estimate finish Mon Jun 15 21:36:16 2026
+xorriso : UPDATE :  31.22% done, estimate finish Mon Jun 15 21:36:13 2026
+xorriso : UPDATE :  32.28% done, estimate finish Mon Jun 15 21:36:15 2026
+xorriso : UPDATE :  33.64% done, estimate finish Mon Jun 15 21:36:14 2026
+xorriso : UPDATE :  35.10% done, estimate finish Mon Jun 15 21:36:13 2026
+xorriso : UPDATE :  36.44% done, estimate finish Mon Jun 15 21:36:14 2026
+xorriso : UPDATE :  37.84% done, estimate finish Mon Jun 15 21:36:13 2026
+xorriso : UPDATE :  39.59% done, estimate finish Mon Jun 15 21:36:12 2026
+xorriso : UPDATE :  40.75% done, estimate finish Mon Jun 15 21:36:13 2026
+xorriso : UPDATE :  41.25% done, estimate finish Mon Jun 15 21:36:15 2026
+xorriso : UPDATE :  42.68% done, estimate finish Mon Jun 15 21:36:15 2026
+xorriso : UPDATE :  43.15% done, estimate finish Mon Jun 15 21:36:18 2026
+xorriso : UPDATE :  43.99% done, estimate finish Mon Jun 15 21:36:20 2026
+xorriso : UPDATE :  44.78% done, estimate finish Mon Jun 15 21:36:21 2026
+xorriso : UPDATE :  45.79% done, estimate finish Mon Jun 15 21:36:22 2026
+xorriso : UPDATE :  46.53% done, estimate finish Mon Jun 15 21:36:23 2026
+xorriso : UPDATE :  47.64% done, estimate finish Mon Jun 15 21:36:23 2026
+xorriso : UPDATE :  48.46% done, estimate finish Mon Jun 15 21:36:24 2026
+xorriso : UPDATE :  49.21% done, estimate finish Mon Jun 15 21:36:25 2026
+xorriso : UPDATE :  49.88% done, estimate finish Mon Jun 15 21:36:26 2026
+xorriso : UPDATE :  50.65% done, estimate finish Mon Jun 15 21:36:28 2026
+xorriso : UPDATE :  51.42% done, estimate finish Mon Jun 15 21:36:35 2026
+xorriso : UPDATE :  52.15% done, estimate finish Mon Jun 15 21:36:36 2026
+xorriso : UPDATE :  52.89% done, estimate finish Mon Jun 15 21:36:37 2026
+xorriso : UPDATE :  53.61% done, estimate finish Mon Jun 15 21:36:37 2026
+xorriso : UPDATE :  54.32% done, estimate finish Mon Jun 15 21:36:38 2026
+xorriso : UPDATE :  54.96% done, estimate finish Mon Jun 15 21:36:39 2026
+xorriso : UPDATE :  55.63% done, estimate finish Mon Jun 15 21:36:40 2026
+xorriso : UPDATE :  56.25% done, estimate finish Mon Jun 15 21:36:40 2026
+xorriso : UPDATE :  56.80% done, estimate finish Mon Jun 15 21:36:42 2026
+xorriso : UPDATE :  57.64% done, estimate finish Mon Jun 15 21:36:41 2026
+xorriso : UPDATE :  58.44% done, estimate finish Mon Jun 15 21:36:45 2026
+xorriso : UPDATE :  59.11% done, estimate finish Mon Jun 15 21:36:45 2026
+xorriso : UPDATE :  59.70% done, estimate finish Mon Jun 15 21:36:47 2026
+xorriso : UPDATE :  60.28% done, estimate finish Mon Jun 15 21:36:48 2026
+xorriso : UPDATE :  60.96% done, estimate finish Mon Jun 15 21:36:48 2026
+xorriso : UPDATE :  61.70% done, estimate finish Mon Jun 15 21:36:48 2026
+xorriso : UPDATE :  62.42% done, estimate finish Mon Jun 15 21:36:47 2026
+xorriso : UPDATE :  63.18% done, estimate finish Mon Jun 15 21:36:48 2026
+xorriso : UPDATE :  63.89% done, estimate finish Mon Jun 15 21:36:48 2026
+xorriso : UPDATE :  64.68% done, estimate finish Mon Jun 15 21:36:47 2026
+xorriso : UPDATE :  65.41% done, estimate finish Mon Jun 15 21:36:47 2026
+xorriso : UPDATE :  66.11% done, estimate finish Mon Jun 15 21:36:48 2026
+xorriso : UPDATE :  66.84% done, estimate finish Mon Jun 15 21:36:48 2026
+xorriso : UPDATE :  67.56% done, estimate finish Mon Jun 15 21:36:48 2026
+xorriso : UPDATE :  68.30% done, estimate finish Mon Jun 15 21:36:48 2026
+xorriso : UPDATE :  68.91% done, estimate finish Mon Jun 15 21:36:48 2026
+xorriso : UPDATE :  69.61% done, estimate finish Mon Jun 15 21:36:48 2026
+xorriso : UPDATE :  70.32% done, estimate finish Mon Jun 15 21:36:49 2026
+xorriso : UPDATE :  71.09% done, estimate finish Mon Jun 15 21:36:48 2026
+xorriso : UPDATE :  71.65% done, estimate finish Mon Jun 15 21:36:49 2026
+xorriso : UPDATE :  72.44% done, estimate finish Mon Jun 15 21:36:49 2026
+xorriso : UPDATE :  73.23% done, estimate finish Mon Jun 15 21:36:48 2026
+xorriso : UPDATE :  73.95% done, estimate finish Mon Jun 15 21:36:49 2026
+xorriso : UPDATE :  74.70% done, estimate finish Mon Jun 15 21:36:48 2026
+xorriso : UPDATE :  75.53% done, estimate finish Mon Jun 15 21:36:48 2026
+xorriso : UPDATE :  76.05% done, estimate finish Mon Jun 15 21:36:49 2026
+xorriso : UPDATE :  76.80% done, estimate finish Mon Jun 15 21:36:49 2026
+xorriso : UPDATE :  77.62% done, estimate finish Mon Jun 15 21:36:49 2026
+xorriso : UPDATE :  78.27% done, estimate finish Mon Jun 15 21:36:49 2026
+xorriso : UPDATE :  79.12% done, estimate finish Mon Jun 15 21:36:48 2026
+xorriso : UPDATE :  79.79% done, estimate finish Mon Jun 15 21:36:49 2026
+xorriso : UPDATE :  80.41% done, estimate finish Mon Jun 15 21:36:49 2026
+xorriso : UPDATE :  81.09% done, estimate finish Mon Jun 15 21:36:49 2026
+xorriso : UPDATE :  81.85% done, estimate finish Mon Jun 15 21:36:49 2026
+xorriso : UPDATE :  82.73% done, estimate finish Mon Jun 15 21:36:49 2026
+xorriso : UPDATE :  83.50% done, estimate finish Mon Jun 15 21:36:48 2026
+xorriso : UPDATE :  84.10% done, estimate finish Mon Jun 15 21:36:49 2026
+xorriso : UPDATE :  84.77% done, estimate finish Mon Jun 15 21:36:49 2026
+xorriso : UPDATE :  85.53% done, estimate finish Mon Jun 15 21:36:50 2026
+xorriso : UPDATE :  86.30% done, estimate finish Mon Jun 15 21:36:49 2026
+xorriso : UPDATE :  87.01% done, estimate finish Mon Jun 15 21:36:48 2026
+xorriso : UPDATE :  87.66% done, estimate finish Mon Jun 15 21:36:50 2026
+xorriso : UPDATE :  88.39% done, estimate finish Mon Jun 15 21:36:50 2026
+xorriso : UPDATE :  89.09% done, estimate finish Mon Jun 15 21:36:50 2026
+xorriso : UPDATE :  89.85% done, estimate finish Mon Jun 15 21:36:50 2026
+xorriso : UPDATE :  90.59% done, estimate finish Mon Jun 15 21:36:48 2026
+xorriso : UPDATE :  91.34% done, estimate finish Mon Jun 15 21:36:49 2026
+xorriso : UPDATE :  92.04% done, estimate finish Mon Jun 15 21:36:49 2026
+xorriso : UPDATE :  92.77% done, estimate finish Mon Jun 15 21:36:49 2026
+xorriso : UPDATE :  93.52% done, estimate finish Mon Jun 15 21:36:49 2026
+xorriso : UPDATE :  94.23% done, estimate finish Mon Jun 15 21:36:49 2026
+xorriso : UPDATE :  94.89% done, estimate finish Mon Jun 15 21:36:50 2026
+xorriso : UPDATE :  95.63% done, estimate finish Mon Jun 15 21:36:50 2026
+xorriso : UPDATE :  96.35% done, estimate finish Mon Jun 15 21:36:50 2026
+xorriso : UPDATE :  97.12% done, estimate finish Mon Jun 15 21:36:49 2026
+xorriso : UPDATE :  97.66% done, estimate finish Mon Jun 15 21:36:50 2026
+xorriso : UPDATE :  98.43% done, estimate finish Mon Jun 15 21:36:50 2026
+xorriso : UPDATE :  99.20% done
+ISO image produced: 1361899 sectors
+Written to medium : 1361899 sectors at LBA 0
+Writing to 'stdio:Yuz-OS_1.0.1_Educational-amd64.hybrid.iso' completed successfully.
+
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+N: Ignoring file 'vscode.sources.back' in directory '/etc/apt/sources.list.d/' as it has an invalid filename extension
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following packages will be REMOVED:
+  isolinux* libburn4t64* libisoburn1t64* libisofs6t64* libjte2* xorriso*
+0 upgraded, 0 newly installed, 6 to remove and 3 not upgraded.
+After this operation, 2693 kB disk space will be freed.
+(Reading database ... 188975 files and directories currently installed.)
+Removing isolinux (3:6.04~git20190206.bf6db5b4+dfsg1-3.1) ...
+Removing xorriso (1.5.6-1.2+b1) ...
+Removing libisoburn1t64:amd64 (1.5.6-1.2+b1) ...
+Removing libburn4t64:amd64 (1.5.6-1.1+b1) ...
+Removing libisofs6t64:amd64 (1.5.6.pl01-1.1+b1) ...
+Removing libjte2:amd64 (1.22-4+b2) ...
+Processing triggers for man-db (2.13.1-1) ...
+Processing triggers for libc-bin (2.41-12+deb13u3) ...
+N: Ignoring file 'vscode.sources.back' in directory '/etc/apt/sources.list.d/' as it has an invalid filename extension
+[2026-06-16 01:07:05] lb binary_onie 
+[2026-06-16 01:07:05] lb binary_netboot 
+[2026-06-16 01:07:05] lb binary_tar 
+[2026-06-16 01:07:05] lb binary_hdd 
+[2026-06-16 01:07:05] lb binary_zsync 
+[2026-06-16 01:07:06] lb chroot_prep remove dpkg tmpfs sysv-rc hosts resolv hostname apt
+[2026-06-16 01:07:06] lb chroot_apt remove
+P: Deconfiguring file /etc/apt/apt.conf
+[2026-06-16 01:07:06] lb chroot_hostname remove
+P: Deconfiguring file /etc/hostname
+P: Deconfiguring file /bin/hostname
+[2026-06-16 01:07:06] lb chroot_resolv remove
+P: Deconfiguring file /etc/resolv.conf
+[2026-06-16 01:07:07] lb chroot_hosts remove
+P: Deconfiguring file /etc/hosts
+[2026-06-16 01:07:07] lb chroot_sysv-rc remove
+P: Deconfiguring file /usr/sbin/policy-rc.d
+[2026-06-16 01:07:07] lb chroot_tmpfs remove
+[2026-06-16 01:07:07] lb chroot_dpkg remove
+P: Deconfiguring file /sbin/start-stop-daemon
+[2026-06-16 01:07:08] lb chroot_prep remove devpts proc selinuxfs sysfs
+[2026-06-16 01:07:08] lb chroot_sysfs remove
+P: Begin unmounting /sys...
+[2026-06-16 01:07:08] lb chroot_selinuxfs remove
+[2026-06-16 01:07:08] lb chroot_proc remove
+P: Begin unmounting /proc...
+[2026-06-16 01:07:08] lb chroot_devpts remove
+P: Begin unmounting /dev/pts...
+P: Binary stage completed
+P: Begin unmounting filesystems...
+P: Saving caches...
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+N: Ignoring file 'vscode.sources.back' in directory '/etc/apt/sources.list.d/' as it has an invalid filename extension
+[2026-06-16 01:07:09] lb source 
+P: Source stage disabled, skipping
+P: Build completed successfully
+[ SUCCESS ] Build distro finished !
+
+
+╭─    ~/Data/Dev/00mygit/build ················································································ ✔  31m 51s   01:07:09 AM  ─╮
+╰─                                                                                                                                                   ─╯
