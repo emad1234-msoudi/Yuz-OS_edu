@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Yuz OS Startup Sound
+Comment=Play startup sound after login
+Exec=/usr/local/bin/yuz-startup-sound
+Terminal=false
+NoDisplay=true
+X-GNOME-Autostart-enabled=true
