@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Graphite-Dark-nord
+Comment=An Flat Gtk+ theme based on Elegant Design
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Graphite-Dark-nord
+MetacityTheme=Graphite-Dark-nord
+IconTheme=Colloid-Nord-Light
+CursorTheme=Bibata-Modern-Ice

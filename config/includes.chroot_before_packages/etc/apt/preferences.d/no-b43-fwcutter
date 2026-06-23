@@ -1,0 +1,3 @@
+Package: b43-fwcutter
+Pin: release *
+Pin-Priority: -1
