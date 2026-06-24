@@ -23,13 +23,14 @@ binary.modified_timestamps
  
 #-> build dir
 
-binary/
-chroot/
-log/
-auto/
-cache/
-local/
-.build/
+live-build/binary/
+live-build/chroot/
+live-build/log/
+live-build/auto/
+live-build/cache/
+live-build/local/
+live-build/.build/
+
 build/
 
 ######  config files and otputs ######
@@ -41,35 +42,39 @@ build/
 
 #-> config live build dir
 
-#config/hooks/
-config/preseed/
+#live-build/config/hooks/
+live-build/config/preseed/
 
-config/bootloaders/
-config/debian-installer/
+live-build/config/bootloaders/
+live-build/config/debian-installer/
 
-config/apt/
-config/common/
-config/source/
-config/archives/
+live-build/config/apt/
+live-build/config/archives/
 
-config/binary/
-config/chroot/
-config/rootfs/
-config/bootstrap/
+live-build/config/rootfs/
 
-config/includes/
-#config/includes.chroot/
-config/includes.binary/
-config/includes.bootstrap/
-config/includes.source/
-config/includes.installer/
-config/includes.chroot_after_packages/
-#config/includes.chroot_before_packages/
+live-build/config/includes/
+#live-build/config/includes.chroot/
+live-build/config/includes.binary/
+live-build/config/includes.bootstrap/
+live-build/config/includes.source/
+live-build/config/includes.installer/
+live-build/config/includes.chroot_after_packages/
+#live-build/config/includes.chroot_before_packages/
 
-config/packages/
-config/packages.binary/
-#config/package-lists/
-#config/packages.chroot/
+live-build/config/packages/
+live-build/config/packages.binary/
+#live-build/config/package-lists/
+#live-build/config/packages.chroot/
+
+#-> config live build files
+
+live-build/config/binary
+live-build/config/chroot
+live-build/config/bootstrap
+
+live-build/config/common
+live-build/config/source
 
 ###### releas and build archive file  ######
 
