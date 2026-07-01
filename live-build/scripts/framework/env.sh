@@ -3,7 +3,7 @@
 ########## Copyright C 2026 MIT Emad-ms ##########
 
 # project: yuz-os builder framework
-# project git : https://github.com/emad1234-msoudi/Yuz-OS.git
+# project git : https://github.com/emad1234-msoudi/Yuz-OS_edu
 
 # framework/env.sh
 # framework for manage project environment
@@ -16,7 +16,7 @@
     return 1 2>/dev/null
 }
 
-########## frameware load ckeck ##########
+########## framework load check ##########
 
 if [[ -n "${FRAMEWORK_ENV_LOADED:-}" ]]
 then
@@ -34,7 +34,8 @@ readonly PROJECT_NAME="Yuz-OS"
 readonly PROJECT_ID="yuz-os"
 readonly PROJECT_VERSION="v1.1.0"
 readonly PROJECT_EDITION="Edu"
-readonly PROJECT_FULL_NAME="${PROJECT_NAME} ${PROJECT_VERSION} ${PROJECT_EDITION}"
+readonly PROJECT_RELEASE="Beta"
+readonly PROJECT_FULL_NAME="${PROJECT_NAME}_${PROJECT_VERSION}_${PROJECT_EDITION}_${PROJECT_RELEASE}"
 readonly PROJECT_DESCRIPTION="${PROJECT_NAME} ${PROJECT_EDITION} Live with Calamares Installer"
 
 #-> project webpage
@@ -55,7 +56,7 @@ readonly RUN_TIME
 
 #-> export project variables
 export \
-    PROJECT_NAME PROJECT_ID PROJECT_VERSION PROJECT_EDITION PROJECT_FULL_NAME PROJECT_DESCRIPTION \
+    PROJECT_NAME PROJECT_ID PROJECT_VERSION PROJECT_EDITION PROJECT_RELEASE PROJECT_FULL_NAME PROJECT_DESCRIPTION \
     PROJECT_WEBSITE PROJECT_PUBLISHER PROJECT_PUBLISHER_URL PROJECT_COPYRIGHT_YEAR PROJECT_LICENSE \
     PROJECT_ROOT RUN_TIME
 
@@ -67,6 +68,25 @@ readonly CONFIG_DIR="${PROJECT_ROOT}/config"
 readonly CACHE_DIR="${PROJECT_ROOT}/cache"
 readonly SCRIPTS_DIR="${PROJECT_ROOT}/scripts"
 
+#-> chroot directories
+
+readonly CHROOT_ROOT="${CONFIG_DIR}/includes.chroot"
+
+readonly CHROOT_USR_DIR="${CHROOT_ROOT}/usr"
+readonly CHROOT_ETC_DIR="${CHROOT_ROOT}/etc"
+readonly CHROOT_OPT_DIR="${CHROOT_ROOT}/opt"
+
+readonly CHROOT_YUZ_DIR="${CHROOT_OPT_DIR}/yuz-os"
+
+#-> scripts tree 
+
+readonly FRAMEWORK_DIR="${SCRIPTS_DIR}/framework"
+readonly FRAMEWORK_LOAD="${FRAMEWORK_DIR}/load.list"
+
+readonly MODULE_DIR="${SCRIPTS_DIR}/modules"
+readonly MODULE_LOAD="${MODULE_DIR}/load.list"
+readonly MODULE_RUN="${MODULE_DIR}/run.list"
+
 #-> log system
 
 readonly LOG_DIR="${PROJECT_ROOT}/log"
@@ -74,17 +94,12 @@ readonly LOG_SESSION_DIR="${LOG_DIR}/${RUN_TIME}"
 readonly LOG_MODULE_DIR="${LOG_SESSION_DIR}/module"
 readonly LOG_EMPTY="/dev/null"
 
-#-> scripts tree 
-
-readonly FRAMEWORK_DIR="${SCRIPTS_DIR}/framework"
-readonly FRAMEWORK_FILE="${FRAMEWORK_DIR}/framework.list"
-readonly MODULE_DIR="${SCRIPTS_DIR}/modules"
-readonly MODULE_FILE="${MODULE_DIR}/module.list"
-
 export \
-    CONFIG_DIR CACHE_DIR \
-    LOG_DIR LOG_SESSION_DIR LOG_MODULE_DIR LOG_EMPTY \
-    SCRIPTS_DIR FRAMEWORK_DIR FRAMEWORK_FILE MODULE_DIR MODULE_FILE
+    CONFIG_DIR CACHE_DIR SCRIPTS_DIR \
+    CHROOT_ROOT CHROOT_OPT_DIR CHROOT_ETC_DIR CHROOT_USR_DIR CHROOT_YUZ_DIR \
+    FRAMEWORK_DIR FRAMEWORK_LOAD \
+    MODULE_DIR MODULE_LOAD MODULE_RUN \
+    LOG_DIR LOG_SESSION_DIR LOG_MODULE_DIR LOG_EMPTY
 
 ########## system requirements #########
 

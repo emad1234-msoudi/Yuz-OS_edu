@@ -3,5 +3,10 @@
 		{
 			"path": "."
 		}
-	]
+	],
+	"settings": {
+		"workbench.editor.autoLockGroups": {
+			"default": true
+		}
+	}
 }

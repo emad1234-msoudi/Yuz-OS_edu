@@ -43,6 +43,7 @@ build/
 #-> config live build dir
 
 #live-build/config/hooks/
+live-build/config/hooks/normal
 live-build/config/preseed/
 
 live-build/config/bootloaders/
@@ -76,6 +77,13 @@ live-build/config/bootstrap
 live-build/config/common
 live-build/config/source
 
+live-build/config/package-lists/live.list.chroot
+
+#-> config chroot files
+
+#live-build/config/includes.chroot/
+live-build/config/includes.chroot/opt/yuz-os/flatpak/
+
 ###### releas and build archive file  ######
 
 archive/
@@ -85,3 +93,5 @@ release/
 ###### other ignore file ######
 
 git_key.txt
+
+########## end ##########

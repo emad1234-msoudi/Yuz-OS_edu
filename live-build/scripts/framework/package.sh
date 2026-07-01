@@ -3,7 +3,7 @@
 ########## Copyright C 2026 MIT Emad-ms ##########
 
 # project: yuz-os builder framework
-# project git : https://github.com/emad1234-msoudi/Yuz-OS.git
+# project git : https://github.com/emad1234-msoudi/Yuz-OS_edu
 
 # framework/package.sh
 # framework for manage system package
@@ -16,7 +16,7 @@
     return 1 2>/dev/null
 }
 
-########## frameware load ckeck ##########
+########## framework load ckeck ##########
 
 if [[ -n "${FRAMEWORK_PACKAGE_LOADED:-}" ]]
 then
@@ -29,48 +29,45 @@ fi
 ########## set framework func ##########
 
 #-> install required packages
-package_install()
+install_require()
 {
 	local app
+	
+	info "Checking required package(s)."
 
     for app in "$@"
 	do
 		if  dpkg -s "$app" >/dev/null 2>&1
 		then
-			ok "$app is already installed"
-		esle
+			ok "$app is already installed."
+		else
 			info "installing $app ..."
-			if  apt-get install -y "$app" >/dev/null 2>&1
+			if  DEBIAN_FRONTEND=noninteractive apt-get install -y -- "$app" >/dev/null 2>&1
 			then
 				ok "$app is installed."
 			else
-				if ! check_network >/dev/null 2>&1
-				then
-					error "no network connection to download"
-				fi
-
-				die "$app is not installed."
+				die "Failed to install $app."
 			fi
 		fi
 	done
-	success "all required packages available !"
+	
+	echo
+	ok "All required packages available."
+	return 0
 }
 
 #-> update system
 package_update()
 {
-	info "updating system"
+	info "Updating package lists..."
 
-	if check_network >/dev/null 2>&1
-	then	
-		if apt-get update >/dev/null 2>&1
+	if apt-get update >/dev/null 2>&1
 		then
-			ok "system is updated"
+			ok "System is updated"
 			return 0
 		fi
-	fi
 
-	warn warn "system is not updated."
+	warn "Failed to update package lists."
 	return 1
 }
 
