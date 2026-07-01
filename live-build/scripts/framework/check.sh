@@ -3,7 +3,7 @@
 ########## Copyright C 2026 MIT Emad-ms ##########
 
 # project: yuz-os builder framework
-# project git : https://github.com/emad1234-msoudi/Yuz-OS.git
+# project git : https://github.com/emad1234-msoudi/Yuz-OS_edu
 
 # framework/check.sh
 # framework for check system & framework environment
@@ -16,7 +16,7 @@
     return 1 2>/dev/null
 }
 
-########## frameware load ckeck ##########
+########## framework load ckeck ##########
 
 if [[ -n "${FRAMEWORK_CHECK_LOADED:-}" ]]
 then
@@ -33,10 +33,10 @@ check_root()
 {
 	if (( "$EUID" == 0 ))
     then
-        ok "your system is root"
+        ok "Your system is root."
         return 0
     else
-        error "nead run this with sudo !"
+        error "Please run this with sudo."
         return 1
     fi
 }
@@ -44,7 +44,7 @@ check_root()
 #-> func for chek free space
 check_disk_space()
 {
-    local need_gb="$REQUIRED_DISK_SPACE_GB"
+    local need_gb="${REQUIRED_DISK_SPACE_GB:-$1}"
     local need_kb=$((need_gb * 1024 * 1024))
 
     local avail_kb
@@ -52,34 +52,52 @@ check_disk_space()
     
     if (( avail_kb >= need_kb ))
     then
-        ok "your disk has $need_gb GB free space "
+        ok "Required disk space (${need_gb} GB) is available."
 		return 0
 	else
-        warn "your system don't have enough free space"
-		return 1
+		warn "At least ${need_gb} GB of free disk space is required."
+        return 1
 	fi
 }
 
 #-> check network connection
 check_network()
 {
-    local urls=(
-        "github.com"
-        "flathub.org"
+    local required_host="${1:-2}"
+    (( $# >0 )) && shift 1
+
+    local count=0
+    
+    local -a urls=("$@")
+    
+    urls+=(
         "deb.debian.org"
-        "google.com"
+        "github.com"
+        "dl.flathub.org"
     )
+
+    info "Checking network connection."
 
     for url in "${urls[@]}"
     do
-        if ping -c 1 -W 2 "$url" >/dev/null 2>&1
+        if nc -zw2 "$url" 443 >/dev/null 2>&1
         then
-            ok "your system connected to : $url"
-            return 0
+            ok "Connected to : $url"
+            ((count++))
+
+            if (( count >= required_host )) 
+            then
+                ok "Network connection verified."
+                return 0
+            fi
+        else
+            error "Failed to connect : $url"
+            return 1
         fi
     done
 
-    warn "no network connection"
+    warn "Unable to verify network connectivity."
+
     return 1
 }
 
@@ -91,10 +109,10 @@ check_system_arch()
     
 	if [[ "$system_arch" == "$REQUIRED_ARCH" ]]
 	then
-		ok "your system is $system_arch."
+		ok "Your system is $system_arch."
         return 0
 	else
-        die "this script only writed for $REQUIRED_ARCH system , but your system is $system_arch."
+        die "This script support only $REQUIRED_ARCH system , but your system is $system_arch."
 	fi
 }
 
@@ -105,15 +123,15 @@ check_system_dist()
     then
         source /etc/os-release
     else
-        die "system source not found !"
+        die "System os-release not found ."
     fi
 
 	if [[ "$ID" == "$REQUIRED_DISTRO" && "$VERSION_ID" == "$REQUIRED_DISTRO_VERSION"* ]]
 	then
-		ok "your system is $ID $VERSION_ID."
+		ok "Your system is $ID $VERSION_ID."
         return 0
 	else
-		die "this script only writed for $REQUIRED_DISTRO $REQUIRED_DISTRO_VERSION , but your system is $ID $VERSION_ID."
+		die "This script support only $REQUIRED_DISTRO $REQUIRED_DISTRO_VERSION , but your system is $ID $VERSION_ID."
 	fi
 }
 

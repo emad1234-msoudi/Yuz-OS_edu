@@ -1,0 +1,32 @@
+########## Copyright C 2026 MIT Emad-ms ##########
+
+# project: yuz-os builder framework
+# project git : https://github.com/emad1234-msoudi/Yuz-OS
+
+# modules/run.list 
+# list for run all modules function one by one
+
+##### file work flow #####
+
+# id|title|function|enabled|mandatory
+
+# id : function script id
+# title : title abuot function 
+# function : a function in sourced modules
+# enabled : yes or no for chose what do you want to run 
+
+# mandatory : yes or no for mange price to run
+# - this is used for sort requirments or not requirments function
+# - yes : means this is important and error if failed
+# - no : means this isn't important and skip to run if failed
+
+##### run modules #####
+
+
+build|Build environment setup|main_build_setup|yes|yes
+
+flatpak|flatpak repo builder|main_flatpak|yes|no
+
+build|build|main_build|yes|yes
+
+########## end ##########

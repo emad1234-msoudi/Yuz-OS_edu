@@ -3,7 +3,7 @@
 ########## Copyright C 2026 MIT Emad-ms ##########
 
 # project: yuz-os builder framework
-# project git : https://github.com/emad1234-msoudi/Yuz-OS.git
+# project git : https://github.com/emad1234-msoudi/Yuz-OS_edu
 
 # bootstrap.sh
 # loader for load project framework && modules
@@ -32,7 +32,7 @@ framework_dir="${BOOTSTRAP_ROOT}/framework"
 framework_file="${framework_dir}/load.list"
 
 module_dir="${BOOTSTRAP_ROOT}/modules"
-export module_file="${module_dir}/module.list"
+module_file="${module_dir}/load.list"
 
 
 ########## set framework func ##########
@@ -62,6 +62,7 @@ bootstrap_load()
         [[ "$load_item" =~ ^# ]] && continue
 
         file="$load_dir/${load_item}"
+        echo "[ info ] sourcing $load_item"
 
         #-> source module if exist
         [[ -f "$file" ]] || {
@@ -75,12 +76,13 @@ bootstrap_load()
         }
 
         # shellcheck source=/dev/null
-        source "$file" || { 
-        echo "failed to source $load_item module"
-        return 1
-        }
-
-        echo "[ OK ] $load_item sourced ."
+        if source "$file" 
+        then
+            echo "[ OK ] $load_item sourced ."
+        else
+            echo "failed to source $load_item $load_title"
+            return 1
+        fi
 
     done < "$load_file"
 
@@ -96,12 +98,11 @@ bootstrap_load \
     "$framework_dir" \
     "$framework_file"
 
-
 #-> load all modulse
-#bootstrap_load \
-#    "Modules" \
-#    "$module_dir" \
-#    "$module_file"
+bootstrap_load \
+    "Modules" \
+    "$module_dir" \
+    "$module_file"
 
 ######### check #########
 
@@ -115,7 +116,7 @@ exist_dir "$CONFIG_DIR" "$SCRIPTS_DIR" "$MODULE_DIR" "$FRAMEWORK_DIR"
 
 ########################
 #-> note :
-# this is just for shellcheck
+# this is just for shellcheck and development
 
 : <<'src'
 
@@ -123,11 +124,10 @@ source ./framework/env.sh
 source ./framework/ui.sh
 source ./framework/log.sh
 source ./framework/runtime.sh
-source ./framework/file.sh
+source ./framework/filesystem.sh
 source ./framework/check.sh
 source ./framework/package.sh
 
 src
 
 ########## end ##########
-

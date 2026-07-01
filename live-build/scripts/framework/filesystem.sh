@@ -3,7 +3,7 @@
 ########## Copyright C 2026 MIT Emad-ms ##########
 
 # project: yuz-os builder framework
-# project git : https://github.com/emad1234-msoudi/Yuz-OS.git
+# project git : https://github.com/emad1234-msoudi/Yuz-OS_edu
 
 # framework/file.sh
 # framework for manage project filesystem
@@ -16,7 +16,7 @@
     return 1 2>/dev/null
 }
 
-########## frameware load ckeck ##########
+########## framework load ckeck ##########
 
 if [[ -n "${FRAMEWORK_FILE_LOADED:-}" ]]
 then
@@ -36,14 +36,13 @@ exist_dir()
     do
         if [[ -d "$dir" ]]
         then
-            ok "$dir exist"
+            ok "$dir already exists."
         else
-            error "$dir not exist."
+            error "$dir doesn't exists."
             return 1
         fi
     done
 
-    success "all directories exist."
     return 0
 }
 
@@ -55,14 +54,13 @@ exist_file()
     do
         if [[ -f "$file" ]]
         then
-            ok "$file exist"
+            ok "$file already exists."
         else
-            error "$file not exist."
+            error "$file dosen't exists."
             return 1
         fi
     done
 
-    success "all files exist."
     return 0
 }
 
@@ -75,7 +73,7 @@ ensure_dir()
     do
         if [[ -d "$dir" ]]
         then
-            ok "$dir is already exist."
+            ok "$dir already exist."
         else
             if [[ -f "$dir" ]] 
             then
@@ -86,14 +84,13 @@ ensure_dir()
                 then
                     ok "$dir created."
                 else
-                    error "failed to create $dir"
+                    error "Failed to create $dir"
                     return 1
                 fi
             fi
         fi
     done 
 
-    success "all directories safely checked and created."
     return 0
 }
 
@@ -106,25 +103,25 @@ ensure_file()
     do
         if [[ -f "$file" ]]
         then
-            ok "$file is already exist."
+            ok "$file already exist."
         else
             if [[ -d "$file" ]] 
             then
                 error "$file is directory !"
                 return 1
             else
+                ensure_dir "$(dirname "$file")"
                 if touch "$file" >/dev/null 2>&1
                 then
                     ok "$file created."
                 else
-                    error "failed to create $file"
+                    error "Failed to create $file."
                     return 1
                 fi  
             fi
         fi
     done 
 
-    success "all files safely checked and created."
     return 0
 }
 
@@ -135,7 +132,7 @@ safe_copy()
     local items
 
     (( $# >= 2 )) || {
-        error "no file selected to copy"
+        error "No file selected to copy."
         return 1
     }
 
@@ -145,7 +142,7 @@ safe_copy()
             error "$copy_location is file."&&\
             return 1  
 
-        error "$copy_location isn't exist."
+        error "$copy_location doesn't exist."
 
         return 1
     fi
@@ -156,9 +153,9 @@ safe_copy()
         then
             if cp -a "${!items}" "$copy_location" >/dev/null 2>&1
             then
-                ok "copyed ${!items} to $copy_location"
+                ok "Copied ${!items} to $copy_location."
             else
-                error "failed to copy ${!items} to $copy_location ."
+                error "Failed to copy ${!items} to $copy_location."
                 return 1
             fi
         else
@@ -167,7 +164,6 @@ safe_copy()
         fi
     done
 
-    success "all items copid."
     return 0
 }
 
@@ -178,7 +174,7 @@ safe_move()
     local items
 
     (( $# >= 2 )) || {
-        error "no file selected to move"
+        error "No file selected to move."
         return 1
     }
 
@@ -188,7 +184,7 @@ safe_move()
             error "$move_location is file."&&\
             return 1
 
-        error "$move_location isn't exist."
+        error "$move_location doesn't exist."
 
         return 1
     fi
@@ -197,11 +193,11 @@ safe_move()
     do
         if [[ -f "${!items}" || -d "${!items}" ]]
         then
-            if mv "${!items}" "$move_location" >/dev/null 2>&1
+            if mv -- "${!items}" "$move_location" >/dev/null 2>&1
             then
-                ok "moved ${!items} to $move_location"
+                ok "Moved ${!items} to $move_location."
             else
-                error "failed to move ${!items} to $move_location ."
+                error "Failed to move ${!items} to $move_location."
                 return 1
             fi
         else
@@ -210,7 +206,6 @@ safe_move()
         fi
     done
 
-    success "all items moved."
     return 0
 }
 
@@ -218,28 +213,44 @@ safe_move()
 safe_remove()
 {
     local items
-    
+    local ignore_missing="${1:-false}"
+    shift 1
+
     for items in "$@"
     do
         if [[ -d "$items" || -f "$items" ]]
         then    
-            if rm -r "$items" >/dev/null 2>&1
+            if rm -rf -- "$items" >/dev/null 2>&1
             then
                 ok "$items removed."
             else
-                error "$items failed to remove"
+                error "$items failed to remove."
                 return 1
             fi
         else
-            error "$items isn't exist to remove."
-            return 1
+            if [[ "$ignore_missing" == "true" ]]
+            then
+                warn "$items doesn't exist , skipping."
+            else
+                error "$items doesn't exist to remove."
+                return 1
+            fi
         fi
 
     done
 
-    success "all items removed."
     return 0
+}
 
+reset_dir()
+{
+    local ignore_missing="${1:-false}"
+    shift 1    
+
+    safe_remove "$ignore_missing" "$@" || return 1
+    ensure_dir "$@" || return 1
+
+    return 0
 }
 
 ########## end ##########

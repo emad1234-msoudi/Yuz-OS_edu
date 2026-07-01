@@ -1,7 +1,10 @@
 ########## Copyright C 2026 MIT Emad-ms ##########
 
-# project: yuz-os builder
-# project git : https://github.com/emad1234-msoudi/Yuz-OS.git
+# project: yuz-os builder module
+# project git : https://github.com/emad1234-msoudi/Yuz-OS_edu
+
+# module/flatpak/app.list
+# list of flatpak repository apps
 
 ########## Edu ##########
 
@@ -23,3 +26,5 @@ io.github.seadve.Kooha
 io.github.swordpuffin.rewaita
 net.codelogistics.webapps
 org.gnome.Firmware
+
+########## end ##########

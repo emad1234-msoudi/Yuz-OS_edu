@@ -1,0 +1,19 @@
+########## Copyright C 2026 MIT Emad-ms ##########
+
+# project: yuz-os builder framework
+# project git : https://github.com/emad1234-msoudi/Yuz-OS_edu
+
+# modules/load.list 
+# list for source all modules one by one
+
+##### load modules #####
+
+#-> core
+
+build/build.sh
+
+#-> other optional modules
+
+flatpak/flatpak.sh
+
+########## end ##########
