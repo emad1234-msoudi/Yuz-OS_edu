@@ -61,6 +61,8 @@ curl
 nano
 fastfetch
 btop
+flatpak
+ostree
 
 # ================ Multimedia & Playback ================
 pulseaudio-utils

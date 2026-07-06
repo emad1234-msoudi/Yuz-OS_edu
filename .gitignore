@@ -82,13 +82,14 @@ live-build/config/package-lists/live.list.chroot
 #-> config chroot files
 
 #live-build/config/includes.chroot/
-live-build/config/includes.chroot/opt/yuz-os/flatpak/
+live-build/config/includes.chroot/opt/yuz-os/data/flatpak/
 
 ###### releas and build archive file  ######
 
 archive/
 back_up/
 release/
+test
 
 ###### other ignore file ######
 

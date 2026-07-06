@@ -1,0 +1,232 @@
+#!/usr/bin/env bash
+
+########## Copyright C 2026 MIT Emad-ms ##########
+
+# project: yuz-os runtime module
+# project git : https://github.com/emad1234-msoudi/Yuz-OS_edu
+
+# hooks/live/999.flatpak_install.hook.chroot
+# hooks scrpit to install local flatpak repo
+
+########### setup environment ##########
+
+set -Eeuo pipefail
+
+########## var ##########
+
+readonly flatpak_repo_dir="/opt/yuz-os/data/flatpak"
+readonly flatpak_apps_file="$flatpak_repo_dir/apps.list"
+
+########## func ##########
+
+#-> add requirements flathub repo ####
+flatpak_check()
+{
+    #-> checking flatapk app exist
+    command -v "flatpak" >/dev/null 2>&1  ||\
+    {
+        echo "[ ERROR ] flatpak not installed. this is needed to install."
+        return 1
+    }
+
+    #-> checking ostree exist
+    command -v "ostree" >/dev/null 2>&1  ||\
+    {
+        echo "[ ERROR ] ostree not installed. this is needed to install."
+        return 1
+    }
+
+    #-> checking root 
+    if [[ ! "$EUID" -eq 0 ]]
+    then
+        echo "[ ERROR ] Please run this with sudo."
+        return 1
+    fi
+
+    return 0
+}
+
+#-> adding needed repositorty
+flatpak_add_repo()
+{
+    #-> check & add flathub repository
+    echo "[ INFO ] Adding flathub repository."
+
+    flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo || return 1
+    flatpak remote-modify --no-filter --collection-id=org.flathub.Stable flathub || return 1
+
+    echo "[ OK ] Flathub repository added successfully."
+
+    #-> check & add yuz-os repository
+    echo "[ INFO ] Adding yuz-os repository."
+    
+    flatpak remote-add \
+        --system \
+        --if-not-exists \
+        --no-gpg-verify \
+        --default-branch=stable \
+        --title="Yuz OS Offline Repository" \
+        --comment="Offline Flatpak repository for Yuz OS Education Edition" \
+        --description="Offline Flatpak repository used by the Yuz OS installer." \
+        --homepage="https://github.com/emad1234-msoudi/Yuz-OS_edu" \
+        yuz-os \
+        "file://$flatpak_repo_dir"
+    
+    flatpak remote-modify --no-gpg-verify yuz-os || return 1
+
+    echo "[ OK ] yuz-os repository added successfully."
+
+    return 0
+}
+
+# verifying flatpak repo
+flatpak_verify()
+{
+    #-> data var
+
+    local repo_files=(
+        "$flatpak_repo_dir/apps.list"
+        "$flatpak_repo_dir/config"
+        "$flatpak_repo_dir/summary"
+        "$flatpak_repo_dir/summary.idx"
+    )
+
+    local item=""
+
+    echo "[ INFO ] Verifying flatpak repository"
+
+    #-> checking repo files
+    echo "   Checking repo files"
+    for item in "${repo_files[@]}"
+    do
+        if [[ -f "$item" ]]
+        then
+            echo "   ✓ $item file exists."
+        else
+            echo "   ⨯ Missing repository item : $item ."
+            return 1
+        fi
+    done
+
+    #-> checking repo tree
+    echo "   Checking repository metadata"
+    if \
+        flatpak repo --info "$flatpak_repo_dir" && \
+        ostree refs --repo="$flatpak_repo_dir" >/dev/null 2>&1
+    then
+        echo "   ✓ Repository meta data is available."
+    else
+        echo "   ⨯ Repository meta data in unavailable."
+        return 1
+    fi
+
+    echo  "[ OK ] Flatpak repository verified."
+    return 0
+}
+
+#-> script for install flathub app 
+flatpak_install()
+{
+    local flatpak_apps_item=""
+    
+    echo
+    echo "[ INFO ] Installing apps..."
+    echo
+
+    while IFS= read -r flatpak_apps_item
+    do
+        #-> skip line if started whith "#" or "space" 
+        [[ -z "$flatpak_apps_item" ]] && continue
+        [[ "$flatpak_apps_item" =~ ^# ]] && continue
+
+        #-> skip unavailable app
+        #if ! flatpak remote-info yuz-os "$flatpak_apps_item" >/dev/null 2>&1 
+        #then
+        #    echo "[ WARN ] $flatpak_apps_item not found !"
+        #    continue
+        #fi
+
+        #-> apps process
+        echo "Package → $flatpak_apps_item"
+
+        echo "   ⇀ Installing on system ... "
+         
+        if \
+            flatpak install \
+            --system --noninteractive\
+            yuz-os "$flatpak_apps_item" -y
+        then 
+            echo "   ✓ Installed."
+        else
+            echo "   ⨯ Failed to Install."
+        fi
+
+    done < "$flatpak_apps_file"
+    
+    echo  "[ OK ] Flatpak apps installed."
+    return 0
+}
+
+#-> finishing setuo for flatpak installer
+flatpak_finish_setup()
+{
+    echo
+    echo "[ INFO ] Finishing up flatpak installer ..."
+    
+    echo
+    echo "Repairing flatpak ..."
+    #-> repairing flatpak system
+    if flatpak repair --system
+    then
+        echo "   [ OK ] Flatpak repair completed."
+    else
+        echo "   [ WARN ] Flatpak repair failed."
+    fi
+
+    #-> Rmoving unused apps
+    echo
+    echo "Removing unused apps ..." 
+    
+    if flatpak uninstall --system --unused -y
+    then
+        echo "   [ OK ] Unused flatpak apps removed."
+    else
+        echo "   [ WARN ] Failed to remove unused flatpak apps."
+    fi
+
+    #-> remove old 
+    echo
+    echo "Removing offline repository ..."
+
+    if rm -rf -- "$flatpak_repo_dir"
+    then
+        echo "   [ OK ] Flatpak repository removed."
+    else
+        echo "   [ ERROR ] Failed to remove flatpak repository."
+        return 1
+    fi
+
+    echo  "[ OK ] Flatpak installer Finished."
+    return 0
+}
+
+main_flatpak_install()
+{
+    echo " ==================================="
+    echo "=-> Flatpak repo installer          "
+
+    flatpak_check        || return 1
+    flatpak_add_repo     || return 1
+    flatpak_verify       || return 1
+    flatpak_install      || return 1
+    flatpak_finish_setup || return 1
+
+    echo "[ SUCCESS ] Finished successfully."
+    
+    echo "=-> Installer Finished successfully   "
+    echo " =================================== "
+}
+
+main_flatpak_install "$@"
+
+########## end ##########

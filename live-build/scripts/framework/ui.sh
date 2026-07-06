@@ -77,10 +77,10 @@ ui_title_big()
 
     local title="$*"
     
-    printf "%b\n" "${color}                                    ${NC}"
-    printf "%b\n" "${color}  ╱█▀▀▀▀▀▀▀▀▀ ⇀ $title ▀▀▀▀▀▀▀▀▀█   ${NC}"
-    printf "%b\n" "${color} ░█                                 ${NC}"
-    printf "%b\n" "${color}                                    ${NC}"
+    printf "%b\n" "${color}                                ${NC}"
+    printf "%b\n" "${color}  ╱█▀▀▀▀▀▀▀ ⇀ $title ▀▀▀▀▀▀▀█   ${NC}"
+    printf "%b\n" "${color} ░█                             ${NC}"
+    printf "%b\n" "${color}                                ${NC}"
 
 }
 
@@ -90,10 +90,10 @@ ui_title_big_close()
     shift 
 
     local title="$*"
-    printf "%b\n" "${color}                                    ${NC}"
-    printf "%b\n" "${color} ░█                                 ${NC}"
-    printf "%b\n" "${color}  ╲█▄▄▄▄▄▄▄▄▄ ⇁ $title ▄▄▄▄▄▄▄▄▄█   ${NC}"
-    printf "%b\n" "${color}                                    ${NC}"
+    printf "%b\n" "${color}                                ${NC}"
+    printf "%b\n" "${color} ░█                             ${NC}"
+    printf "%b\n" "${color}  ╲█▄▄▄▄▄▄▄ ⇁ $title ▄▄▄▄▄▄▄█   ${NC}"
+    printf "%b\n" "${color}                                ${NC}"
 }
 
 ########## banner framework func ##########
@@ -126,6 +126,8 @@ ui_banner_module()
 {
     local color="$1"
 
+    ui_banner_project "$YELLOW"
+
     printf "%b\n"  "${color}  __                     __         __                ${NC}"
     printf "%b\n"  "${color} |  | .--------.-----.--|  |.--.--.|  |.-----.-----.  ${NC}"
     printf "%b\n"  "${color} |  | |        |  _  |  _  ||  |  ||  ||  -__|__ --|  ${NC}"
@@ -141,7 +143,7 @@ ui_banner_build()
 {
     local color="$1"
 
-	clear
+	ui_banner_project "$YELLOW"
     
 	printf "%b\n" "${color}  __                                  __                                      ${NC}"
 	printf "%b\n" "${color} |  |      _           _         _   |  |  Build started !                    ${NC}"

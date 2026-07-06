@@ -107,12 +107,12 @@ bootstrap_load \
 ######### check #########
 
 #-> setup log 
-ui_title_small "$BLUE" "makeing project log"
-ensure_dir "$LOG_DIR" "$LOG_SESSION_DIR" "$LOG_MODULE_DIR"  
+#ui_title_small "$BLUE" "makeing project log"
+#ensure_dir "$LOG_DIR" "$LOG_SESSION_DIR" "$LOG_MODULE_DIR"  
 
 #-> check project tree
 ui_title_small "$BLUE" "checking project tree"
-exist_dir "$CONFIG_DIR" "$SCRIPTS_DIR" "$MODULE_DIR" "$FRAMEWORK_DIR" 
+exist_dir "$CONFIG_DIR" "$SCRIPTS_DIR" "$MODULE_DIR" "$FRAMEWORK_DIR" || return 1
 
 ########################
 #-> note :
