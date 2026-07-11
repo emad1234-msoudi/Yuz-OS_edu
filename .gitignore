@@ -89,7 +89,9 @@ live-build/config/includes.chroot/opt/yuz-os/data/flatpak/
 archive/
 back_up/
 release/
+branding/
 test
+docs/kharazmi/
 
 ###### other ignore file ######
 
