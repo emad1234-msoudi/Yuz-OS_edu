@@ -3,8 +3,8 @@
 # project: yuz-os builder framework
 # project git : https://github.com/emad1234-msoudi/Yuz-OS
 
-# modules/run.list 
-# list for run all modules function one by one
+# /opt/yuz-os/scripts/modules/run.list 
+# list for run all modules function one by one to run 
 
 ##### file work flow #####
 
@@ -22,11 +22,7 @@
 
 ##### run modules #####
 
-
-build|Prapare build environment|main_build_setup|yes|yes
-
-flatpak|Flatpak repo builder|main_flatpak|yes|no
-
-build|Build|main_build|yes|yes
+flatpak|Flatpak repo installer|main_flatpak_install|yes|yes
+style|configuration project style|main_style|yes|yes
 
 ########## end ##########

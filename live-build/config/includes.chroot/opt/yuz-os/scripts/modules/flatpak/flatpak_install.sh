@@ -5,42 +5,42 @@
 # project: yuz-os runtime module
 # project git : https://github.com/emad1234-msoudi/Yuz-OS_edu
 
-# hooks/live/999.flatpak_install.hook.chroot
-# hooks scrpit to install local flatpak repo
+# /opt/yuz-os/scripts/flatpak/flatpak_install.sh
+# build time module to install local yuz-os flatpak repository
 
 ########### setup environment ##########
 
 set -Eeuo pipefail
 
+#source "../../bootstrap.sh" #-> this source just for development
+
 ########## var ##########
 
-readonly flatpak_repo_dir="/opt/yuz-os/data/flatpak"
+readonly flatpak_repo_dir="${DATA_DIR}/flatpak"
 readonly flatpak_apps_file="$flatpak_repo_dir/apps.list"
 
 ########## func ##########
 
-#-> add requirements flathub repo ####
+#-> check neaded to run
 flatpak_check()
 {
+    apt install flatpak ostree
     #-> checking flatapk app exist
     command -v "flatpak" >/dev/null 2>&1  ||\
     {
-        echo "[ ERROR ] flatpak not installed. this is needed to install."
-        return 1
+        die "flatpak not installed. this is needed to add repository."
     }
 
     #-> checking ostree exist
     command -v "ostree" >/dev/null 2>&1  ||\
     {
-        echo "[ ERROR ] ostree not installed. this is needed to install."
-        return 1
+        die "ostree not installed. this is needed to add repository."
     }
 
     #-> checking root 
     if [[ ! "$EUID" -eq 0 ]]
     then
-        echo "[ ERROR ] Please run this with sudo."
-        return 1
+        die "Please run this with sudo."
     fi
 
     return 0
@@ -50,15 +50,15 @@ flatpak_check()
 flatpak_add_repo()
 {
     #-> check & add flathub repository
-    echo "[ INFO ] Adding flathub repository."
+    info "Adding flathub repository."
 
     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo || return 1
     flatpak remote-modify --no-filter --collection-id=org.flathub.Stable flathub || return 1
 
-    echo "[ OK ] Flathub repository added successfully."
+    ok "Flathub repository added successfully."
 
     #-> check & add yuz-os repository
-    echo "[ INFO ] Adding yuz-os repository."
+    info "Adding yuz-os repository."
     
     flatpak remote-add \
         --system \
@@ -70,11 +70,12 @@ flatpak_add_repo()
         --description="Offline Flatpak repository used by the Yuz OS installer." \
         --homepage="https://github.com/emad1234-msoudi/Yuz-OS_edu" \
         yuz-os \
-        "file://$flatpak_repo_dir"
+        "file://$flatpak_repo_dir" \
+        || { error "Failed to add yuz-os repository" ; return 1 ;}
     
     flatpak remote-modify --no-gpg-verify yuz-os || return 1
 
-    echo "[ OK ] yuz-os repository added successfully."
+    ok "yuz-os repository added successfully."
 
     return 0
 }
@@ -93,34 +94,34 @@ flatpak_verify()
 
     local item=""
 
-    echo "[ INFO ] Verifying flatpak repository"
+    info "Verifying flatpak repository"
 
     #-> checking repo files
-    echo "   Checking repo files"
+    printf "%b\n" "   ${BLUE}Checking repo files${NC}"
     for item in "${repo_files[@]}"
     do
         if [[ -f "$item" ]]
         then
-            echo "   ✓ $item file exists."
+            printf "%b\n" "   ${GREEN}✓${NC} $item file exists."
         else
-            echo "   ⨯ Missing repository item : $item ."
+            printf "%b\n" "   ${RED}⨯${NC} Missing repository item : $item ."
             return 1
         fi
     done
 
     #-> checking repo tree
-    echo "   Checking repository metadata"
+    printf "%b\n" "   ${BLUE}Checking repository metadata${NC}"
     if \
         flatpak repo --info "$flatpak_repo_dir" && \
         ostree refs --repo="$flatpak_repo_dir" >/dev/null 2>&1
     then
-        echo "   ✓ Repository meta data is available."
+        printf "%b\n" "   ${GREEN}✓${NC} Repository meta data is available."
     else
-        echo "   ⨯ Repository meta data in unavailable."
+        printf "%b\n" "   ${RED}⨯${NC} Repository meta data in unavailable."
         return 1
     fi
 
-    echo  "[ OK ] Flatpak repository verified."
+    ok "Flatpak repository verified."
     return 0
 }
 
@@ -129,9 +130,7 @@ flatpak_install()
 {
     local flatpak_apps_item=""
     
-    echo
-    echo "[ INFO ] Installing apps..."
-    echo
+    info "Installing apps..."
 
     while IFS= read -r flatpak_apps_item
     do
@@ -147,86 +146,83 @@ flatpak_install()
         #fi
 
         #-> apps process
-        echo "Package → $flatpak_apps_item"
+        info "${YELLOW}Package${NC} → ${GREEN}$flatpak_apps_item${NC}"
 
-        echo "   ⇀ Installing on system ... "
+        printf "%b\n" "   ⇀${BLUE} Installing on system ... ${NC}"
          
         if \
             flatpak install \
             --system --noninteractive\
             yuz-os "$flatpak_apps_item" -y
         then 
-            echo "   ✓ Installed."
+            printf "%b\n" "   ${GREEN}✓${NC} Installed."
         else
-            echo "   ⨯ Failed to Install."
+            printf "%b\n" "   ${RED}⨯${NC} Failed to Install."
         fi
 
     done < "$flatpak_apps_file"
     
-    echo  "[ OK ] Flatpak apps installed."
+    ok "Flatpak apps installed."
     return 0
 }
 
-#-> finishing setuo for flatpak installer
+#-> finishing setup for flatpak installer
 flatpak_finish_setup()
 {
     echo
-    echo "[ INFO ] Finishing up flatpak installer ..."
+    info "Finishing up flatpak installer ..."
     
     echo
-    echo "Repairing flatpak ..."
+    echo "${BLUE}Repairing flatpak ...${NC}"
     #-> repairing flatpak system
     if flatpak repair --system
     then
-        echo "   [ OK ] Flatpak repair completed."
+        printf "%b\n" "   ${GREEN}✓${NC} Flatpak repair completed."
     else
-        echo "   [ WARN ] Flatpak repair failed."
+        printf "%b\n" "   ${YELLOW}!${NC} Flatpak repair failed."
     fi
 
     #-> Rmoving unused apps
     echo
-    echo "Removing unused apps ..." 
+    echo "${BLUE}Removing unused apps ...${NC}" 
     
     if flatpak uninstall --system --unused -y
     then
-        echo "   [ OK ] Unused flatpak apps removed."
+        printf "%b\n" "   ${GREEN}✓${NC} Unused flatpak apps removed."
     else
-        echo "   [ WARN ] Failed to remove unused flatpak apps."
+        printf "%b\n" "   ${YELLOW}!${NC} Failed to remove unused flatpak apps."
     fi
 
     #-> remove old 
     echo
-    echo "Removing offline repository ..."
+    echo "${BLUE}Removing offline repository ...${NC}"
 
     if rm -rf -- "$flatpak_repo_dir"
     then
-        echo "   [ OK ] Flatpak repository removed."
+        printf "%b/n" "   ${GREEN}✓${NC} Flatpak repository removed."
     else
-        echo "   [ ERROR ] Failed to remove flatpak repository."
+        printf "%b/n" "   ${RED}⨯${NC} Failed to remove flatpak repository."
         return 1
     fi
 
-    echo  "[ OK ] Flatpak installer Finished."
+    ok "Flatpak installer Finished."
     return 0
 }
 
+########## main flatpak ##########
+#-> main for load flatpak func
+
 main_flatpak_install()
 {
-    echo " ==================================="
-    echo "=-> Flatpak repo installer          "
-
     flatpak_check        || return 1
     flatpak_add_repo     || return 1
     flatpak_verify       || return 1
     flatpak_install      || return 1
     flatpak_finish_setup || return 1
 
-    echo "[ SUCCESS ] Finished successfully."
-    
-    echo "=-> Installer Finished successfully   "
-    echo " =================================== "
+    return 0
 }
 
-main_flatpak_install "$@"
+#main_flatpak_install "$@"
 
 ########## end ##########

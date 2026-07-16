@@ -5,7 +5,7 @@
 # project: yuz-os builder framework
 # project git : https://github.com/emad1234-msoudi/Yuz-OS_edu
 
-# framework/file.sh
+# /opt/yuz-os/scripts/framework/file.sh
 # framework for manage project filesystem
 
 ########## shell load ckeck ##########
@@ -110,7 +110,7 @@ ensure_file()
                 error "$file is directory !"
                 return 1
             else
-                ensure_dir "$(dirname "$file")"
+                ensure_dir "$(dirname "$file")" || return 1
                 if touch "$file" >/dev/null 2>&1
                 then
                     ok "$file created."
