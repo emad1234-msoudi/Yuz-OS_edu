@@ -110,14 +110,14 @@ ensure_file()
                 error "$file is directory !"
                 return 1
             else
-                ensure_dir "$(dirname "$file")" || return 1
+                ensure_dir "$(dirname "$file")" 1>/dev/null || return 1
                 if touch "$file" >/dev/null 2>&1
                 then
                     ok "$file created."
                 else
                     error "Failed to create $file."
                     return 1
-                fi  
+                fi
             fi
         fi
     done 

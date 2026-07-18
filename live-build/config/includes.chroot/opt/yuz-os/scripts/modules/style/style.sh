@@ -38,7 +38,6 @@ style_check()
     fi
 
     #-> checking needed optaional command
-    info "Checking required packages"
     for pkg in "${REQUIRED_PACKAGES[@]}"
     do
         if ! dpkg -s "$pkg" >/dev/null 2>&1
@@ -60,19 +59,19 @@ style_verify()
     info "Verifying style data"
 
     #-> checking data files
-    printf "%b\n" "   ${BLUE}Checking repo files${NC}"
-    
+
     for item in "${STYLE_DATA_FILES[@]}"
     do
         if [[ -f "$item" ]]
         then
-            printf "%b\n" "   ${GREEN}✓${NC} $item file exists."
+            ok "$item file exists."
         else
-            printf "%b\n" "   ${RED}⨯${NC} Missing repository item : $item ."
+            error "Missing repository item : $item ."
             return 1
         fi
     done
 
+    echo
     ok "Style data verified."
     return 0
 }
@@ -80,16 +79,20 @@ style_verify()
 #-> Prepare environment directories
 style_prepare()
 {
-    info "Preparing target directories"
-    
-    install -d -m 0755 "${DCONF_PROFILE_DIR}"   || return 1
-    install -d -m 0755 "${DCONF_DB_DIR}"        || return 1
-    install -d -m 0755 "${ENVIRONMENT_DIR}"     || return 1
-    install -d -m 0755 "${SKEL_DIR}"            || return 1
-    install -d -m 0755 "${GTK4_SKEL_DIR}"       || return 1
-    install -d -m 0755 "${GTK3_SKEL_DIR}"       || return 1
+    local items=(
+    "${DCONF_PROFILE_DIR}"
+    "${DCONF_DB_DIR}"
+    "${ENVIRONMENT_DIR}"
+    "${SKEL_DIR}"
+    "${GTK4_SKEL_DIR}"
+    "${GTK3_SKEL_DIR}"
+    )
 
-    ok "Target directories prepared."
+    info "Preparing target directories"
+           
+    ensure_dir "${items[@]}"
+
+    success "Target directories prepared."
     return 0
 }
 
@@ -102,6 +105,7 @@ style_deploy()
     if unzip_file "$THEME_DATA" "$THEME_TARGET_DIR" 
     then
         ok "GTK theme assets deployed."
+        echo
     else
         error "Failed to deploy GTK theme assets."
         return 1
@@ -111,6 +115,7 @@ style_deploy()
     if unzip_file "$ICON_DATA" "$ICON_TARGET_DIR"
     then
         ok "Icon theme assets deployed."
+        echo
     else
         error "Failed to deploy icon theme assets."
         return 1
@@ -120,6 +125,7 @@ style_deploy()
     if unzip_file "$CURSOR_DATA" "$CURSOR_TARGET_DIR"  
     then
         ok "Cursor theme assets deployed."
+        echo
     else
         error "Failed to deploy cursor theme assets."
         return 1
@@ -129,6 +135,7 @@ style_deploy()
     if unzip_file "$WALLPAPER_DATA" "$WALLPAPER_TARGET_DIR"
     then
         ok "Wallpaper assets deployed."
+        echo
     else
         error "Failed to deploy wallpaper assets."
         return 1
@@ -147,12 +154,13 @@ style_deploy()
     if fc-cache -f "$FONT_TARGET_DIR" >/dev/null 2>&1
     then
         ok "Font cache updated successfully."
+        echo
     else
         error "Failed to update font cache for $FONT_TARGET_DIR."
         return 1
     fi
 
-    ok "All style assets were deployed successfully."
+    success "All style assets were deployed successfully."
     return 0
 }
 
@@ -167,7 +175,7 @@ user-db:user
 system-db:local
 EOF
     then
-        info "Dconf profile Writed."
+        ok "Dconf profile Writed."
         return 0
     else
         error "Failed to write dconf profile."
@@ -211,7 +219,10 @@ style_extensions_config()
     ENABLED_EXTENSIONS="[${enabled_exts%,}]"
     declare -g ENABLED_EXTENSIONS
 
-    ok "GNOME Shell extensions prepared: $ENABLED_EXTENSIONS"
+    echo
+    ok "Extensions prepared: $ENABLED_EXTENSIONS"
+
+    success "GNOME Shell extensions prepared: $ENABLED_EXTENSIONS"
     return 0
 }
 
@@ -220,7 +231,7 @@ style_gnome_config()
 {
     info "Writing GNOME desktop defaults"
 
-    if ! write_text_file "${DCONF_DEFAULTS_FILE}" 0644 <<EOF
+    if write_text_file "${DCONF_DEFAULTS_FILE}" 0644 <<EOF
 [org/gnome/desktop/interface]
 gtk-theme='${THEME_SELECTED_NAME}'
 icon-theme='${ICON_SELECTED_NAME}'
@@ -251,15 +262,20 @@ picture-uri='${WALLPAPER_LIGHT_URI}'
 name='${THEME_SELECTED_NAME}'
 EOF
     then
+        ok "Config file writed."
+    else
         error "Failed to write GNOME desktop defaults dconf file." 
         return 1
     fi
 
+    info "Compiling dconf database"
     run_task \
-    "Compiling dconf database" "$LOG_EMPTY" \
+    "" "$LOG_EMPTY" \
     dconf update
 
-    ok "GNOME desktop defaults Writed."
+    ok "Dconf database Compiled."
+
+    success "GNOME desktop defaults Writed."
     return 0
 }
 
@@ -278,15 +294,15 @@ style_libadwaita_config()
         #-> copy theme assets
         if [[ -d "${GTK4_THEME_DIR}/assets" ]]
         then
-            safe_remove "${GTK4_SKEL_DIR}/assets" || return 1
-            safe_copy "${GTK4_THEME_DIR}/assets" "${GTK4_SKEL_DIR}/assets" || return 1
+            ensure_dir "${GTK4_SKEL_DIR}/assets" || return 1
+            safe_copy "${GTK4_THEME_DIR}/assets" "${GTK4_SKEL_DIR}" || return 1
         else
             warn "GTK4 theme assets directory not found: ${GTK4_THEME_DIR}/assets"
         fi
 
         #-> copy "gtk.css" main theme base
         if [[ -f "${GTK4_THEME_DIR}/gtk.css" ]]; then
-            safe_copy "${GTK4_THEME_DIR}/gtk.css" "${GTK4_SKEL_DIR}/gtk.css" || return 1
+            safe_copy "${GTK4_THEME_DIR}/gtk.css" "${GTK4_SKEL_DIR}" || return 1
             chmod 0644 "${GTK4_SKEL_DIR}/gtk.css" || return 1
         else
             warn "GTK4 gtk.css not found: ${GTK4_THEME_DIR}/gtk.css"
@@ -294,7 +310,7 @@ style_libadwaita_config()
 
         #-> copy "gtk-dark.css" main dark theme base
         if [[ -f "${GTK4_THEME_DIR}/gtk-dark.css" ]]; then
-            safe_copy "${GTK4_THEME_DIR}/gtk-dark.css" "${GTK4_SKEL_DIR}/gtk-dark.css" || return 1
+            safe_copy "${GTK4_THEME_DIR}/gtk-dark.css" "${GTK4_SKEL_DIR}" || return 1
             chmod 0644 "${GTK4_SKEL_DIR}/gtk-dark.css" || return 1
         else
             warn "GTK4 gtk-dark.css not found: ${GTK4_THEME_DIR}/gtk-dark.css"
@@ -304,7 +320,7 @@ style_libadwaita_config()
         return 0
     fi
 
-    ok "GTK4 theme overrides Installed."
+    success "GTK4 theme overrides Installed."
     return 0
 }
 
@@ -316,6 +332,7 @@ style_libadwaita_config()
 style_gtk3_config()
 {
     info "Writing GTK3 fallback settings"
+    
     if write_text_file \
     "${GTK3_SKEL_DIR}/settings.ini" 0644 <<EOF
 [Settings]
@@ -324,7 +341,7 @@ gtk-icon-theme-name=${ICON_SELECTED_NAME}
 gtk-cursor-theme-name=${CURSOR_SELECTED_NAME}
 EOF
     then
-        ok "GTK3 fallback settings writed."
+        success "GTK3 fallback settings writed."
         return 0
     else
         error "Failed to write GTK3 fallback settings"
@@ -345,7 +362,7 @@ QT_QPA_PLATFORMTHEME=gnome
 QT_STYLE_OVERRIDE=adwaita
 EOF
     then
-        ok "Qt environment defaults writed."
+        success "Qt environment defaults writed."
         return 0
     else
         error "Failed to write Qt environment defaults."
@@ -394,7 +411,7 @@ ${context_block%$'\n'}
 ${env_block%$'\n'}
 EOF
     then
-        ok "Flatpak GTK config and theme environment overrides written."
+        success "Flatpak GTK config and theme environment overrides written."
         return 0
     else
         error "Failed to write Flatpak overrides"
@@ -434,7 +451,7 @@ style_clean_data()
         safe_remove -i "${item}" || return 1
     done
 
-    ok "Style data cleaned."
+    success "Style data cleaned."
     return 0
 }
 

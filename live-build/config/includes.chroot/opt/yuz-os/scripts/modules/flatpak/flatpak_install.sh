@@ -24,7 +24,6 @@ readonly flatpak_apps_file="$flatpak_repo_dir/apps.list"
 #-> check neaded to run
 flatpak_check()
 {
-    apt install flatpak ostree
     #-> checking flatapk app exist
     command -v "flatpak" >/dev/null 2>&1  ||\
     {
@@ -153,7 +152,8 @@ flatpak_install()
         if \
             flatpak install \
             --system --noninteractive\
-            yuz-os "$flatpak_apps_item" -y
+            yuz-os "$flatpak_apps_item" -y \
+            1>/dev/null
         then 
             printf "%b\n" "   ${GREEN}✓${NC} Installed."
         else
@@ -197,7 +197,7 @@ flatpak_finish_setup()
     echo
     echo "${BLUE}Removing offline repository ...${NC}"
 
-    if rm -rf -- "$flatpak_repo_dir"
+    if safe_remove "$flatpak_repo_dir"
     then
         printf "%b/n" "   ${GREEN}✓${NC} Flatpak repository removed."
     else
