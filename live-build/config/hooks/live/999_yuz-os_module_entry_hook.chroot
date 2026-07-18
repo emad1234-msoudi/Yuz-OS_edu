@@ -1,0 +1,157 @@
+#!/usr/bin/env bash
+
+########## Copyright C 2026 MIT Emad-ms ##########
+
+# project: yuz-os runtime module
+# project git: https://github.com/emad1234-msoudi/Yuz-OS_edu
+
+# hooks/live/999_yuz-os_module_entry_hook.chroot
+
+# An entry point for yuz-os build-time project module
+
+########## setup environment ##########
+
+set -Eeuo pipefail
+
+########## var ##########
+
+project_root="/opt/yuz-os"
+project_setup_file="${project_root}/setup.sh"
+project_data="${project_root}/data"
+project_scripts="${project_root}/scripts"
+
+########## func ##########
+
+#-> check requirements to run
+entry_check()
+{
+    #-> checking root
+    if [[ ! "$EUID" -eq 0 ]]
+    then
+        echo "[ ERROR ] Please run this with sudo."
+        return 1
+    fi
+
+    return 0
+}
+
+#-> verify yuz-os build-time source
+entry_verify()
+{
+    #-> data var
+
+    local source_dirs=(
+        "${project_root}"
+        "${project_data}"
+        "${project_scripts}"
+    )
+
+    local item=""
+
+    echo "[ INFO ] Verifying yuz-os build-time source"
+
+    #-> checking repository directories
+    printf "%b\n" "   Checking build source"
+    for item in "${source_dirs[@]}"
+    do
+        if [[ -d "$item" ]]
+        then
+            printf "%b\n" "   ✓ $item directory exists."
+        else
+            printf "%b\n" "   ⨯ Missing repository directory: $item"
+            return 1
+        fi
+    done
+
+    #-> checking setup file
+    if [[ -f "$project_setup_file" ]]
+    then
+        printf "%b\n" "   ✓ $project_setup_file file exists."
+    else
+        printf "%b\n" "   ⨯ Missing repository file: $project_setup_file"
+        return 1
+    fi
+
+    echo "[ OK ] yuz-os build-time source verified."
+    return 0
+}
+
+#-> run build-time project source
+entry_load()
+{
+    echo "[ INFO ] Running project"
+
+    #-> check setup file exists
+    [[ -f "$project_setup_file" ]] || \
+    {
+        echo "[ ERROR ] Project setup file not found."
+        return 1
+    }
+
+    #-> make setup file executable
+    chmod +x "$project_setup_file" || \
+    {
+        echo "[ ERROR ] Failed to make setup file executable."
+        return 1
+    }
+
+    #-> run project setup file
+    if "$project_setup_file"
+    then
+        echo "[ OK ] Project run completed."
+        return 0
+    else
+        echo "[ ERROR ] Failed to finish project."
+        return 1
+    fi
+}
+
+#-> clean up project build-time source
+entry_clean()
+{
+    #-> data var
+
+    local source_items=(
+        "${project_data}"
+        "${project_scripts}"
+        "${project_setup_file}"
+        "${project_root}"
+    )
+
+    local item=""
+
+    echo "[ INFO ] Cleaning yuz-os build-time source"
+
+    #-> removing repository files and directories
+    printf "%b\n" "   Cleaning build source"
+    for item in "${source_items[@]}"
+    do
+        if rm -rf -- "$item"
+        then
+            printf "%b\n" "   ✓ $item removed."
+        else
+            printf "%b\n" "   ⨯ Failed to remove: $item"
+            return 1
+        fi
+    done
+
+    echo "[ OK ] yuz-os build-time source cleaned."
+    return 0
+}
+
+########## main entry ##########
+
+#-> main function for running entry functions
+main_entry()
+{
+    entry_check        || return 1
+    entry_verify       || return 1
+    entry_load         || return 1
+    entry_clean        || return 1
+
+    return 0
+}
+
+main_entry "$@"
+
+########## end ##########

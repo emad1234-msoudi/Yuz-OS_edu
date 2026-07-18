@@ -5,7 +5,7 @@
 # project: yuz-os builder framework
 # project git : https://github.com/emad1234-msoudi/Yuz-OS_edu
 
-# framework/runtime.sh
+# /opt/yuz-os/scripts/framework/runtime.sh
 # framework for manage run framework prompt
 
 ########## shell load ckeck ##########
@@ -62,9 +62,11 @@ run_task()
 
 run_pipeline()
 {
+	#-> run.list run mode var
 	local id title function enabled mandatory
 
-	ui_banner_module "$BLUE"
+
+	#-> loop to load module package frome run.list
 	
     while IFS='|' read -r id title function enabled mandatory   
     do
@@ -80,7 +82,7 @@ run_pipeline()
 			continue 
 		fi
 
-        #-> run module function if sourcde
+        #-> check module function sourced
         if ! declare -F "$function" >/dev/null
 		then
 			if [[ "$mandatory" == "yes" ]]
@@ -94,28 +96,24 @@ run_pipeline()
 			fi
 		fi
 
-		if ask "Run $title ?"
+		#-> run module
+
+		ui_title_big "$BLUE" "$title"
+		if "$function"
 		then
-			ui_title_big "$BLUE" "$title"
-			if "$function"
-			then
-				ui_title_big_close "$BLUE" "$title Finished."
-				echo
-			else
-				if [[ "$mandatory" == "yes" ]]
-				then
-					error "$function isn't finished. this is required to build"
-					return 1
-				else
-					warn  "$function isn't finished, but not required to build"
-					echo
-					continue
-				fi
-			fi
+			ui_title_big_close "$BLUE" "$title Finished."
+			echo
 		else
-			ok "Skipping run $title"
-			echo		
-		fi 
+			if [[ "$mandatory" == "yes" ]]
+			then
+				error "$function isn't finished. this is required to build"
+				return 1
+			else
+				warn  "$function isn't finished, but not required to build"
+				echo
+				continue
+			fi
+		fi
 
     done < "$MODULE_RUN"
 

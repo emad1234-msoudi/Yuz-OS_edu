@@ -1,0 +1,18 @@
+########## Copyright C 2026 MIT Emad-ms ##########
+
+# project: yuz-os builder framework
+# project git : https://github.com/emad1234-msoudi/Yuz-OS_edu
+
+# /opt/yuz-os/scripts/framework/framework.list
+# list for run all core framework one by one to source and load 
+
+##### core framework #####
+
+env.sh
+ui.sh
+log.sh
+runtime.sh
+filesystem.sh
+
+########## end ##########
+
