@@ -133,7 +133,7 @@ readonly LB_INITRAMFS_COMPRESSION="gzip"
 
 #-> other live build
 
-readonly LB_ENABLE_FIRMWARE=ture
+readonly LB_ENABLE_FIRMWARE=true
 readonly LB_ENABLE_CACHE=true
 
 #-> export var
