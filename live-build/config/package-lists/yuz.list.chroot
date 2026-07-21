@@ -41,16 +41,26 @@ python3-venv
 pipx
 idle-python3.13
 git
-fritzing
 
 # ================ Educational & Learning Software ================
-#all edu app blocked (use flathub)
-#tuxmath
-#ktouch
-#openboard
-#stellarium
-#wike
-#errands
+
+#-> physic
+step
+
+#-> chemistry
+avogadro
+kalzium
+
+#-> electronic
+fritzing
+
+#-> astronomy
+stellarium
+
+#-> math
+kig
+geogebra
+geogebra-gnome
 
 # ================ System Utilities & Tools ================
 unzip
