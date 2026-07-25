@@ -32,9 +32,9 @@ fi
 
 readonly PROJECT_NAME="Yuz-OS"
 readonly PROJECT_ID="yuz-os"
-readonly PROJECT_VERSION="v1.1.0"
+readonly PROJECT_VERSION="v1.1.1"
 readonly PROJECT_EDITION="Edu"
-readonly PROJECT_RELEASE="Beta"
+readonly PROJECT_RELEASE="Stable"
 readonly PROJECT_FULL_NAME="${PROJECT_NAME}_${PROJECT_VERSION}_${PROJECT_EDITION}_${PROJECT_RELEASE}"
 readonly PROJECT_DESCRIPTION="${PROJECT_NAME} ${PROJECT_EDITION} Live with Calamares Installer"
 
@@ -121,7 +121,7 @@ readonly LB_ARCHITECTURE="amd64"
 
 #-> iso mirror 
 
-readonly LB_ARCHIVE_AREAS="main"
+readonly LB_ARCHIVE_AREAS="main non-free non-free-firmware"
 readonly LB_MIRROR="https://mirror.mobinhost.com/debian/"
 readonly LB_MIRROR_SECURITY="http://mirror.mobinhost.com/debian-security/"
 
@@ -133,7 +133,7 @@ readonly LB_INITRAMFS_COMPRESSION="gzip"
 
 #-> other live build
 
-readonly LB_ENABLE_FIRMWARE=false
+readonly LB_ENABLE_FIRMWARE=true
 readonly LB_ENABLE_CACHE=true
 
 #-> export var

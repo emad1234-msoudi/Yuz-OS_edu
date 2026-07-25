@@ -8,23 +8,50 @@
 
 ########## Edu ##########
 
-app.drey.Dialect
-com.github.flxzt.rnote
+#-> Note app
+
+com.github.xournalpp.xournalpp
+com.github.phase1geo.minder
+io.github.mrvladus.List
+org.gnome.World.Iotas
+
+#-> Dictionary
+
 com.github.hugolabe.Wike
-dev.bragefuglseth.Keypunch
+dev.mufeed.Wordbook
+app.drey.Dialect
+
+#-> Learn beter
+ 
+org.learningequality.Kolibri
+no.bragefuglseth.Keypunch
 io.github.david_swift.Flashcards
-io.github.revisto.drum-machine
+io.github.josephmawa.SpellingBee
 
 ########## Tools ##########
 
-io.github.flattool.Warehouse
+#-> Software manager
 io.github.kolunmi.Bazaar
+
+#-> Antivirus
 io.github.linx_systems.ClamUI
+
+#-> Multimedia
 be.alexandervanhee.gradia
-io.github.mrvladus.List
 io.github.seadve.Kooha
-io.github.swordpuffin.rewaita
+
+#-> Network tools
+
+io.github.giantpinkrobots.varia
 net.codelogistics.webapps
-org.gnome.Firmware
+org.localsend.localsend_app
+
+#-> Useful tools
+com.pojtinger.felicitas.Sessions
+
+#-> theme and style
+
+runtime/org.kde.PlatformTheme.QGnomePlatform/x86_64/5.15-24.08
+runtime/org.kde.WaylandDecoration.QAdwaitaDecorations/x86_64/5.15-24.08 
 
 ########## end ##########

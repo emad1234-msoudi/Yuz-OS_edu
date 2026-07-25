@@ -1,260 +1,528 @@
-🐆 Yuz-OS Edu
+<p align="center">
+  <img src="docs/images/banner.png" alt="Yuz-os Project header" width="70%">
+</p>
 
+<p align="center"> 🐆 Yuz-OS Edu
 
-> راهنمای فارسی پروژه : [README-fa.md](README-fa.md)
+<p align="center">🎓 Free • Fast • Open Source Educational Platform
 
-«Light • Fast • Smart
-
-An Educational Project for Schools
-
-Helping schools build modern digital learning environments using free and open-source technologies.»
-
----
-
-🇮🇷 About The Project
-
-Yuz-OS Edu is an educational project created to help schools, teachers, and students access modern digital learning tools without requiring expensive hardware upgrades.
-
-Many schools still use older computers and often face challenges when building computer labs, science labs, or digital classrooms. The cost of new hardware, software licenses, and maintenance can make technology adoption difficult.
-
-Yuz-OS Edu aims to solve this problem by providing a ready-to-use educational environment built on reliable open-source technologies.
-
-Instead of focusing on creating a completely new operating system, the project focuses on building an integrated educational platform that combines learning tools, scientific software, classroom utilities, and a user-friendly experience in a single environment.
+<p align="center"> Building modern digital classrooms with the power of Debian and Free Software.
 
 ---
 
-🎯 Project Goals
+## 📚 About Yuz-OS Edu
 
-- Improve access to educational software
-- Support older computers still used in schools
-- Reduce deployment and maintenance costs
-- Provide a unified learning environment
-- Encourage digital learning and experimentation
-- Promote the use of Free and Open Source Software (FOSS)
-- Create an easy-to-use platform for both students and teachers
+> «Persian Documentation: [README-fa.md](/README-fa.md)»
 
----
+Yuz-OS Edu is an educational operating system and deployment framework designed specifically for schools, laboratories, teachers, and students.
 
-❓ Why Yuz-OS Edu?
+Instead of creating yet another Linux distribution, the project focuses on solving one real-world problem:
 
-Many educational environments face challenges such as:
+«How can schools build modern computer classrooms without replacing all of their hardware?»
 
-- Limited budgets
-- Aging computer hardware
-- Complex software installation processes
-- Dependence on internet connectivity
-- Fragmented educational tools
+Many educational environments still rely on older computers because upgrading hardware is often expensive. At the same time, installing, maintaining, and configuring educational software on dozens of systems is time-consuming.
 
-Yuz-OS Edu addresses these challenges by providing:
+Yuz-OS Edu addresses this challenge by providing a complete educational platform built on Debian 13, combining a carefully selected collection of educational software, a customized desktop experience, automated deployment tools, and a modular build framework.
 
-✅ Educational software out of the box
-
-✅ Optimized performance on older hardware
-
-✅ Easy deployment and installation
-
-✅ Reduced dependency on internet access
-
-✅ Consistent and user-friendly experience
+The project enables schools to transform existing computers into modern educational workstations while minimizing deployment costs and maintenance complexity.
 
 ---
 
-🐆 Why "Yuz"?
+## 🎯 Project Mission
 
-The name Yuz comes from the Asiatic Cheetah, one of Iran's most iconic and endangered animals.
+Yuz-OS Edu was created with one primary objective:
 
-The cheetah symbolizes:
+«Making high-quality digital education accessible to every school using Free and Open Source Software.»
 
-- Speed ⚡
-- Intelligence 🧠
-- Adaptability 🔧
-- Efficiency 🎯
+**The project aims to improve learning environments by providing an integrated platform that:**
 
-These qualities reflect the goals of the project:
+- reduces software deployment costs;
+- extends the lifetime of older hardware;
+- improves classroom usability;
+- provides students with interactive learning tools;
+- helps teachers build engaging digital lessons;
+- promotes the adoption of Free and Open Source Software (FOSS).
 
-«Light, Fast, and Smart»
-
----
-
-🏫 Target Audience
-
-Yuz-OS Edu is designed for:
-
-- Schools
-- Educational centers
-- Teachers
-- Students
-- Computer laboratories
-- Science laboratories
-- Learning environments with limited hardware resources
+Rather than simply installing applications, Yuz-OS Edu creates a complete educational environment where software, interface design, system configuration, and deployment work together as one cohesive platform.
 
 ---
 
-✨ Key Features
+## ❓ Why Yuz-OS Edu?
 
-📚 Educational Environment
+**Schools commonly face challenges such as:**
 
-A curated collection of educational and scientific applications designed for learning and classroom activities.
+- 💰 Limited budgets
+- 🖥️ Aging computer hardware
+- ⚙️ Difficult software deployment
+- 🌐 Limited Internet connectivity
+- 📦 Fragmented educational software
+- 🔧 High maintenance costs
 
-💻 Old Hardware Friendly
+**Yuz-OS Edu solves these challenges by providing:**
 
-Designed to run efficiently on older computers that may no longer support modern commercial operating systems.
-
-🧩 Integrated Experience
-
-Educational tools are organized into a single environment to reduce complexity and improve usability.
-
-🌍 Open Source Foundation
-
-Built entirely on Free and Open Source Software technologies.
-
-🔒 Security Focused
-
-Includes security-oriented configurations and tools to improve system reliability and safety.
-
-⚙️ Easy Deployment
-
-Ready-to-install environment using automated installation and configuration tools.
+- ✅ Ready-to-use educational software
+- ✅ Optimized performance on older systems
+- ✅ Unified desktop experience
+- ✅ Automated installation and deployment
+- ✅ Offline-ready educational environment
+- ✅ Centralized software management
+- ✅ Modern GNOME desktop optimized for education
 
 ---
 
-🏗️ Project Architecture
+## 🐆 Why "Yuz"?
 
-Component| Purpose
-Debian 13| Base Operating System
-GNOME Core| Desktop Environment
-Debian Live Build| ISO Creation
-Calamares| Installation Framework
-Flatpak| Application Distribution
-Git & GitHub| Version Management
-Bash| Automation Scripts
-dconf| Desktop Configuration
+The project is named after the Asiatic Cheetah (Yuz), one of Iran's most iconic and endangered animals.
+
+**The cheetah represents the core philosophy behind the project:**
+
+- ⚡ Speed
+- 🧠 Intelligence
+- 🎯 Efficiency
+- 🔧 Adaptability
+
+These values define Yuz-OS Edu itself:
+
+**«Light. Fast. Smart.»**
 
 ---
 
-📦 Educational Software
+## ✨ What's New in Yuz-OS Edu v1.1.1
 
-The exact software collection may evolve over time.
+Yuz-OS Edu has evolved significantly since the first public release.
 
-The project focuses on including applications related to:
+The project is no longer only a customized Debian Live image. It has grown into a complete educational operating system build framework capable of automatically generating customized educational distributions.
 
-- Science
-- Astronomy
+Version 1.1.1 introduces a new modular architecture, automated deployment pipeline, integrated Flatpak repository support, a redesigned branding system, and a modern educational desktop experience.
+
+---
+
+## 🏗 Project Architecture
+
+Unlike traditional Linux remasters that simply modify an existing ISO, Yuz-OS Edu introduces its own modular build system built on top of Debian Live Build.
+
+The architecture separates the project into independent layers, making every component easier to maintain, extend and customize.
+
+```
+Yuz-OS Edu
+│
+├── Documentation
+├── Branding Assets
+├── Release Packages
+├── Testing
+└── Live Build Framework
+        │
+        ├── Yuz Builder
+        ├── Modular Framework
+        ├── Build Modules
+        ├── Configuration
+        ├── Debian Live Build
+        └── ISO Output
+```
+
+This design allows every subsystem to evolve independently without affecting the rest of the project.
+
+---
+
+## ⚙ Yuz Builder Framework
+
+One of the biggest improvements introduced in version 1.1.x is the creation of the Yuz Builder Framework.
+
+Rather than asking users to manually configure Debian Live Build, Yuz Builder automates the complete process.
+
+**The framework performs tasks such as:**
+
+- validating the build environment;
+- checking hardware resources;
+- installing missing dependencies;
+- preparing the build workspace;
+- loading framework components;
+- executing user-selected modules;
+- launching Debian Live Build;
+- generating the final ISO image.
+
+Instead of editing dozens of configuration files manually, users interact with a guided setup wizard that prepares everything automatically.
+
+---
+
+## 🧩 Modular Design
+
+Every major feature inside the builder is implemented as an independent module.
+
+Current module categories include:
+
+Build Modules
+
+Responsible for configuring and generating the Debian Live Build environment.
+
+**Examples:**
+
+- Build Configuration
+- Live Build Automation
+
+---
+
+## Flatpak Modules
+
+Responsible for creating and managing the offline Flatpak repository shipped with Yuz-OS Edu.
+
+**Capabilities include:**
+
+- downloading applications;
+- building the repository;
+- preparing applications for offline installation;
+- integrating Flatpak into the final operating system.
+
+---
+
+## Runtime Modules
+
+Executed during installation or first boot to configure the operating system automatically.
+
+**Examples include:**
+
+- desktop customization;
+- theme installation;
+- icon installation;
+- wallpaper deployment;
+- Flatpak initialization.
+
+---
+
+## Framework Modules
+
+Shared utilities used throughout the entire build process.
+
+**Examples:**
+
+- environment management;
+- logging;
+- filesystem utilities;
+- runtime helpers;
+- package management;
+- user interface helpers.
+
+This modular design makes it possible to extend the builder without rewriting existing code.
+
+---
+
+## 🚀 Build Pipeline
+
+The build process follows a structured pipeline.
+
+```
+setup.sh
+      │
+      ▼
+System Validation
+      │
+      ▼
+Dependency Installation
+      │
+      ▼
+Framework Initialization
+      │
+      ▼
+Module Selection Wizard
+      │
+      ▼
+Module Execution
+      │
+      ▼
+Debian Live Build
+      │
+      ▼
+Build-time Modules
+      │
+      ▼
+Hybrid ISO Generation
+```
+**This pipeline significantly reduces the amount of manual work required to generate new releases.**
+
+---
+
+## 📦 Offline Flatpak Repository
+
+Version 1.1.x introduces one of the most important features of the project:
+
+Built-in Offline Flatpak Repository
+
+Instead of requiring Internet access after installation, Yuz-OS Edu ships with its own Flatpak repository.
+
+Applications are prepared during the build process and become immediately available after installation.
+
+**Benefits include:**
+
+- reduced deployment time;
+- offline software installation;
+- simplified software management;
+- consistent application versions across classrooms.
+
+This is particularly useful for schools where Internet connectivity is unreliable or limited.
+
+---
+
+## 🎨 Custom Desktop Experience
+
+Yuz-OS Edu is not merely a collection of software.
+
+The desktop itself has been redesigned to provide a consistent educational experience.
+
+**The system includes:**
+
+- Graphite GTK Theme
+- Colloid Icon Theme
+- Custom Wallpapers
+- Persian Fonts
+- Customized GNOME Desktop
+- Preconfigured GNOME Extensions
+- Integrated Desktop Branding
+
+All visual assets are automatically installed during deployment, ensuring every installation provides the same user experience.
+
+---
+
+## 🏫 Educational Software Collection
+
+Yuz-OS Edu ships with a carefully selected collection of educational applications covering multiple subjects.
+
+**These include software related to:**
+
+- Physics
+- Chemistry
 - Mathematics
-- Programming
 - Electronics
-- Productivity
-- Classroom Activities
+- Astronomy
+- Programming
+- Classroom Productivity
+- Research
+- Digital Note Taking
+- Interactive Learning
+- Dictionaries
+- Typing Practice
 - Educational Simulations
-- Research and Learning
+
+Applications are delivered using both Debian packages and Flatpak, depending on the software requirements and update strategy.
+
+Rather than maximizing the number of applications, the project focuses on selecting tools that are practical, reliable, and appropriate for educational environments.
 
 ---
 
-🖥️ System Requirements
+## 📁 Repository Structure
 
-Minimum Requirements
+**The repository is organized into several independent components to simplify maintenance and future development.**
 
-- 64-bit Processor
-- Dual-Core CPU
-- 4 GB RAM
-- 30 GB Storage
-- UEFI or Legacy BIOS
+```
+Yuz-OS_Edu
+│
+├── archive/          Previous releases and archived resources
+├── branding/         Project branding assets
+├── docs/             Technical documentation
+├── live-build/       Yuz Builder Framework
+├── release/          Release packages
+├── test/             Testing resources 
+├── LICENSE
+├── README.md
+└── README-fa.md
+```
 
-Recommended
+The `live-build/` directory contains the complete build framework responsible for generating Yuz-OS Edu.
 
-- SSD Storage
+---
+
+## 🛠 Build Requirements
+
+The build environment is intentionally standardized to guarantee reproducible releases.
+
+**Supported Build Platform**
+
+- Debian GNU/Linux 13 (Trixie)
+- 64-bit (amd64)
+
+**Minimum Hardware**
+
+- 6 GB RAM
+- 20–30 GB free storage
+- Stable Internet connection
+
+**Recommended**
+
 - 8 GB RAM
-- Modern Multi-Core CPU
+- SSD storage
+- Multi-core processor
+
+>[!IMPORTANT]
+>Build time depends on hardware performance and network speed and usually ranges from 1 to 2 hours.
 
 ---
 
-🔒 Security
+🚀 Building Yuz-OS Edu
 
-The project utilizes technologies commonly used in Linux environments, including:
+Building the project is intentionally simple.
 
-- UFW
-- GUFW
-- Firewalld
-- Fail2Ban
-- ClamAV
-- ClamTk
-- Lynis
-- Chkrootkit
-- Unattended Upgrades
+**Clone the repository:**
 
-Security updates and software packages are obtained from trusted and official repositories whenever possible.
+```bash
+git clone https://github.com/emad1234-msoudi/Yuz-OS_edu.git
+```
 
----
+**Enter the build directory:**
 
-🧪 Testing
+```bash
+cd Yuz-OS_edu/live-build
+```
 
-The project has been tested in multiple environments, including:
+**Make the setup script executable:**
 
-- QEMU / KVM
-- VirtualBox
-- Real Hardware
-- UEFI Systems
-- Legacy BIOS Systems
+```bash
+chmod +x setup.sh
+```
 
-Testing focuses on:
+**Run the setup wizard:**
 
-- Installation
-- Stability
-- Compatibility
-- Usability
-- Educational suitability
+```bash
+./setup.sh
+```
 
----
+**The builder will automatically:**
 
-🚀 Future Plans
-
-Planned improvements include:
-
-- Additional educational software
-- Better Persian localization
-- Improved documentation
-- Expanded hardware compatibility
-- Educational web applications
-- Enhanced user experience
+- validate your system;
+- install missing packages;
+- initialize the framework;
+- let you choose optional modules;
+- prepare Debian Live Build;
+- execute build-time modules;
+- generate the final Hybrid ISO.
 
 ---
 
-👨‍💻 Project Creator
+## 🎨 Branding
+
+Yuz-OS Edu includes its own visual identity designed specifically for educational environments.
+
+**The branding system currently includes:**
+
+- Custom project logo
+- Graphite GTK Theme
+- Colloid Icon Theme
+- Custom wallpapers
+- Persian font collection
+- GNOME customization
+- Boot-time branding
+- Login screen customization
+- Startup sound
+
+Future releases will further extend branding into additional system components.
+
+---
+
+## 📸 Screenshots
+
+**The following screenshots demonstrate the default desktop environment shipped with Yuz-OS Edu.**
+
+<p align="center"><img src="docs/images/desktop.png" alt="Desktop screenshots." width="800">
+
+>[!TIP]
+>«Screenshots are located inside the "/docs/images" directory.»
+
+---
+
+## 📖 Documentation
+
+Additional documentation is available inside the "docs/" directory.
+
+**Topics include:**
+
+- Builder Framework
+- Modular Architecture
+- Build Process
+- Flatpak Repository
+- Branding
+- Development Guide
+- Contribution Guide
+
+Future versions will continue expanding the documentation.
+
+---
+
+## 🗺 Roadmap
+
+The project continues to evolve.
+
+**Planned improvements include:**
+
+- [ ] Complete project documents
+- [ ] Complete branding system
+- [ ] Improved installer experience
+- [ ] Educational web applications
+- [ ] Better offline package management
+- [ ] Additional educational software
+- [ ] Better Persian localization
+- [ ] Enhanced documentation
+- [ ] New Builder modules
+- [ ] Continuous Integration (CI)
+- [ ] Automated release generation
+
+---
+
+## 🤝 Contributing
+
+Contributions are always welcome.
+
+**You can contribute by:**
+
+- reporting bugs;
+- suggesting improvements;
+- improving documentation;
+- translating content;
+- testing new releases;
+- submitting pull requests.
+
+Every contribution helps improve educational technology for everyone.
+
+---
+
+## 👨‍💻 Author
 
 Emad Masoudi
 
-Grade 7 Student
+Student Developer
 
-Yuz-OS Edu was created as an educational project with the goal of improving access to digital learning tools and promoting the practical use of open-source technologies in educational environments.
+Creator of Yuz-OS Edu
 
----
-
-❤️ Acknowledgements
-
-Special thanks to the communities and developers behind:
-
-- Debian Project
-- GNOME Project
-- Flatpak
-- Calamares
-- GNU Project
-- Linux Kernel Community
-- Free and Open Source Software Contributors
-
-Their work makes educational projects like Yuz-OS Edu possible.
+This project was developed to demonstrate how Free and Open Source Software can improve educational environments while reducing deployment costs and extending the useful life of existing hardware.
 
 ---
 
-📄 License
+## ❤️ Acknowledgements
 
-This project is released under the MIT License.
+**Special thanks to the communities behind:**
 
-See the LICENSE file for more information.
+- [Debian Project](https://www.debian.org/)
+- [GNOME Project](https://www.gnome.org/)
+- [Debian Live Build](https://live-team.pages.debian.net/live-manual/)
+- [Flatpak](https://flatpak.org/)
+- [Calamares](https://calamares.io/)
+- [GNU Project](https://www.gnu.org/)
+- [Linux Kernel](https://www.kernel.org/)
+- Free and Open Source Software contributors
+
+Without their incredible work, projects like Yuz-OS Edu would not be possible.
 
 ---
 
-«🐆 Yuz-OS Edu
+## 📄 License
 
-Building modern educational environments with free and open-source technologies.
+This project is distributed under the MIT License.
 
-Light. Fast. Smart.»
+**See the [LICENSE](/LICENSE) file for details.**
+
+---
+
+<p align="center"><img src="docs/images/logo.png" alt="Yuz-os Project logo" width="130">
+
+<p align="center">Free • Fast • Open Source Educational Platform
+
+<p align="center">Helping schools build modern digital classrooms using Debian and Free Software.
+
+<p align="center">Education should be accessible, modern, and open to everyone.
