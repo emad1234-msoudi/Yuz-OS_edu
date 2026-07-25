@@ -1,12 +1,15 @@
-🏗️ PROJECT_ARCHITECTURE.md
+## 🏗️ [PROJECT_ARCHITECTURE.md](/docs/PROJECT_ARCHITECTURE.md)
 
-«Yuz-OS Educational Edition
+
+«Yuz-OS Educational Edition»
+
+> «Persian Documentation: [PROJECT_ARCHITECTURE-fa.md](/docs/PROJECT_ARCHITECTURE-fa.md)»
 
 A high-level overview of the Yuz-OS build system, project layout, and build pipeline.»
 
 ---
 
-📖 Overview
+## 📖 Overview
 
 Yuz-OS is an educational Linux distribution built on top of Debian Live Build.
 
@@ -19,8 +22,9 @@ It is the architectural map of the project.
 
 ---
 
-🗂 Repository Layout
+# 🗂 Repository Layout
 
+```
 Yuz-OS_Edu/
 
 ├── archive/
@@ -32,31 +36,34 @@ Yuz-OS_Edu/
 ├── README-fa.md
 ├── LICENSE
 └── ...
+```
 
 Directory| Description
-"archive/"| Legacy files and experimental resources
-"docs/"| Project documentation
-"live-build/"| Main build system
-"release/"| Generated release artifacts
+`archive/`| Legacy files and experimental resources
+`docs/`| Project documentation
+`live-build/`| Main build system
+`release/`| Generated release artifacts
 
 ---
 
-⚙️ Build System Layout
+## ⚙️ Build System Layout
 
+```
 live-build/
 
 ├── setup.sh
 ├── cache/
 ├── config/
 └── scripts/
+```
 
 ---
 
-🚀 setup.sh
+## 🚀 setup.sh
 
 The main entry point of the entire project.
 
-Responsibilities:
+**Responsibilities:**
 
 - Check system requirements
 - Prepare the environment
@@ -67,8 +74,9 @@ Responsibilities:
 
 ---
 
-🧩 Framework
+## 🧩 Framework
 
+```
 scripts/framework/
 
 check.sh
@@ -78,10 +86,11 @@ log.sh
 package.sh
 runtime.sh
 ui.sh
+```
 
 The framework contains reusable building blocks shared by every module.
 
-Examples:
+**Examples:**
 
 - Logging
 - User Interface
@@ -95,19 +104,21 @@ It only provides reusable functionality.
 
 ---
 
-🔧 Modules
+# 🔧 Modules
 
+```
 scripts/modules/
 
 build/
 flatpak/
 ...
+```
 
 Modules perform actual build tasks.
 
 Each module has a single responsibility.
 
-Examples:
+**Examples:**
 
 - Build environment preparation
 - Offline Flatpak repository generation
@@ -118,8 +129,9 @@ Modules never call each other directly.
 
 ---
 
-📦 Configuration
+## 📦 Configuration
 
+```
 config/
 
 hooks/
@@ -127,10 +139,11 @@ includes.chroot/
 package-lists/
 packages.chroot/
 ...
+```
 
 This directory contains everything consumed by Debian Live Build.
 
-Typical content includes:
+**Typical content includes:**
 
 - Package lists
 - Local packages
@@ -143,9 +156,9 @@ Typical content includes:
 
 ---
 
-🗄 Cache
+## 🗄 Cache
 
-cache/
+`cache/`
 
 Temporary working directory used during the build process.
 
@@ -155,8 +168,9 @@ Automatically recreated when needed.
 
 ---
 
-🔄 Build Pipeline
+## 🔄 Build Pipeline
 
+```
 ┌────────────────────┐
 │   System Check     │
 └─────────┬──────────┘
@@ -200,12 +214,13 @@ Automatically recreated when needed.
 ┌────────────────────┐
 │ Installed Yuz-OS   │
 └────────────────────┘
+```
 
 ---
 
-🎯 Design Philosophy
+## 🎯 Design Philosophy
 
-The Yuz build system follows a few simple principles:
+**The Yuz build system follows a few simple principles:**
 
 - Modular
 - Predictable
@@ -217,8 +232,11 @@ Every component should have one clear responsibility.
 
 ---
 
-📚 Next Step
+## 📚 Next Step
 
 This document explains the overall architecture.
 
 Detailed implementation of individual components may be documented separately as the project evolves.
+
+>[!TIP]
+>for newest and other architecture please read : [README.md](/README.md). 
