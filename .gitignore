@@ -44,6 +44,7 @@ build/
 
 #live-build/config/hooks/
 live-build/config/hooks/normal
+live-build/config/hooks/live/00*.chroot
 live-build/config/preseed/
 
 live-build/config/bootloaders/

@@ -64,7 +64,7 @@ flatpak_check_app()
 {
     local app="$1"
 
-    if flatpak remote-info flathub "$app" >/dev/null 2>&1 
+    if flatpak remote-info flathub "$app" 1>/dev/null 
     then
         return 0
     else
