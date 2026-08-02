@@ -118,7 +118,7 @@ exist_dir "$SCRIPTS_DIR" "$MODULE_DIR" "$FRAMEWORK_DIR" || return 1
 #-> note :
 # this is just for shellcheck and development
 
-: <<'src'
+#: <<'src'
 
 source ./framework/env.sh
 source ./framework/ui.sh
@@ -126,6 +126,6 @@ source ./framework/log.sh
 source ./framework/runtime.sh
 source ./framework/filesystem.sh
 
-src
+#src
 
 ########## end ##########

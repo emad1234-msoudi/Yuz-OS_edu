@@ -46,7 +46,7 @@ run_task()
  	then
 		[[ -n "$run_event" ]] && success "$run_event completed."
 	else
-		if [[ "$run_log_file" == "$LOG_EMPTY" ]]
+		if [[ "$run_log_file" == "$LOG_EMPTY" &&  -n "$run_event" ]]
 		then
 			die "$run_event failed."
 		else

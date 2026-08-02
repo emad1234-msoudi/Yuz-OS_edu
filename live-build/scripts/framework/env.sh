@@ -28,23 +28,30 @@ fi
 
 ########## project variables ##########
 
-#-> project information
+#-> project identity
 
 readonly PROJECT_NAME="Yuz-OS"
 readonly PROJECT_ID="yuz-os"
-readonly PROJECT_VERSION="v1.1.1"
 readonly PROJECT_EDITION="Edu"
+readonly PROJECT_VERSION="1.1.1"
 readonly PROJECT_RELEASE="Stable"
-readonly PROJECT_FULL_NAME="${PROJECT_NAME}_${PROJECT_VERSION}_${PROJECT_EDITION}_${PROJECT_RELEASE}"
-readonly PROJECT_DESCRIPTION="${PROJECT_NAME} ${PROJECT_EDITION} Live with Calamares Installer"
 
-#-> project webpage
+readonly PROJECT_FULL_NAME="${PROJECT_NAME} ${PROJECT_EDITION}"
+readonly PROJECT_PRETTY_NAME="${PROJECT_FULL_NAME} ${PROJECT_VERSION}"
+readonly PROJECT_DESCRIPTION="${PROJECT_FULL_NAME} Live with Calamares Installer"
+
+#-> project publisher
 
 readonly PROJECT_PUBLISHER="Emad-ms"
-readonly PROJECT_PUBLISHER_URL="https://github.com/emad1234-msoudi"
-readonly PROJECT_WEBSITE="https://github.com/emad1234-msoudi/Yuz-OS_edu"
+readonly PROJECT_PUBLISHER_URL="https://github.com/emad1234-ms"
+readonly PROJECT_WEBSITE="https://github.com/emad1234-ms/Yuz-OS_edu"
 readonly PROJECT_LICENSE="MIT"
 readonly PROJECT_COPYRIGHT_YEAR="2026"
+
+#-> project support
+
+readonly PROJECT_SUPPORT_URL="${PROJECT_WEBSITE}/discussions"
+readonly PROJECT_BUG_REPORT_URL="${PROJECT_WEBSITE}/issues"
 
 #-> framework var
 
@@ -56,8 +63,10 @@ readonly RUN_TIME
 
 #-> export project variables
 export \
-    PROJECT_NAME PROJECT_ID PROJECT_VERSION PROJECT_EDITION PROJECT_RELEASE PROJECT_FULL_NAME PROJECT_DESCRIPTION \
+    PROJECT_NAME PROJECT_ID PROJECT_VERSION PROJECT_EDITION PROJECT_RELEASE \
+    PROJECT_FULL_NAME PROJECT_PRETTY_NAME PROJECT_DESCRIPTION \
     PROJECT_WEBSITE PROJECT_PUBLISHER PROJECT_PUBLISHER_URL PROJECT_COPYRIGHT_YEAR PROJECT_LICENSE \
+    PROJECT_SUPPORT_URL PROJECT_BUG_REPORT_URL \
     PROJECT_ROOT RUN_TIME
 
 ########## project directories && files #########
