@@ -9,19 +9,43 @@ apt-transport-https
 lsb-release
 debconf-utils
 systemd
-os-prober
 live-boot
 live-config
 linux-image-amd64
 initramfs-tools
-grub-pc-bin
 network-manager
 network-manager-gnome
 vnstat
-grub-efi
 systemd-zram-generator
 libglib2.0-bin
 dconf-cli
+
+#-> filesystem
+
+ntfs-3g
+dosfstools
+mtools
+
+#-> bootloader
+
+grub-common
+grub2-common
+
+grub-efi
+grub-efi-amd64
+grub-efi-amd64-bin
+grub-efi-amd64-signed
+grub-efi-amd64-unsigned
+
+grub-pc
+grub-pc-bin
+
+grub-legacy
+
+grub-firmware-qemu
+grub-imageboot
+
+os-prober
 
 # ================ Desktop Environment: GNOME ================
 gnome-core

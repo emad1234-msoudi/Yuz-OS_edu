@@ -38,7 +38,7 @@ style_check()
     fi
 
     #-> checking needed optaional command
-    for pkg in "${REQUIRED_PACKAGES[@]}"
+    for pkg in "${STYLE_REQUIRED_PACKAGES[@]}"
     do
         if ! dpkg -s "$pkg" >/dev/null 2>&1
         then

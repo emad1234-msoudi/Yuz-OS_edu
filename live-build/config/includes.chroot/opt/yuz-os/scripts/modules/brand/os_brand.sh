@@ -5,7 +5,7 @@
 # project: yuz-os runtime module
 # project git : https://github.com/emad1234-msoudi/Yuz-OS_edu
 
-# /opt/yuz-os/scripts/brand/brand.conf
+# /opt/yuz-os/scripts/brand/os_brand.sh
 
 # build time module for Yuz-OS set branding & information .
 # This configuration set from brand.conf :
@@ -18,13 +18,13 @@
 
 set -Eeuo pipefail
 
-source "../../bootstrap.sh" #-> this source just for development
-source "./brand.conf"       #-> this source just for development
+#source "../../bootstrap.sh" #-> this source just for development
+#source "./os_brand.conf"       #-> this source just for development
 
 ########## func ##########
 
 #-> check neaded to run
-brand_check()
+os_brand_check()
 {
     #-> checking root
     if [[ ! "$EUID" -eq 0 ]]
@@ -32,19 +32,19 @@ brand_check()
         die "Please run this with sudo."
     fi
 
-    #-> source brand.conf 
-    if [[ -f "$MODULE_DIR/brand/brand.conf" ]]
+    #-> source os_brand.conf 
+    if [[ -f "$MODULE_DIR/brand/os_brand.conf" ]]
     then
-        source "$MODULE_DIR/brand/brand.conf"
+        source "$MODULE_DIR/brand/os_brand.conf"
     else
-        die "brand.conf file not found."
+        die "os_brand.conf file not found."
     fi
 
     return 0
 }
 
 #-> Helper function to generate and write a brand file
-brand_write_template() 
+os_brand_write_template() 
 {
     local title="$1"
     local target_path="$2"
@@ -68,7 +68,7 @@ EOF" | write_text_file "${target_path}" "0644" "root" "root" || die "Failed to w
 }
 
 #-> func to deploy brand templates configuration files 
-brand_deploy_templates()
+os_brand_deploy_templates()
 {
     #-> templates targets items 
     local targets=(
@@ -90,7 +90,7 @@ brand_deploy_templates()
 }
 
 #-> func to link os-release from /usr/lib/ to /etc/
-brand_os_realse_config()
+os_brand_os_realse_config()
 {
     ui_title_small "$BLUE" "OS-Release Symlink :"
 
@@ -116,7 +116,7 @@ brand_os_realse_config()
 }
 
 #-> func to show summary about deployed brand templates configuration files 
-brand_summary()
+os_brand_summary()
 {
     ui_title_small "$BLUE" "Summary :"
 
@@ -125,19 +125,19 @@ brand_summary()
     return 0
 }
 
-########## main brand ##########
-#-> main for load brand func
+########## main os brand ##########
+#-> main for load os brand func
 
-main_brand()
+main_os_brand()
 {
-    brand_check             || return 1
-    brand_deploy_templates  || return 1
-    brand_os_realse_config  || return 1
-    brand_summary           || return 1
+    os_brand_check             || return 1
+    os_brand_deploy_templates  || return 1
+    os_brand_os_realse_config  || return 1
+    os_brand_summary           || return 1
 
     return 0
 }
 
-#main_brand "$@"
+#main_os_brand "$@"
 
 ########## end ##########
