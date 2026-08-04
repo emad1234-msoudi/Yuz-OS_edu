@@ -47,7 +47,7 @@ live-build/config/hooks/normal
 live-build/config/hooks/live/00*.chroot
 live-build/config/preseed/
 
-live-build/config/bootloaders/
+#live-build/config/bootloaders/
 live-build/config/debian-installer/
 
 live-build/config/apt/
