@@ -14,8 +14,8 @@
 
 set -Eeuo pipefail
 
-source "../../bootstrap.sh" #-> this source just for development
-source "./grub_brand.conf"       #-> this source just for development
+#source "../../bootstrap.sh" #-> this source just for development
+#source "./grub_brand.conf"       #-> this source just for development
 
 ########## func ##########
 
