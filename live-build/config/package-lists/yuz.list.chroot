@@ -53,6 +53,16 @@ grub-imageboot
 
 os-prober
 
+#-> Virtualization guest integration
+
+qemu-guest-agent
+spice-vdagent
+
+open-vm-tools
+open-vm-tools-desktop
+
+virtualbox-guest-additions-iso
+
 # ================ Desktop Environment: GNOME ================
 gnome-core
 gdm3
