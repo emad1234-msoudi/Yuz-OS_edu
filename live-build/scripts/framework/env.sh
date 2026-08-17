@@ -130,7 +130,7 @@ readonly LB_ARCHITECTURE="amd64"
 
 #-> iso mirror 
 
-readonly LB_ARCHIVE_AREAS="main non-free non-free-firmware"
+readonly LB_ARCHIVE_AREAS="main contrib non-free non-free-firmware"
 readonly LB_MIRROR="https://mirror.mobinhost.com/debian/"
 readonly LB_MIRROR_SECURITY="http://mirror.mobinhost.com/debian-security/"
 
@@ -138,7 +138,7 @@ readonly LB_MIRROR_SECURITY="http://mirror.mobinhost.com/debian-security/"
 
 readonly LB_COMPRESSION="xz"
 readonly LB_CHROOT_COMPRESSION="zstd"
-readonly LB_INITRAMFS_COMPRESSION="gzip"
+readonly LB_INITRAMFS_COMPRESSION="lzma"
 
 #-> other live build
 
