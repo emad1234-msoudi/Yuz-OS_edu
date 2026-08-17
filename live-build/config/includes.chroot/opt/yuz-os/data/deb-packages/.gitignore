@@ -14,3 +14,4 @@ onlyoffice-desktopeditors_*.deb
 
 !yuz-branding-grub_*.deb
 !yuz-branding-plymouth_*.deb
+!yuz-branding-base_*.deb
