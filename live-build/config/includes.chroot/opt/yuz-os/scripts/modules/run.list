@@ -22,7 +22,17 @@
 
 ##### run modules #####
 
+#-> prefix modules :
+
+prefix|prefix to fix PATH|main_path_prefix|yes|yes
+
+#-> app installation modules :
+
 flatpak|Flatpak repo installer|main_flatpak_install|yes|yes
+
+#-> style and branding modules :
+
 style|configuration project style|main_style|yes|yes
+brand|set Yuz-os project branding|main_os_brand|yes|yes
 
 ########## end ##########
