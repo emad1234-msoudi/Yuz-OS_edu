@@ -38,20 +38,16 @@ mtools
 grub-common
 grub2-common
 
-grub-efi
+grub-pc
+grub-pc-bin
+
 grub-efi-amd64
 grub-efi-amd64-bin
 grub-efi-amd64-signed
-grub-efi-amd64-unsigned
-
-grub-pc-bin
-
-grub-legacy
-
-grub-firmware-qemu
-grub-imageboot
+shim-signed
 
 os-prober
+efibootmgr
 
 #-> Virtualization guest integration
 
