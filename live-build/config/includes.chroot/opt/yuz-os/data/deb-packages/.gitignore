@@ -6,3 +6,11 @@
 
 code_*.deb
 onlyoffice-desktopeditors_*.deb
+
+### Yuz-OS branding packages
+
+# The following packages belong to the Yuz-OS project and are intentionally
+# tracked in Git so they are always present in the ISO:
+
+!yuz-branding-grub_*.deb
+!yuz-branding-plymouth_*.deb
