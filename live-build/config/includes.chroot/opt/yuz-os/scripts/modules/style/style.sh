@@ -132,14 +132,17 @@ style_deploy()
     fi
 
     #-> deploy wallpapers
-    if unzip_file "$WALLPAPER_DATA" "$WALLPAPER_TARGET_DIR"
-    then
-        ok "Wallpaper assets deployed."
-        echo
-    else
-        error "Failed to deploy wallpaper assets."
-        return 1
-    fi
+    
+    # NOTE : refactor(brand): move Wallpaper assets to yuz-branding-base
+    
+    #if unzip_file "$WALLPAPER_DATA" "$WALLPAPER_TARGET_DIR"
+    #then
+    #    ok "Wallpaper assets deployed."
+    #    echo
+    #else
+    #    error "Failed to deploy wallpaper assets."
+    #    return 1
+    #fi
 
     #-> deploy fonts
     if unzip_file "$FONT_DATA" "$FONT_TARGET_DIR"
