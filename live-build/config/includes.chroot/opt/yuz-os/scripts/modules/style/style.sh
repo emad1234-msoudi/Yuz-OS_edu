@@ -258,7 +258,7 @@ xkb-options=${XKB_OPTIONS}
 enabled-extensions=${ENABLED_EXTENSIONS}
 
 [org/gnome/desktop/screensaver]
-picture-uri='${WALLPAPER_LIGHT_URI}'
+picture-uri='${LOCKSCREEN_URI}'
 
 
 [org/gnome/shell/extensions/user-theme]
