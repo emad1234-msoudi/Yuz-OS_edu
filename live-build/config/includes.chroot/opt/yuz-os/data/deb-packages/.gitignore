@@ -1,0 +1,8 @@
+### Third-party desktop applications
+
+# The following packages are optional third-party applications that are useful
+# for a complete Yuz-OS desktop experience and are intentionally not tracked in
+# Git:
+
+code_*.deb
+onlyoffice-desktopeditors_*.deb
