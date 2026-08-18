@@ -87,8 +87,6 @@ firmware-amd-graphics
 #-> Audio & Network Extra
 
 alsa-firmware-loaders
-firmware-ipw2x00
-firmware-zd1211
 
 # ================ Desktop Environment: GNOME ================
 gnome-core
