@@ -138,7 +138,7 @@ readonly LB_MIRROR_SECURITY="http://mirror.mobinhost.com/debian-security/"
 
 readonly LB_COMPRESSION="xz"
 readonly LB_CHROOT_COMPRESSION="zstd"
-readonly LB_INITRAMFS_COMPRESSION="lzma"
+readonly LB_INITRAMFS_COMPRESSION="gzip"
 
 #-> other live build
 
