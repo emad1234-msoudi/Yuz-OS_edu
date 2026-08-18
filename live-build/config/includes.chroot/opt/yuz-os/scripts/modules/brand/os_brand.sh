@@ -83,7 +83,7 @@ os_brand_deploy_templates()
     do
         # sort targets argomants with IFS
         IFS='|' read -r name path content <<< "$item"
-        brand_write_template "$name" "$path" "$content"
+        os_brand_write_template "$name" "$path" "$content" || return 1
     done
 
     return 0
