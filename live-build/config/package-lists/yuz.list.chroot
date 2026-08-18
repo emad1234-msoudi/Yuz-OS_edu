@@ -59,6 +59,37 @@ open-vm-tools-desktop
 
 virtualbox-guest-additions-iso
 
+# ================ Driver & Firmware ================
+
+#-> Core & CPU Microcodes
+
+amd64-microcode
+intel-microcode
+firmware-linux-free
+firmware-linux-nonfree
+firmware-misc-nonfree
+
+#-> Wireless & Bluetooth (Intel, Realtek, Broadcom, Atheros, Mediatek)
+
+firmware-iwlwifi
+firmware-realtek
+firmware-atheros
+firmware-brcm80211
+firmware-libertas
+firmware-ti-connectivity
+firmware-sof-signed
+bluez-firmware
+
+#-> GPU / Display Firmware
+
+firmware-amd-graphics
+
+#-> Audio & Network Extra
+
+alsa-firmware-loaders
+firmware-ipw2x00
+firmware-zd1211
+
 # ================ Desktop Environment: GNOME ================
 gnome-core
 gdm3
