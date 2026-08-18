@@ -143,7 +143,7 @@ readonly LB_INITRAMFS_COMPRESSION="lzma"
 #-> other live build
 
 readonly LB_ENABLE_FIRMWARE=false
-readonly LB_ENABLE_CACHE=false
+readonly LB_ENABLE_CACHE=true
 
 #-> export var
 export \
