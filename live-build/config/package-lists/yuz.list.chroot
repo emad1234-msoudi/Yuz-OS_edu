@@ -49,6 +49,12 @@ shim-signed
 os-prober
 efibootmgr
 
+#-> Plymouth
+
+plymouth
+plymouth-themes
+plymouth-label
+
 #-> Virtualization guest integration
 
 qemu-guest-agent
