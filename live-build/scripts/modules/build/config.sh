@@ -38,7 +38,7 @@ lb config \
   --iso-volume "$LB_VOLUME_NAME" \
   --iso-publisher "$PROJECT_PUBLISHER <$PROJECT_PUBLISHER_URL>" \
   --iso-application "$PROJECT_PRETTY_NAME" \
-  --bootappend-live "boot=live components persistence quiet splash locales=en_US.UTF-8 keyboard-layouts=us" \
+  --bootappend-live "$LB_BOOT_APPEND" \
   --bootappend-install "quiet splash" \
   --cache "$LB_ENABLE_CACHE" \
   --cache-packages "$LB_ENABLE_CACHE" \

@@ -145,6 +145,14 @@ readonly LB_INITRAMFS_COMPRESSION="gzip"
 readonly LB_VOLUME_NAME="${PROJECT_ID}-${PROJECT_EDITION}"
 readonly LB_IMAGE_NAME="${PROJECT_ID}-${PROJECT_EDITION}-${PROJECT_VERSION}"
 
+readonly LB_HOSTNAME="${PROJECT_ID}"
+readonly LB_USERNAME="yuzuser"
+readonly LB_LOCALE="en_US.UTF-8"
+readonly LB_LAYOUT="us"
+
+readonly LB_BOOT_APPEND="boot=live components persistence quiet splash locales=${LB_LOCALE} keyboard-layouts=${LB_LAYOUT} live-config.hostname=${LB_HOSTNAME} live-config.username=${LB_USERNAME}"
+
+
 #-> other live build
 
 readonly LB_ENABLE_FIRMWARE=false
@@ -156,6 +164,7 @@ export \
     LB_ARCHIVE_AREAS LB_MIRROR LB_MIRROR_SECURITY \
     LB_COMPRESSION LB_CHROOT_COMPRESSION LB_INITRAMFS_COMPRESSION \
     LB_VOLUME_NAME LB_IMAGE_NAME LB_DESCRIPTION \
+    LB_LOCALE LB_LAYOUT LB_HOSTNAME LB_USERNAME LB_BOOT_APPEND \
     LB_ENABLE_CACHE LB_ENABLE_FIRMWARE
 
 ########## end ##########
