@@ -14,9 +14,9 @@ terminal-border: "0"
 
 + image {
     top = 10%
-    left = 50%-75
-    width = 150
-    height = 150
+    left = 50%-60
+    width = 120
+    height = 120
     file = "yuz-os_logo.png"
 }
 
