@@ -34,10 +34,10 @@ lb config \
   --initramfs-compression "$LB_INITRAMFS_COMPRESSION" \
   --firmware-chroot "$LB_ENABLE_FIRMWARE" \
   --firmware-binary "$LB_ENABLE_FIRMWARE" \
-  --image-name "$PROJECT_FULL_NAME" \
-  --iso-volume "$PROJECT_FULL_NAME" \
+  --image-name "$LB_IMAGE_NAME" \
+  --iso-volume "$LB_VOLUME_NAME" \
   --iso-publisher "$PROJECT_PUBLISHER <$PROJECT_PUBLISHER_URL>" \
-  --iso-application "$PROJECT_FULL_NAME" \
+  --iso-application "$PROJECT_PRETTY_NAME" \
   --bootappend-live "boot=live components persistence quiet splash locales=en_US.UTF-8 keyboard-layouts=us" \
   --bootappend-install "quiet splash" \
   --cache "$LB_ENABLE_CACHE" \
