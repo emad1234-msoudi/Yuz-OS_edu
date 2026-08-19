@@ -70,21 +70,33 @@ EOF" | write_text_file "${target_path}" "0644" "root" "root" || die "Failed to w
 #-> func to deploy brand templates configuration files 
 os_brand_deploy_templates()
 {
-    #-> templates targets items 
-    local targets=(
-        "OS-Release|${OS_RELEASE_TARGET_FILE}|${OS_RELEASE_CONTENT}"
-        "Lsb-Release|${LSB_RELEASE_FILE}|${LSB_RELEASE_CONTENT}"
-        "Issue|${ISSUE_FILE}|${ISSUE_CONTENT}"
-        "Issue-Net|${ISSUE_NET_FILE}|${ISSUE_NET_CONTENT}"
-    )
+    #-> deploy os-realse brand templates
+    os_brand_write_template \
+        "OS-Release" \
+        "$OS_RELEASE_TARGET_FILE" \
+        "$OS_RELEASE_CONTENT" \
+        || return 1
 
-    #-> loop to deploy templates
-    for item in "${targets[@]}"
-    do
-        # sort targets argomants with IFS
-        IFS='|' read -r name path content <<< "$item"
-        os_brand_write_template "$name" "$path" "$content" || return 1
-    done
+    #-> deploy lsb-realse brand templates
+    os_brand_write_template \
+        "Lsb-Release" \
+        "$LSB_RELEASE_FILE" \
+        "$LSB_RELEASE_CONTENT" \
+        || return 1
+
+    #-> deploy Issuse brand templates
+    os_brand_write_template \
+        "Issue" \
+        "$ISSUE_FILE" \
+        "$ISSUE_CONTENT" \
+        || return 1
+
+    #-> deploy issues-net brand templates
+    os_brand_write_template \
+        "Issue-Net" \
+        "$ISSUE_NET_FILE" \
+        "$ISSUE_NET_CONTENT" \
+        || return 1
 
     return 0
 }
