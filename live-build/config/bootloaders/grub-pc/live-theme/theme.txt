@@ -1,6 +1,5 @@
-# Yuz-OS_Edu GRUB Theme
-# Sleek Dark assets with Yuz visual identity
-# Minimal responsive layout for educational environments
+# Yuz-OS_Edu GRUB Theme (Optimized & Stable)
+# Sleek Graphite-Nord styling with full EFI/BIOS compatibility
 
 desktop-color: "#1D2129"
 title-text: ""
@@ -12,42 +11,36 @@ terminal-width: "100%"
 terminal-height: "100%"
 terminal-border: "0"
 
-+ image {
-    top = 10%
-    left = 50%-60
-    width = 120
-    height = 120
-    file = "yuz-os_logo.png"
-}
-
+# Title Header (Crisp and lightweight using Poppins 16)
 + label {
-    text = "Yuz OS Education"
-    font = "Poppins Regular 18"
-    color = "#B7D6F2"
-    top = 30%
+    text = "Yuz-OS Education"
+    font = "Poppins Regular 16"
+    color = "#FBEBCE"
+    top = 18%
     left = 0
     width = 100%
-    height = 30
+    height = 24
     align = "center"
 }
 
+# Responsive & Centered Boot Menu
 + boot_menu {
     left = 25%
     width = 50%
-    top = 35%
-    height = 45%
+    top = 26%
+    height = 54%
 
     icon_width = 32
     icon_height = 32
 
-    item_height = 48
-    item_padding = 8
+    item_height = 42
+    item_padding = 6
     item_icon_space = 12
-    item_spacing = 8
+    item_spacing = 6
 
     menu_pixmap_style = "boot_menu_*.png"
 
-    item_font = "Poppins Regular 16"
+    item_font = "Poppins Regular 14"
     item_color = "#B7D6F2"
     selected_item_color = "#FBEBCE"
 
@@ -58,25 +51,28 @@ terminal-border: "0"
     scrollbar_thumb = "slider_*.png"
 }
 
+# Bottom Help Shortcuts Guide
 + image {
-    top = 82%
+    top = 83%
     left = 50%-240
     width = 480
     height = 42
     file = "menu.png"
 }
 
+# Boot Timeout Counter
 + label {
     id = "__timeout__"
     text = "System will boot in %d seconds"
     font = "Poppins Regular 14"
     color = "#B7D6F2"
-    top = 92%
+    top = 91%
     left = 0
     width = 100%
     align = "center"
 }
 
+# Progress Bar
 + progress_bar {
     id = "__timeout__"
     left = 0
