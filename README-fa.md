@@ -424,7 +424,22 @@ Yuz-OS Edu دارای هویت بصری اختصاصی خود است که به�
 
 **تصاویر زیر نمایی از محیط پیش‌فرض Yuz-OS Edu را نمایش می‌دهند.**
 
-<p align="center"><img src="docs/images/desktop.png" alt="تصاویر محیط سیستم" width="800">
+<details>
+<summary>🌄 Desktop Light</summary>
+  <img src="docs/images/desktop.png" alt="Desktop Light screenshot." />
+</details>
+<details>
+<summary>🎑 Desktop Dark</summary>
+  <img src="./docs/images/desktop_dark.png" alt="Desktop Dark screanshot" />
+</details>
+<details>
+<summary>| Live-grub theme</summary>
+  <img src="./docs/images/live_grub.png" alt="Live Grub theme" />
+</details>
+<details>
+<summary>| Plymouth theme</summary>
+  <img src="./docs/images/plymouth.png" alt="Plymouth theme" />
+</details>
 
 >[!TIP]
 >«تصاویر محیط سیستم در این بخش قرار خواهند گرفت. "/docs/images".»

@@ -420,7 +420,22 @@ Future releases will further extend branding into additional system components.
 
 **The following screenshots demonstrate the default desktop environment shipped with Yuz-OS Edu.**
 
-<p align="center"><img src="docs/images/desktop.png" alt="Desktop screenshots." width="800">
+<details>
+<summary>🌄 Desktop Light</summary>
+  <img src="docs/images/desktop.png" alt="Desktop Light screenshot." />
+</details>
+<details>
+<summary>🎑 Desktop Dark</summary>
+  <img src="./docs/images/desktop_dark.png" alt="Desktop Dark screanshot" />
+</details>
+<details>
+<summary>| Live-grub theme</summary>
+  <img src="./docs/images/live_grub.png" alt="Live Grub theme" />
+</details>
+<details>
+<summary>| Plymouth theme</summary>
+  <img src="./docs/images/plymouth.png" alt="Plymouth theme" />
+</details>
 
 >[!TIP]
 >«Screenshots are located inside the "/docs/images" directory.»
