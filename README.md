@@ -496,21 +496,29 @@ Future versions will continue expanding the documentation.
 
 ## 🗺 Roadmap
 
-The project continues to evolve.
+Yuz-OS Edu continues to evolve as a modular, identity-driven, and offline-first educational operating system.
 
-**Planned improvements include:**
+### ✅ Completed in v1.2.0
 
-- [ ] Complete project documents
-- [ ] Complete branding system
-- [ ] Improved installer experience
-- [ ] Educational web applications
-- [ ] Better offline package management
-- [ ] Additional educational software
-- [ ] Better Persian localization
-- [ ] Enhanced documentation
-- [ ] New Builder modules
-- [ ] Continuous Integration (CI)
-- [ ] Automated release generation
+- [x] **Core Branding System:** Core Identity, GRUB/Plymouth, Metadata, and Branding Packages.
+- [x] **Builder Architecture:** Modular builder system for identity and APT management.
+- [x] **Educational Software Suite:** Integrated math tools, interactive content, and learning apps.
+- [x] **Offline Management:** Local repository support, Flatpak Bazaar, and offline APT capabilities.
+- [x] **Hardware Compatibility:** Extensive driver support and kernel optimization.
+- [x] **System Security:** Firewall, Fail2ban, ClamAV, Lynis, and ClamUI integration.
+- [x] **Build Reproducibility:** Consistent and reliable build framework.
+
+### 🚧 In Progress / Planned
+
+- [ ] **Complete Project Documentation**
+    - [ ] Write detailed Build Framework guide.
+    - [ ] Create comprehensive Installer troubleshooting guide.
+    - [ ] Document the Branding API and module structure.
+    - [ ] Maintain the user-facing README.
+- [ ] **Extend Branding:** Further branding for Calamares, Fastfetch, and system-specific utilities.
+- [ ] **Improve Installer:** Refine Calamares branding and persistent installation testing.
+- [ ] **Educational Content:** Develop/Curate offline-first interactive learning tools and web-like resources.
+- [ ] **Release Automation:** Implement CI/CD for automated release generation and validation.
 
 ---
 
