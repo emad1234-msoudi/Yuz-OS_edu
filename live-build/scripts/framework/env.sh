@@ -28,23 +28,30 @@ fi
 
 ########## project variables ##########
 
-#-> project information
+#-> project identity
 
 readonly PROJECT_NAME="Yuz-OS"
 readonly PROJECT_ID="yuz-os"
-readonly PROJECT_VERSION="v1.1.1"
 readonly PROJECT_EDITION="Edu"
-readonly PROJECT_RELEASE="Stable"
-readonly PROJECT_FULL_NAME="${PROJECT_NAME}_${PROJECT_VERSION}_${PROJECT_EDITION}_${PROJECT_RELEASE}"
-readonly PROJECT_DESCRIPTION="${PROJECT_NAME} ${PROJECT_EDITION} Live with Calamares Installer"
+readonly PROJECT_VERSION="1.2.0"
+readonly PROJECT_RELEASE="stable"
 
-#-> project webpage
+readonly PROJECT_FULL_NAME="${PROJECT_NAME} ${PROJECT_EDITION}"
+readonly PROJECT_PRETTY_NAME="${PROJECT_FULL_NAME} ${PROJECT_VERSION}"
+readonly PROJECT_DESCRIPTION="${PROJECT_FULL_NAME} Live with Calamares Installer"
+
+#-> project publisher
 
 readonly PROJECT_PUBLISHER="Emad-ms"
-readonly PROJECT_PUBLISHER_URL="https://github.com/emad1234-msoudi"
-readonly PROJECT_WEBSITE="https://github.com/emad1234-msoudi/Yuz-OS_edu"
+readonly PROJECT_PUBLISHER_URL="https://github.com/emad1234-ms"
+readonly PROJECT_WEBSITE="https://github.com/emad1234-ms/Yuz-OS_edu"
 readonly PROJECT_LICENSE="MIT"
 readonly PROJECT_COPYRIGHT_YEAR="2026"
+
+#-> project support
+
+readonly PROJECT_SUPPORT_URL="${PROJECT_WEBSITE}/discussions"
+readonly PROJECT_BUG_REPORT_URL="${PROJECT_WEBSITE}/issues"
 
 #-> framework var
 
@@ -56,8 +63,10 @@ readonly RUN_TIME
 
 #-> export project variables
 export \
-    PROJECT_NAME PROJECT_ID PROJECT_VERSION PROJECT_EDITION PROJECT_RELEASE PROJECT_FULL_NAME PROJECT_DESCRIPTION \
+    PROJECT_NAME PROJECT_ID PROJECT_VERSION PROJECT_EDITION PROJECT_RELEASE \
+    PROJECT_FULL_NAME PROJECT_PRETTY_NAME PROJECT_DESCRIPTION \
     PROJECT_WEBSITE PROJECT_PUBLISHER PROJECT_PUBLISHER_URL PROJECT_COPYRIGHT_YEAR PROJECT_LICENSE \
+    PROJECT_SUPPORT_URL PROJECT_BUG_REPORT_URL \
     PROJECT_ROOT RUN_TIME
 
 ########## project directories && files #########
@@ -121,7 +130,7 @@ readonly LB_ARCHITECTURE="amd64"
 
 #-> iso mirror 
 
-readonly LB_ARCHIVE_AREAS="main non-free non-free-firmware"
+readonly LB_ARCHIVE_AREAS="main contrib non-free non-free-firmware"
 readonly LB_MIRROR="https://mirror.mobinhost.com/debian/"
 readonly LB_MIRROR_SECURITY="http://mirror.mobinhost.com/debian-security/"
 
@@ -131,9 +140,22 @@ readonly LB_COMPRESSION="xz"
 readonly LB_CHROOT_COMPRESSION="zstd"
 readonly LB_INITRAMFS_COMPRESSION="gzip"
 
+#-> iso name and metadata
+
+readonly LB_VOLUME_NAME="${PROJECT_ID}-${PROJECT_EDITION}"
+readonly LB_IMAGE_NAME="${PROJECT_ID}-${PROJECT_EDITION}-${PROJECT_VERSION}"
+
+readonly LB_HOSTNAME="${PROJECT_ID}"
+readonly LB_USERNAME="yuzuser"
+readonly LB_LOCALE="en_US.UTF-8"
+readonly LB_LAYOUT="us"
+
+readonly LB_BOOT_APPEND="boot=live components persistence quiet splash locales=${LB_LOCALE} keyboard-layouts=${LB_LAYOUT} live-config.hostname=${LB_HOSTNAME} live-config.username=${LB_USERNAME}"
+
+
 #-> other live build
 
-readonly LB_ENABLE_FIRMWARE=true
+readonly LB_ENABLE_FIRMWARE=false
 readonly LB_ENABLE_CACHE=true
 
 #-> export var
@@ -141,6 +163,8 @@ export \
     LB_DISTRIBUTION LB_ARCHITECTURE \
     LB_ARCHIVE_AREAS LB_MIRROR LB_MIRROR_SECURITY \
     LB_COMPRESSION LB_CHROOT_COMPRESSION LB_INITRAMFS_COMPRESSION \
+    LB_VOLUME_NAME LB_IMAGE_NAME LB_DESCRIPTION \
+    LB_LOCALE LB_LAYOUT LB_HOSTNAME LB_USERNAME LB_BOOT_APPEND \
     LB_ENABLE_CACHE LB_ENABLE_FIRMWARE
 
 ########## end ##########

@@ -1,0 +1,17 @@
+### Third-party desktop applications
+
+# The following packages are optional third-party applications that are useful
+# for a complete Yuz-OS desktop experience and are intentionally not tracked in
+# Git:
+
+code_*.deb
+onlyoffice-desktopeditors_*.deb
+
+### Yuz-OS branding packages
+
+# The following packages belong to the Yuz-OS project and are intentionally
+# tracked in Git so they are always present in the ISO:
+
+!yuz-branding-grub_*.deb
+!yuz-branding-plymouth_*.deb
+!yuz-branding-base_*.deb

@@ -38,7 +38,7 @@ style_check()
     fi
 
     #-> checking needed optaional command
-    for pkg in "${REQUIRED_PACKAGES[@]}"
+    for pkg in "${STYLE_REQUIRED_PACKAGES[@]}"
     do
         if ! dpkg -s "$pkg" >/dev/null 2>&1
         then
@@ -132,14 +132,17 @@ style_deploy()
     fi
 
     #-> deploy wallpapers
-    if unzip_file "$WALLPAPER_DATA" "$WALLPAPER_TARGET_DIR"
-    then
-        ok "Wallpaper assets deployed."
-        echo
-    else
-        error "Failed to deploy wallpaper assets."
-        return 1
-    fi
+    
+    # NOTE : refactor(brand): move Wallpaper assets to yuz-branding-base
+    
+    #if unzip_file "$WALLPAPER_DATA" "$WALLPAPER_TARGET_DIR"
+    #then
+    #    ok "Wallpaper assets deployed."
+    #    echo
+    #else
+    #    error "Failed to deploy wallpaper assets."
+    #    return 1
+    #fi
 
     #-> deploy fonts
     if unzip_file "$FONT_DATA" "$FONT_TARGET_DIR"
@@ -255,7 +258,7 @@ xkb-options=${XKB_OPTIONS}
 enabled-extensions=${ENABLED_EXTENSIONS}
 
 [org/gnome/desktop/screensaver]
-picture-uri='${WALLPAPER_LIGHT_URI}'
+picture-uri='${LOCKSCREEN_URI}'
 
 
 [org/gnome/shell/extensions/user-theme]

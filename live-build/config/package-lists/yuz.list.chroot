@@ -9,19 +9,90 @@ apt-transport-https
 lsb-release
 debconf-utils
 systemd
-os-prober
 live-boot
 live-config
 linux-image-amd64
 initramfs-tools
-grub-pc-bin
 network-manager
 network-manager-gnome
 vnstat
-grub-efi
-systemd-zram-generator
 libglib2.0-bin
 dconf-cli
+
+#-> system memory optimize
+
+systemd-zram-generator
+stress-ng
+earlyoom
+sysstat 
+procps
+
+#-> filesystem
+
+ntfs-3g
+dosfstools
+mtools
+
+#-> bootloader
+
+grub-common
+grub2-common
+
+#grub-pc
+grub-pc-bin
+
+#grub-efi-amd64
+grub-efi-amd64-bin
+grub-efi-amd64-signed
+shim-signed
+
+os-prober
+efibootmgr
+
+#-> Plymouth
+
+plymouth
+plymouth-themes
+plymouth-label
+
+#-> Virtualization guest integration
+
+qemu-guest-agent
+spice-vdagent
+
+open-vm-tools
+open-vm-tools-desktop
+
+virtualbox-guest-additions-iso
+
+# ================ Driver & Firmware ================
+
+#-> Core & CPU Microcodes
+
+amd64-microcode
+intel-microcode
+firmware-linux-free
+firmware-linux-nonfree
+firmware-misc-nonfree
+
+#-> Wireless & Bluetooth (Intel, Realtek, Broadcom, Atheros, Mediatek)
+
+firmware-iwlwifi
+firmware-realtek
+firmware-atheros
+firmware-brcm80211
+firmware-libertas
+firmware-ti-connectivity
+firmware-sof-signed
+bluez-firmware
+
+#-> GPU / Display Firmware
+
+firmware-amd-graphics
+
+#-> Audio & Network Extra
+
+alsa-firmware-loaders
 
 # ================ Desktop Environment: GNOME ================
 gnome-core

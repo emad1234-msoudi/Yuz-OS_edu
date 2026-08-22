@@ -10,6 +10,7 @@
 
 *.iso
 *.hybrid.iso
+*.hybrid.iso.zsync.xz
 *.files
 *.packages
 *.contents
@@ -23,15 +24,15 @@ binary.modified_timestamps
  
 #-> build dir
 
-live-build/binary/
-live-build/chroot/
-live-build/log/
-live-build/auto/
-live-build/cache/
-live-build/local/
-live-build/.build/
+/live-build/binary/
+/live-build/chroot/
+/live-build/log/
+/live-build/auto/
+/live-build/cache/
+/live-build/local/
+/live-build/.build/
 
-build/
+/build/
 
 ######  config files and otputs ######
 
@@ -42,57 +43,57 @@ build/
 
 #-> config live build dir
 
-#live-build/config/hooks/
-live-build/config/hooks/normal
-live-build/config/hooks/live/00*.chroot
-live-build/config/preseed/
+#/live-build/config/hooks/
+/live-build/config/hooks/normal
+/live-build/config/hooks/live/00*.chroot
+/live-build/config/preseed/
 
-live-build/config/bootloaders/
-live-build/config/debian-installer/
+#live-build/config/bootloaders/
+/live-build/config/debian-installer/
 
-live-build/config/apt/
-live-build/config/archives/
+/live-build/config/apt/
+/live-build/config/archives/
 
-live-build/config/rootfs/
+/live-build/config/rootfs/
 
-live-build/config/includes/
-#live-build/config/includes.chroot/
-live-build/config/includes.binary/
-live-build/config/includes.bootstrap/
-live-build/config/includes.source/
-live-build/config/includes.installer/
-live-build/config/includes.chroot_after_packages/
-#live-build/config/includes.chroot_before_packages/
+/live-build/config/includes/
+#/live-build/config/includes.chroot/
+#/live-build/config/includes.binary/
+/live-build/config/includes.bootstrap/
+/live-build/config/includes.source/
+/live-build/config/includes.installer/
+/live-build/config/includes.chroot_after_packages/
+#/live-build/config/includes.chroot_before_packages/
 
-live-build/config/packages/
-live-build/config/packages.binary/
-#live-build/config/package-lists/
-#live-build/config/packages.chroot/
+/live-build/config/packages/
+/live-build/config/packages.binary/
+#/live-build/config/package-lists/
+#/live-build/config/packages.chroot/
 
 #-> config live build files
 
-live-build/config/binary
-live-build/config/chroot
-live-build/config/bootstrap
+/live-build/config/binary
+/live-build/config/chroot
+/live-build/config/bootstrap
 
-live-build/config/common
-live-build/config/source
+/live-build/config/common
+/live-build/config/source
 
-live-build/config/package-lists/live.list.chroot
+/live-build/config/package-lists/live.list.chroot
 
 #-> config chroot files
 
 #live-build/config/includes.chroot/
-live-build/config/includes.chroot/opt/yuz-os/data/flatpak/
+/live-build/config/includes.chroot/opt/yuz-os/data/flatpak/
 
 ###### releas and build archive file  ######
 
-archive/
-back_up/
-release/
-branding/
-test
-docs/kharazmi/
+/archive/
+/back_up/
+/release/
+/branding/
+/test
+/docs/kharazmi/
 
 ###### other ignore file ######
 

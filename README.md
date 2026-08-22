@@ -87,13 +87,30 @@ These values define Yuz-OS Edu itself:
 
 ---
 
-## ✨ What's New in Yuz-OS Edu v1.1.1
+## ✨ What's New in Yuz-OS Edu v1.2.0
 
-Yuz-OS Edu has evolved significantly since the first public release.
+Yuz-OS Edu has evolved from a customized Debian Live image into a modular and identity-driven educational operating system project.
 
-The project is no longer only a customized Debian Live image. It has grown into a complete educational operating system build framework capable of automatically generating customized educational distributions.
+The project now provides a structured build framework for creating customized educational distributions with a consistent system architecture, visual identity, and deployment workflow.
 
-Version 1.1.1 introduces a new modular architecture, automated deployment pipeline, integrated Flatpak repository support, a redesigned branding system, and a modern educational desktop experience.
+Version 1.2.0 introduces the finalized Yuz OS identity, improved build reliability, refined system branding, and a more consistent desktop experience across the live environment and installed system.
+
+**This release includes:**
+
+- Finalized Yuz OS project metadata
+- A unified branding architecture
+- Improved GRUB and Plymouth integration
+- Dedicated branding packages for system-wide customization
+- More reliable APT mirror handling during the build process
+- Improved build and deployment workflow
+- Integrated third-party applications such as VS CodeOME desktop customization
+- Final ISO, z with ZRAM and swap configuration
+- Refined GNOME desktop customization
+- Final ISO, zsync, and checksum release artifacts
+
+Yuz-OS Edu v1.2.0 establishes a stable foundation for the project’s unified identity and future development.
+
+**One Project. One Identity.**
 
 ---
 
@@ -266,19 +283,24 @@ This is particularly useful for schools where Internet connectivity is unreliabl
 
 Yuz-OS Edu is not merely a collection of software.
 
-The desktop itself has been redesigned to provide a consistent educational experience.
+The desktop environment has been carefully designed to provide a consistent, focused, and accessible experience for educational use.
 
-**The system includes:**
+The system combines GNOME customization, a unified visual language, and carefully selected desktop components to ensure that the live environment and installed system share the same identity.
+
+**The desktop experience includes:**
 
 - Graphite GTK Theme
 - Colloid Icon Theme
-- Custom Wallpapers
-- Persian Fonts
+- Custom Yuz OS wallpapers
+- Persian font collection
 - Customized GNOME Desktop
 - Preconfigured GNOME Extensions
-- Integrated Desktop Branding
+- Refined GDM appearance
+- Integrated desktop branding
+- A focused layout for educational workflows
+- Selected applications for productivity and learning
 
-All visual assets are automatically installed during deployment, ensuring every installation provides the same user experience.
+Visual assets and desktop configuration are integrated into the deployment process, helping ensure that every generated system provides a consistent Yuz OS experience.
 
 ---
 
@@ -398,21 +420,33 @@ chmod +x setup.sh
 
 ## 🎨 Branding
 
-Yuz-OS Edu includes its own visual identity designed specifically for educational environments.
+Yuz-OS Edu includes a unified visual identity designed specifically for an educational operating system.
 
-**The branding system currently includes:**
+The branding system is not limited to the desktop. It extends across the system lifecycle—from the initial boot screen to the login experience and the final desktop session.
 
-- Custom project logo
+**The branding system includes:**
+
+- Custom Yuz OS project logo
+- Finalized project metadata
+- Dedicated branding packages
 - Graphite GTK Theme
 - Colloid Icon Theme
 - Custom wallpapers
 - Persian font collection
-- GNOME customization
-- Boot-time branding
-- Login screen customization
-- Startup sound
+- GNOME desktop customization
+- GRUB theme customization
+- Plymouth boot theme
+- Boot-time visual branding
+- GDM and login screen customization
+- Startup sound integration
 
-Future releases will further extend branding into additional system components.
+The core branding components are organized into dedicated packages, making the identity layer easier to maintain, reuse, and extend across future Yuz OS builds.
+
+This unified approach ensures that Yuz OS Edu presents one consistent identity throughout the entire user journey:
+
+**Boot. Login. Desktop.**
+
+**One Project. One Identity.**
 
 ---
 
@@ -420,16 +454,31 @@ Future releases will further extend branding into additional system components.
 
 **The following screenshots demonstrate the default desktop environment shipped with Yuz-OS Edu.**
 
-<p align="center"><img src="docs/images/desktop.png" alt="Desktop screenshots." width="800">
+<details>
+<summary>🌄 Desktop Light</summary>
+  <img src="docs/images/desktop.png" alt="Desktop Light screenshot." />
+</details>
+<details>
+<summary>🎑 Desktop Dark</summary>
+  <img src="./docs/images/desktop_dark.png" alt="Desktop Dark screanshot" />
+</details>
+<details>
+<summary>| Live-grub theme</summary>
+  <img src="./docs/images/live_grub.png" alt="Live Grub theme" />
+</details>
+<details>
+<summary>| Plymouth theme</summary>
+  <img src="./docs/images/plymouth.png" alt="Plymouth theme" />
+</details>
 
 >[!TIP]
->«Screenshots are located inside the "/docs/images" directory.»
+>«Screenshots are located inside the [**docs/images**](./docs/images/) directory.»
 
 ---
 
 ## 📖 Documentation
 
-Additional documentation is available inside the "docs/" directory.
+Additional documentation is available inside the [**docs/**](./docs/) directory.
 
 **Topics include:**
 
@@ -447,21 +496,29 @@ Future versions will continue expanding the documentation.
 
 ## 🗺 Roadmap
 
-The project continues to evolve.
+Yuz-OS Edu continues to evolve as a modular, identity-driven, and offline-first educational operating system.
 
-**Planned improvements include:**
+### ✅ Completed in v1.2.0
 
-- [ ] Complete project documents
-- [ ] Complete branding system
-- [ ] Improved installer experience
-- [ ] Educational web applications
-- [ ] Better offline package management
-- [ ] Additional educational software
-- [ ] Better Persian localization
-- [ ] Enhanced documentation
-- [ ] New Builder modules
-- [ ] Continuous Integration (CI)
-- [ ] Automated release generation
+- [x] **Core Branding System:** Core Identity, GRUB/Plymouth, Metadata, and Branding Packages.
+- [x] **Builder Architecture:** Modular builder system for identity and APT management.
+- [x] **Educational Software Suite:** Integrated math tools, interactive content, and learning apps.
+- [x] **Offline Management:** Local repository support, Flatpak Bazaar, and offline APT capabilities.
+- [x] **Hardware Compatibility:** Extensive driver support and kernel optimization.
+- [x] **System Security:** Firewall, Fail2ban, ClamAV, Lynis, and ClamUI integration.
+- [x] **Build Reproducibility:** Consistent and reliable build framework.
+
+### 🚧 In Progress / Planned
+
+- [ ] **Complete Project Documentation**
+    - [ ] Write detailed Build Framework guide.
+    - [ ] Create comprehensive Installer troubleshooting guide.
+    - [ ] Document the Branding API and module structure.
+    - [ ] Maintain the user-facing README.
+- [ ] **Extend Branding:** Further branding for Calamares, Fastfetch, and system-specific utilities.
+- [ ] **Improve Installer:** Refine Calamares branding and persistent installation testing.
+- [ ] **Educational Content:** Develop/Curate offline-first interactive learning tools and web-like resources.
+- [ ] **Release Automation:** Implement CI/CD for automated release generation and validation.
 
 ---
 

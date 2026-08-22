@@ -1,0 +1,85 @@
+# Yuz-OS_Edu GRUB Theme (Optimized & Stable)
+# Sleek Graphite-Nord styling with full EFI/BIOS compatibility
+
+desktop-color: "#1D2129"
+title-text: ""
+message-color: "#B7D6F2"
+
+terminal-left: "0"
+terminal-top: "0"
+terminal-width: "100%"
+terminal-height: "100%"
+terminal-border: "0"
+
+# Title Header (Crisp and lightweight using Poppins 16)
++ label {
+    text = "Yuz-OS Education"
+    font = "Poppins Regular 16"
+    color = "#FBEBCE"
+    top = 18%
+    left = 0
+    width = 100%
+    height = 24
+    align = "center"
+}
+
+# Responsive & Centered Boot Menu
++ boot_menu {
+    left = 25%
+    width = 50%
+    top = 26%
+    height = 54%
+
+    icon_width = 32
+    icon_height = 32
+
+    item_height = 42
+    item_padding = 6
+    item_icon_space = 12
+    item_spacing = 6
+
+    menu_pixmap_style = "boot_menu_*.png"
+
+    item_font = "Poppins Regular 14"
+    item_color = "#B7D6F2"
+    selected_item_color = "#FBEBCE"
+
+    selected_item_pixmap_style = "select_bkg_*.png"
+
+    scrollbar = true
+    scrollbar_width = 8
+    scrollbar_thumb = "slider_*.png"
+}
+
+# Bottom Help Shortcuts Guide
++ image {
+    top = 83%
+    left = 50%-240
+    width = 480
+    height = 42
+    file = "menu.png"
+}
+
+# Boot Timeout Counter
++ label {
+    id = "__timeout__"
+    text = "System will boot in %d seconds"
+    font = "Poppins Regular 14"
+    color = "#B7D6F2"
+    top = 91%
+    left = 0
+    width = 100%
+    align = "center"
+}
+
+# Progress Bar
++ progress_bar {
+    id = "__timeout__"
+    left = 0
+    width = 100%
+    top = 98%
+    height = 4
+    show_text = false
+    bar_style = "progress_bar_*.png"
+    highlight_style = "progress_highlight_*.png"
+}

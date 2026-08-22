@@ -8,7 +8,18 @@
 
 ##### load modules #####
 
+#-> prefix modules :
+
+prefix/path_prefix.sh
+
+#-> app installation modules :
+
+apt/apt.sh
 flatpak/flatpak_install.sh
+
+#-> style and branding modules :
+
 style/style.sh
+brand/os_brand.sh
 
 ########## end ##########

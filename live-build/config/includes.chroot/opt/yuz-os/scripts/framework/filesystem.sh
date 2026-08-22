@@ -34,7 +34,7 @@ exist_dir()
 
     for dir in "$@"
     do
-        if [[ -d "$dir" ]]
+        if [[ -d "$dir" || -L "$dir" ]]
         then
             ok "$dir already exists."
         else
@@ -52,7 +52,7 @@ exist_file()
 
     for file in "$@"
     do
-        if [[ -f "$file" ]]
+        if [[ -f "$file" || -L "$file" ]]
         then
             ok "$file already exists."
         else
@@ -71,11 +71,11 @@ ensure_dir()
     
     for dir in "$@"
     do
-        if [[ -d "$dir" ]]
+        if [[ -d "$dir" || -L "$dir" ]]
         then
             ok "$dir already exist."
         else
-            if [[ -f "$dir" ]] 
+            if [[ -f "$dir" ]]
             then
                 error "$dir is file !"
                 return 1
@@ -101,7 +101,7 @@ ensure_file()
     
     for file in "$@"
     do
-        if [[ -f "$file" ]]
+        if [[ -f "$file" || -L "$file" ]]
         then
             ok "$file already exist."
         else
@@ -140,7 +140,7 @@ safe_copy()
     then    
         [[ -f "$copy_location" ]] &&\
             error "$copy_location is file."&&\
-            return 1  
+            return 1 
 
         error "$copy_location doesn't exist."
 
@@ -223,7 +223,7 @@ safe_remove()
 
     for items in "$@"
     do
-        if [[ -d "$items" || -f "$items" ]]
+        if [[ -d "$items" || -f "$items" || -L "$items" ]]
         then    
             if rm -rf -- "$items" >/dev/null 2>&1
             then

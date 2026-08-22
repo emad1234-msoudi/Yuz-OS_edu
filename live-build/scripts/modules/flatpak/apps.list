@@ -23,7 +23,7 @@ app.drey.Dialect
 
 #-> Learn beter
  
-org.learningequality.Kolibri
+#org.learningequality.Kolibri
 no.bragefuglseth.Keypunch
 io.github.david_swift.Flashcards
 io.github.josephmawa.SpellingBee
@@ -51,7 +51,7 @@ com.pojtinger.felicitas.Sessions
 
 #-> theme and style
 
-runtime/org.kde.PlatformTheme.QGnomePlatform/x86_64/5.15-24.08
-runtime/org.kde.WaylandDecoration.QAdwaitaDecorations/x86_64/5.15-24.08 
+#runtime/org.kde.PlatformTheme.QGnomePlatform/x86_64/5.15-24.08
+#runtime/org.kde.WaylandDecoration.QAdwaitaDecorations/x86_64/5.15-24.08 
 
 ########## end ##########
