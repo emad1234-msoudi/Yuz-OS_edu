@@ -377,19 +377,16 @@ EOF
 style_flatpak_config()
 {
     local flatpak_override_file="/var/lib/flatpak/overrides/global"
+    
+    # Expose user configs and custom theme/icon directories as read-only.
+    # to allow dynamic theme syncing via XDG Desktop Portal and settings.ini.
     local -a context_entries=(
-        "filesystems=xdg-config/gtk-3.0:ro;xdg-config/gtk-4.0:ro"
-    )
-    local -a env_entries=(
-        "GTK_THEME=${THEME_SELECTED_NAME}"
-        "ICON_THEME=${ICON_SELECTED_NAME}"
-        "XCURSOR_THEME=${CURSOR_SELECTED_NAME}"
+        "filesystems=xdg-config/gtk-3.0:ro;xdg-config/gtk-4.0:ro;xdg-data/themes:ro;xdg-data/icons:ro;~/.themes:ro;~/.icons:ro"
     )
     local context_block=""
-    local env_block=""
     local entry
 
-    info "Writing Flatpak overrides"
+    info "Writing modular Flatpak global overrides"
 
     install -d -m 0755 "/var/lib/flatpak/overrides" || {
         error "Failed to create Flatpak overrides directory"
@@ -401,20 +398,13 @@ style_flatpak_config()
         context_block+="${entry}"$'\n'
     done
 
-    for entry in "${env_entries[@]}"
-    do
-        env_block+="${entry}"$'\n'
-    done
-
+    # Write only the [Context] block to ensure modular and dynamic theming
     if write_text_file "${flatpak_override_file}" 0644 <<EOF
 [Context]
 ${context_block%$'\n'}
-
-[Environment]
-${env_block%$'\n'}
 EOF
     then
-        success "Flatpak GTK config and theme environment overrides written."
+        success "Flatpak dynamic theme and filesystem overrides written."
         return 0
     else
         error "Failed to write Flatpak overrides"
