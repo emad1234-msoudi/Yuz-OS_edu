@@ -6,7 +6,7 @@ there is some works we nead to check and add , remove or update from project rea
 ## -> version 1.2.1
 
 - [ ] **branding** 
-	- [x] add calamares theme.
+	- [ ] add calamares theme.
 	- [ ] fix flatpak theme overide.
 	- [ ] fix grub theme.
 	- [ ] mybe add asccii logo.
