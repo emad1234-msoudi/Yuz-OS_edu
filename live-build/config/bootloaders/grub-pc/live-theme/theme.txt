@@ -13,7 +13,7 @@ terminal-border: "0"
 
 # Title Header (Crisp and lightweight using Poppins 16)
 + label {
-    text = "Yuz-OS Education"
+    text = "Yuz-OS Education Live"
     font = "Poppins Regular 16"
     color = "#FBEBCE"
     top = 18%
