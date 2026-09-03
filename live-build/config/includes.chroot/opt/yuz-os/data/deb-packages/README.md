@@ -32,6 +32,7 @@ tracked in Git so they are always present in the ISO:
 - `yuz-branding-base_*.deb`
 - `yuz-branding-grub_*.deb`
 - `yuz-branding-plymouth_*.deb`
+- `yuz-branding-calamares_*.deb`
 
 ## Git policy
 
