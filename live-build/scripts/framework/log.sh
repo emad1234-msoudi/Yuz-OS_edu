@@ -28,27 +28,32 @@ fi
 
 ########## set framework func ##########
 
-#-> show message func // ai for how to set color
+#-> show message func 
 
-info()    
+info()    { printf "%b\n" "\n${BLUE}[ INFO ]${NC} $* \n"; }
+ok()      { printf "%b\n" "${GREEN}[  OK  ]${NC} $*"; }
+success() { printf "%b\n" "\n${GREEN}[SUCCESS]${NC} $* \n"; }
+warn()    { printf "%b\n" "${YELLOW}[ WARN ]${NC} $*" >&2; }
+
+die()
 {
-	echo 
-	printf "%b\n" "${BLUE}[ INFO ]${NC} $*"
-	echo
+    local message="$1"
+
+    { 
+		printf "\n"
+		
+		ui_title_big "$RED" "FATAL ERROR"
+        printf "%b\n" \
+            "${RED} ░█ ${NC}Message   : ${BOLD}${message}${NC}"
+        printf "%b\n" \
+            "${RED} ░█ ${NC}Exit Code : ${CYAN}1${NC}"
+        ui_title_big_close "$RED" "HALTED"
+
+        printf "\n"
+    } >&2
+
+    exit 1
 }
-
-ok()	  { printf "%b\n" "${GREEN}[ OK ]${NC} $*"      ; }
-
-success()
-{ 
-	echo
-	printf "%b\n" "${GREEN}[SUCCESS]${NC} $*"
-	echo
-}
-
-warn()    { printf "%b\n" "${YELLOW}[ WARN ]${NC} $*"   ; }
-error()   { printf "%b\n" "${RED}[ ERROR ]${NC} $*" >&2 ; }
-die()     { error "$*"; exit 1 ; }
 
 ask()
 {

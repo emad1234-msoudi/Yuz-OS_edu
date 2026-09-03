@@ -10,8 +10,8 @@ there is some works we nead to check and add , remove or update from project rea
 	- [x] fix flatpak theme overide.
 	- [ ] fix grub theme.
 	- [ ] mybe add asccii logo.
-- [ ] **builder**
-	- [ ] fix builder error log.
+- [x] **builder**
+	- [x] fix builder error log.
 - [ ] **version**
 	- [ ] bump version to v1.2.1
 	- [ ] update project docs.
