@@ -5,11 +5,11 @@ there is some works we nead to check and add , remove or update from project rea
 
 ## -> version 1.2.1
 
-- [ ] **branding** 
+- [x] **branding** 
 	- [x] add calamares theme.
 	- [x] fix flatpak theme overide.
 	- [x] fix grub theme.
-	- [ ] mybe add asccii logo.
+	- [x] add ascii logo.
 - [x] **builder**
 	- [x] fix builder error log.
 - [ ] **version**
