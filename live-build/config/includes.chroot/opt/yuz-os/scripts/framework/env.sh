@@ -33,7 +33,7 @@ fi
 readonly PROJECT_NAME="Yuz-OS"
 readonly PROJECT_ID="yuz-os"
 readonly PROJECT_EDITION="Edu"
-readonly PROJECT_VERSION="1.2.0"
+readonly PROJECT_VERSION="1.2.1"
 readonly PROJECT_RELEASE="stable"
 
 readonly PROJECT_FULL_NAME="${PROJECT_NAME} ${PROJECT_EDITION}"
